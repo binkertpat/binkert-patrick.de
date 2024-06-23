@@ -25,7 +25,7 @@ const LandingPage = () => {
                 </div>
                 <div className="col-lg-6">
                     <h1 className="display-5 fw-bold lh-1 mb-3">Schulbuch</h1>
-                    <span class="badge bg-danger mb-2">work in progress</span>
+                    <span class="badge bg-danger mb-3">work in progress</span>
                     <p className="lead">
                         Das Schulbuch wird sich kontinuierlich weiterentwickeln - sei es in den kommenden Tagen, Wochen, Jahren oder sogar Jahrzehnten. 
                         Regelmäßig werde ich neue Inhalte für dieses digitale Schulbuch erstellen und bereitstellen. Möchtest du mithelfen? 
