@@ -5,8 +5,8 @@ import {
 
 export default defineConfig({
     headLinkOptions: {
-        preset: '2024',
+        preset: '2023',
     },
     preset,
-    images: ['public/favs/safari-pinned-tab.svg'],
+    images: ['public/fav_base_img.png'],
 })

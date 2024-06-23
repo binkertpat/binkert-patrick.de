@@ -19,17 +19,17 @@ export default defineConfig({
       description: 'Patrick Binkert',
       theme_color: '#ffffff',
     },
-
+    
     workbox: {
-      globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+      globPatterns: ['**/*.{js,css,html,svg,png,ico,jpg,jpeg}'],
       cleanupOutdatedCaches: true,
       clientsClaim: true,
+      sourcemap: true,
     },
-
     devOptions: {
-      enabled: false,
+      enabled: true,
       navigateFallback: 'index.html',
-      suppressWarnings: true,
+      suppressWarnings: false,
       type: 'module',
     },
   })],
