@@ -27,9 +27,9 @@ export default defineConfig({
       sourcemap: true,
     },
     devOptions: {
-      enabled: true,
+      enabled: false,
       navigateFallback: 'index.html',
-      suppressWarnings: false,
+      suppressWarnings: true,
       type: 'module',
     },
   })],
