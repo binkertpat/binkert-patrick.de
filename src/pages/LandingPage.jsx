@@ -30,7 +30,7 @@ const LandingPage = () => {
                         Das Schulbuch wird sich kontinuierlich weiterentwickeln - sei es in den kommenden Tagen, Wochen, Jahren oder sogar Jahrzehnten. 
                         Regelmäßig werde ich neue Inhalte für dieses digitale Schulbuch erstellen und bereitstellen. Möchtest du mithelfen? 
                         Dann besuche mich gerne auf <a href="https://github.com/binkertpat/book.binkert-patrick.de" className='text-decoration-none'>GitHub</a>.</p>
-                    <div className="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <div className="d-grid gap-2 d-flex justify-content-md-start">
                         <a href="https://book.binkert-patrick.de">
                             <button type="button" className="btn btn-primary btn-lg px-4 me-md-2">Zeigs mir!</button>
                         </a>
