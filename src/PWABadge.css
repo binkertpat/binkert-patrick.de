@@ -27,3 +27,7 @@
     border-radius: 2px;
     padding: 3px 10px;
 }
+
+.PWABadge {
+    display: none !important;
+}
