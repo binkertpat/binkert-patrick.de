@@ -16,11 +16,8 @@ export const StateContextReducer = (state, { type, payload }) => {
       localStorage.setItem("bsTheme", DEFAULT_THEME.THEME);
       return { ...state, ...DEFAULT_THEME };
     case ACTIONS.LOAD_USER_STATE:
-      htmlElement.setAttribute(
-        "data-bs-theme",
-        localStorage.getItem("bsTheme"),
-      );
-      return { ...state, ...{ THEME: localStorage.getItem("bsTheme") } };
+      htmlElement.setAttribute("data-bs-theme", payload.THEME);
+      return { ...state, ...payload };
     case ACTIONS.SET_STATE_FROM_DISK:
       return { ...state };
     case ACTIONS.TOGGLE_STATE:
