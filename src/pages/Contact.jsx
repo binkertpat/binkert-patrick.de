@@ -10,7 +10,7 @@ const Contact = () => {
     return (
         <>
             <h2 className="mb-3">Kontaktformular</h2>
-            <form className="row g-3" method="GET" action={isBot} onMouseMove={handleBotCheck}>
+            <form className="row g-3" method="POST" action={isBot} onMouseMove={handleBotCheck}>
                 <div className="col-md-6">
                     <label htmlFor="firstname" className="form-label fw-bold">Vorname</label>
                     <input type="text" className="form-control" id="firstname" name="firstname" placeholder="Max" />

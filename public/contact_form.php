@@ -1,6 +1,6 @@
 <?php
 
-$message = ""
+$message = "";
 
 if(isset($_POST["firstname"])) {
     $message = $message."Vorname: ".$_POST["firstname"]."\r\n";
