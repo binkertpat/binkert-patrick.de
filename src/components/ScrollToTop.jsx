@@ -27,7 +27,7 @@ const ScrollToTop = () => {
           className="position-fixed bottom-0 end-0 m-2"
           role="button"
           tabIndex="0"
-          title="Bug-Report"
+          title="Scroll to top!"
           onClick={handleClick}
         >
           <svg
