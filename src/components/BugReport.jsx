@@ -5,7 +5,7 @@ const BugReport = () => {
       className="text-decoration-none text-dark"
     >
       <div
-        className="position-fixed bottom-0 left-0 m-2"
+        className="position-fixed bottom-0 start-0 m-2"
         role="button"
         tabIndex="0"
         title="Bug-Report"

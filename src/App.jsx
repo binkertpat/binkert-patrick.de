@@ -11,6 +11,7 @@ import { useStateContext } from "../hooks/useStateContext.jsx";
 import { useEffect } from "react";
 import { ACTIONS } from "./constants/enums.js";
 import BugReport from "./components/BugReport.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
   const { _, dispatch } = useStateContext();
@@ -68,6 +69,7 @@ function App() {
         </BrowserRouter>
       </div>
       <BugReport />
+      <ScrollToTop />
       <Footer />
     </>
   );
