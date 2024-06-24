@@ -32,8 +32,7 @@ const Contact = () => {
                     <textarea className="form-control" id="issue" name="issue" rows="10" placeholder="Sehr geehrter Herr Binkert, ..."></textarea>
                 </div>
                 <div className="col-12">
-                    <button type="submit" disabled className="btn btn-primary">Abschicken</button>
-                    <span class="badge bg-danger mb-3 ms-2">actually disabled</span>
+                    <button type="submit" className="btn btn-primary">Abschicken</button>
                 </div>
             </form>
         </>
