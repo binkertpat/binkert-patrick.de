@@ -1,4 +1,3 @@
-import PWABadge from './PWABadge.jsx'
 import './App.css'
 import OffCanvas from './components/OffCanvas.jsx'
 import Header from './components/Header.jsx'
@@ -39,7 +38,6 @@ function App() {
       </div>
 
       <Footer />
-      <PWABadge />
     </>
   )
 }

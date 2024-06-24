@@ -8,17 +8,17 @@ export default defineConfig({
     // registerType: 'autoUpdate',
     // injectRegister: false,
 
-    pwaAssets: {
-      disabled: false,
-      config: true,
-    },
+    // pwaAssets: {
+    //   disabled: false,
+    //   config: true,
+    // },
 
-    manifest: {
-      name: 'Patrick Binkert',
-      short_name: 'Patrick Binkert',
-      description: 'Patrick Binkert',
-      theme_color: '#ffffff',
-    },
+    // manifest: {
+    //   name: 'Patrick Binkert',
+    //   short_name: 'Patrick Binkert',
+    //   description: 'Patrick Binkert',
+    //   theme_color: '#ffffff',
+    // },
     
     // workbox: {
     //   globPatterns: ['**/*.{svg,png,ico,jpg,jpeg}'],
