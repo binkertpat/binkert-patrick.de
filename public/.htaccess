@@ -1,0 +1,4 @@
+RewriteEngine On
+Redirect 301 / /index.html
+Redirect 301 /servertools /index.html
+Redirect 301 /contact /index.html
