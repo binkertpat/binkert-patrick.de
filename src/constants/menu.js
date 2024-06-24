@@ -9,10 +9,10 @@ export const MENU_STRUCTURE = {
     URL: "/contact",
     ENABLED: true,
   },
-  X1: {
-    NAME: "... coming soon ...",
-    URL: "#",
-    ENABLED: false,
+  EDUCATION: {
+    NAME: "Unterrichtsmaterial & Arbeitsblätter ",
+    URL: "/education",
+    ENABLED: true,
   },
   X2: {
     NAME: "... coming soon ...",

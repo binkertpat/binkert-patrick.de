@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { ACTIONS } from "./constants/enums.js";
 import BugReport from "./components/BugReport.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import EducationMaterial from "./pages/EducationMaterial.jsx";
 
 function App() {
   const { _, dispatch } = useStateContext();
@@ -65,6 +66,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/servertools" element={<ServerTools />} />
+            <Route path="/education" element={<EducationMaterial />} />
           </Routes>
         </BrowserRouter>
       </div>
