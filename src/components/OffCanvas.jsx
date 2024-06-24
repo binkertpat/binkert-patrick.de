@@ -1,4 +1,5 @@
 import { MENU_STRUCTURE } from "../constants/menu";
+import baseImage from "../img/signal-2024-06-22-135220_002.png";
 
 const OffCanvas = () => {
   return (
@@ -20,16 +21,36 @@ const OffCanvas = () => {
             aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body">
-          <ul className="list-group">
-            {Object.values(MENU_STRUCTURE).map((item) => {
+        <div className="offcanvas-body d-flex flex-column mb-3 justify-content-center">
+          <ul className="list-group flex-grow-1">
+            {Object.values(MENU_STRUCTURE).map((item, i) => {
               return (
-                <a className="list-group-item" href={item.URL} key={item.URL}>
+                <a
+                  href={item.URL}
+                  key={i}
+                  {...(item.ENABLED
+                    ? { className: "list-group-item" }
+                    : { className: "list-group-item disabled" })}
+                >
                   {item.NAME}
                 </a>
               );
             })}
           </ul>
+          <div className="d-flex flex-wrap flex-column  justify-content-between align-items-center  border-top mt-5">
+            <a href="/">
+              <img
+                src={baseImage}
+                className="img-fluid col-md-4 d-flex align-items-center justify-content-center"
+                style={{ width: "150px" }}
+                alt="Unterricht bei Patrick Binkert"
+                title="Unterricht bei Patrick Binkert"
+              />
+            </a>
+            <p className="text-center text-body-secondary mt-1 mb-0">
+              © 2024 Patrick Binkert
+            </p>
+          </div>
         </div>
       </div>
     </>
