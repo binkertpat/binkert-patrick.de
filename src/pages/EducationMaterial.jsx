@@ -6,6 +6,15 @@ import {
 } from "../content/avaivableFiles.js";
 
 const EducationMaterial = () => {
+  const FILTER_OPTIONS = {
+    SUBJECT_AND_CLASS: "subject-and-class",
+    TAGS: "tags",
+  };
+
+  const [selectedFilter, setSelectedFilter] = useState(
+    FILTER_OPTIONS.SUBJECT_AND_CLASS,
+  );
+  const [inputTagFilter, setInputTagFilter] = useState(undefined);
   const [selectedSubject, setSelectedSubject] = useState(
     Object.keys(AVAIVABLE_SUBJECTS)[0],
   );
@@ -21,48 +30,141 @@ const EducationMaterial = () => {
     setSelectedSubject(event.target.value);
   };
 
+  const handleTagFilterInput = (event) => {
+    setInputTagFilter(event.target.value);
+  };
+
+  const handleActiveFilterChangeSubjectClass = () => {
+    if (selectedFilter != FILTER_OPTIONS.SUBJECT_AND_CLASS) {
+      setSelectedFilter(FILTER_OPTIONS.SUBJECT_AND_CLASS);
+    }
+  };
+
+  const handleActiveFilterChangeTag = () => {
+    if (selectedFilter != FILTER_OPTIONS.TAGS) {
+      setSelectedFilter(FILTER_OPTIONS.TAGS);
+    }
+  };
+
   useEffect(() => {
-    console.log(selectedClass);
-    console.log(selectedSubject);
-  }, [selectedSubject, selectedClass]);
+    console.log(selectedFilter);
+  });
 
   return (
     <>
       <h1 className="display-5 fw-bold lh-1 mb-3">
         Unterrichtsmaterial und Arbeitsblätter
       </h1>
-      <div className="row gy-2 gx-3 align-items-center justify-content-end">
-        <div className="col-auto">
-          <select
-            className="form-select"
-            onChange={handleSubjectFilterChange}
-            defaultValue={
-              AVAIVABLE_SUBJECTS[Object.keys(AVAIVABLE_SUBJECTS)[0]]
-            }
+
+      <div className="accordion" id="filterOptions">
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button
+              className="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#filterOptionsOne"
+              aria-expanded="true"
+              aria-controls="filterOptionsOne"
+              onClick={handleActiveFilterChangeSubjectClass}
+            >
+              Filtern nach Fach und Klasse
+            </button>
+          </h2>
+          <div
+            id="filterOptionsOne"
+            className="accordion-collapse collapse show"
+            data-bs-parent="#filterOptions"
           >
-            {Object.keys(AVAIVABLE_SUBJECTS).map((option, i) => {
-              return (
-                <option value={option} key={i}>
-                  {AVAIVABLE_SUBJECTS[option]}
-                </option>
-              );
-            })}
-          </select>
+            <div className="accordion-body">
+              <div className="row gy-2 gx-3">
+                <div className="col-auto">
+                  <div className="input-group">
+                    <span className="input-group-text" id="tagSearch">
+                      Fach
+                    </span>
+                    <select
+                      className="form-select"
+                      onChange={handleSubjectFilterChange}
+                      defaultValue={
+                        AVAIVABLE_SUBJECTS[Object.keys(AVAIVABLE_SUBJECTS)[0]]
+                      }
+                    >
+                      {Object.keys(AVAIVABLE_SUBJECTS).map((option, i) => {
+                        return (
+                          <option value={option} key={i}>
+                            {AVAIVABLE_SUBJECTS[option]}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                </div>
+                <div className="col-auto">
+                  <div className="input-group">
+                    <span className="input-group-text" id="tagSearch">
+                      Klasse
+                    </span>
+                    <select
+                      className="form-select"
+                      onChange={handleClassFilterChange}
+                      defaultValue={
+                        AVAIVABLE_CLASSES[Object.keys(AVAIVABLE_CLASSES)[0]]
+                      }
+                    >
+                      {Object.keys(AVAIVABLE_CLASSES).map((option, i) => {
+                        return (
+                          <option value={option} key={i}>
+                            {AVAIVABLE_CLASSES[option]}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="col-auto">
-          <select
-            className="form-select"
-            onChange={handleClassFilterChange}
-            defaultValue={AVAIVABLE_CLASSES[Object.keys(AVAIVABLE_CLASSES)[0]]}
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button
+              className="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#filterOptionsTwo"
+              aria-expanded="false"
+              aria-controls="filterOptionsTwo"
+              onClick={handleActiveFilterChangeTag}
+            >
+              Filtern nach Tags
+            </button>
+          </h2>
+          <div
+            id="filterOptionsTwo"
+            className="accordion-collapse collapse"
+            data-bs-parent="#filterOptions"
           >
-            {Object.keys(AVAIVABLE_CLASSES).map((option, i) => {
-              return (
-                <option value={option} key={i}>
-                  {AVAIVABLE_CLASSES[option]}
-                </option>
-              );
-            })}
-          </select>
+            <div className="accordion-body">
+              <div className="gy-2 gx-3">
+                <div className="col-auto">
+                  <div className="input-group">
+                    <span className="input-group-text" id="tagSearch">
+                      Tag-Suche
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Suche ..."
+                      aria-label="Tag-Suche"
+                      aria-describedby="tagSearch"
+                      onChange={handleTagFilterInput}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -82,21 +184,35 @@ const EducationMaterial = () => {
           </thead>
           <tbody className="table-group-divider">
             {Object.values(AVAIVABLE_FILES).map((item, i) => {
-              if (selectedSubject != "NONE" && selectedClass != "NONE") {
-                console.log("MATCH");
-                if (
-                  item.SUBJECT != AVAIVABLE_SUBJECTS[selectedSubject] ||
-                  item.CLASS != AVAIVABLE_CLASSES[selectedClass]
+              if (selectedFilter == FILTER_OPTIONS.TAGS) {
+                if (inputTagFilter != undefined && inputTagFilter != "") {
+                  if (!item.TAGS.includes(inputTagFilter.toLowerCase().trim()))
+                    return;
+                }
+              }
+
+              if (selectedFilter == FILTER_OPTIONS.SUBJECT_AND_CLASS) {
+                if (selectedSubject != "NONE" && selectedClass != "NONE") {
+                  if (
+                    item.SUBJECT != AVAIVABLE_SUBJECTS[selectedSubject] ||
+                    item.CLASS != AVAIVABLE_CLASSES[selectedClass]
+                  ) {
+                    return;
+                  }
+                } else if (
+                  selectedSubject != "NONE" &&
+                  selectedClass == "NONE"
                 ) {
-                  return;
-                }
-              } else if (selectedSubject != "NONE" && selectedClass == "NONE") {
-                if (item.SUBJECT != AVAIVABLE_SUBJECTS[selectedSubject]) {
-                  return;
-                }
-              } else if (selectedSubject == "NONE" && selectedClass != "NONE") {
-                if (item.CLASS != AVAIVABLE_CLASSES[selectedClass]) {
-                  return;
+                  if (item.SUBJECT != AVAIVABLE_SUBJECTS[selectedSubject]) {
+                    return;
+                  }
+                } else if (
+                  selectedSubject == "NONE" &&
+                  selectedClass != "NONE"
+                ) {
+                  if (item.CLASS != AVAIVABLE_CLASSES[selectedClass]) {
+                    return;
+                  }
                 }
               }
 
