@@ -10,6 +10,7 @@ import Footer from "./components/Footer.jsx";
 import { useStateContext } from "../hooks/useStateContext.jsx";
 import { useEffect } from "react";
 import { ACTIONS } from "./constants/enums.js";
+import BugReport from "./components/BugReport.jsx";
 
 function App() {
   const { _, dispatch } = useStateContext();
@@ -66,7 +67,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-
+      <BugReport />
       <Footer />
     </>
   );
