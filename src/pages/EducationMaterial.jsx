@@ -46,10 +46,6 @@ const EducationMaterial = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(selectedFilter);
-  });
-
   return (
     <>
       <h1 className="display-5 fw-bold lh-1 mb-3">
