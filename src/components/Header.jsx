@@ -36,6 +36,7 @@ const Header = () => {
               className="d-flex flex-column me-2 justify-content-center align-items-middle"
               role="button"
               tabIndex="0"
+              aria-label="Dark- und Light-Mode umschalten"
               onClick={handleDarkModeToggle}
             >
               <p className="m-0">
@@ -48,6 +49,7 @@ const Header = () => {
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasRight"
               aria-controls="offcanvasRight"
+              aria-label="Menü öffnen"
             >
               <svg
                 fill="currentColor"
