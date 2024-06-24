@@ -51,15 +51,15 @@
 //                   "Eine neuere Version der Website ist verfügbar!"
 //               }
 //               <div class="mt-2 pt-2 border-top">
-//                 { needRefresh && 
-//                   <button className="btn btn-primary btn-sm" onClick={() => updateServiceWorker(true)}>Jetzt aktualisieren!</button> 
+//                 { needRefresh &&
+//                   <button className="btn btn-primary btn-sm" onClick={() => updateServiceWorker(true)}>Jetzt aktualisieren!</button>
 //                 }
-//                 { offlineReady && 
+//                 { offlineReady &&
 //                   <button className="btn btn-secondary btn-sm" onClick={() => close()}>Danke für die Info!</button>
 //                 }
 //               </div>
 //             </div>
-            
+
 //           </div>
 //         </div>
 //       }
