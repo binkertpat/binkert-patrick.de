@@ -10,7 +10,6 @@ const DEFAULT_THEME = {
 const htmlElement = document.documentElement;
 
 export const StateContextReducer = (state, { type, payload }) => {
-  console.log(state);
   switch (type) {
     case ACTIONS.SET_DEFAULT_STATE:
       htmlElement.setAttribute("data-bs-theme", DEFAULT_THEME.THEME);
@@ -34,7 +33,6 @@ export const StateContextReducer = (state, { type, payload }) => {
       localStorage.setItem("bsTheme", THEMES.DARK);
       return { ...state, ...{ THEME: THEMES.DARK } };
     default:
-      console.log("Action " + type + " has no state change defined.");
       return state;
   }
 };
