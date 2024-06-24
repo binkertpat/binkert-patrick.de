@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), VitePWA({
-    registerType: 'autoUpdate',
-    injectRegister: false,
+    // registerType: 'autoUpdate',
+    // injectRegister: false,
 
     pwaAssets: {
       disabled: false,
@@ -20,12 +20,12 @@ export default defineConfig({
       theme_color: '#ffffff',
     },
     
-    workbox: {
-      globPatterns: ['**/*.{svg,png,ico,jpg,jpeg}'],
-      cleanupOutdatedCaches: true,
-      clientsClaim: false,
-      sourcemap: true,
-    },
+    // workbox: {
+    //   globPatterns: ['**/*.{svg,png,ico,jpg,jpeg}'],
+    //   cleanupOutdatedCaches: true,
+    //   clientsClaim: false,
+    //   sourcemap: true,
+    // },
     devOptions: {
       enabled: false,
       navigateFallback: 'index.html',
