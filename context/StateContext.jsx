@@ -4,7 +4,7 @@ import { ACTIONS, THEMES } from "../src/constants/enums";
 export const StateContext = createContext();
 
 const DEFAULT_THEME = {
-  THEME: localStorage.getItem("bsTheme"),
+  THEME: THEMES.DARK,
 };
 
 const htmlElement = document.documentElement;
@@ -15,7 +15,13 @@ export const StateContextReducer = (state, { type, payload }) => {
     case ACTIONS.SET_DEFAULT_STATE:
       htmlElement.setAttribute("data-bs-theme", DEFAULT_THEME.THEME);
       localStorage.setItem("bsTheme", DEFAULT_THEME.THEME);
-      return { ...DEFAULT_THEME };
+      return { ...state, ...DEFAULT_THEME };
+    case ACTIONS.LOAD_USER_STATE:
+      htmlElement.setAttribute(
+        "data-bs-theme",
+        localStorage.getItem("bsTheme"),
+      );
+      return { ...state, ...{ THEME: localStorage.getItem("bsTheme") } };
     case ACTIONS.SET_STATE_FROM_DISK:
       return { ...state };
     case ACTIONS.TOGGLE_STATE:

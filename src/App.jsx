@@ -14,8 +14,19 @@ import { ACTIONS } from "./constants/enums.js";
 function App() {
   const { _, dispatch } = useStateContext();
 
+  const darkModeDefaultLogic = () => {
+    if (localStorage.getItem("bsTheme") == null) {
+      dispatch({ type: ACTIONS.SET_DEFAULT_STATE });
+    } else {
+      dispatch({
+        type: ACTIONS.LOAD_USER_STATE,
+        payload: { THEME: localStorage.getItem("bsTheme") },
+      });
+    }
+  };
+
   useEffect(() => {
-    dispatch({ type: ACTIONS.SET_DEFAULT_STATE });
+    darkModeDefaultLogic();
   }, []);
 
   return (
