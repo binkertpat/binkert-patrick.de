@@ -158,7 +158,7 @@ export const SERVER_TOOLS_COLLECTION = {
     IMG: STRUKTOG_IMAGE,
     TITLE: "Struktog.",
     TEXT: "Struktog. ist ein Struktogramm-Editor, dabei handelt es sich um ein Tool, das die Erstellung, Bearbeitung und Visualisierung von Struktogrammen zur Darstellung von Programmabläufen und Algorithmen ermöglicht.",
-    LINK: "https://www.binkert-patrick.de/struktog",
+    LINK: "https://binkert-patrick.de/struktog",
     BUTTON_TEXT: "Struktogramm-Editor starten!",
     TAGS: [
       {
