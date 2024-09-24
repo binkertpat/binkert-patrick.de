@@ -68,7 +68,7 @@ export const SERVER_TOOLS_COLLECTION = {
     IMG: PHPMYADMIN_IMAGE,
     TITLE: "phpMyAdmin",
     TEXT: "phpMyAdmin ist eine webbasierte Anwendung, die die Verwaltung von MySQL- und MariaDB-Datenbanken über eine grafische Benutzeroberfläche ermöglicht.",
-    LINK: "https://binkert-patrick.de/phpmyadmin/",
+    LINK: "https://pma.binkert-patrick.de",
     BUTTON_TEXT: "phpMyAdmin starten!",
     TAGS: [
       {
