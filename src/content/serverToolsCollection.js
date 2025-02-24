@@ -10,6 +10,7 @@ import DEV_TOOLS_IMAGE from "../img/dev_tools.png";
 import DIGISCREEN_IMAGE from "../img/digiscreen.png";
 import T1P_IMAGE from "../img/urlshort.png";
 import WEBNETSIM__IMAGE from "../img/webnetsim.png";
+import JITSI_IMAGE from "../img/jitsi.png";
 
 const TAGS_TYPE = {
   SELFHOSTED: "text-bg-success",
@@ -224,7 +225,7 @@ export const SERVER_TOOLS_COLLECTION = {
     IMG: CHITCHATTER_IMAGE,
     TITLE: "Chitchatter",
     TEXT: "Chitchatter ist eine einfache Chat-Anwendung, die Echtzeitkommunikation zwischen Benutzern ermöglicht.",
-    LINK: "https://www.chat.binkert-patrick.de/",
+    LINK: "https://chat.binkert-patrick.de/",
     BUTTON_TEXT: "Let's chat!",
     TAGS: [
       {
@@ -377,6 +378,33 @@ export const SERVER_TOOLS_COLLECTION = {
       },
     ],
     COPYRIGHT: "© codeberg.org/ladigitale/digiboard",
+    HINT: "",
+  },
+  DIGISCREEN: {
+    IMG: JITSI_IMAGE,
+    TITLE: "Jitsi Meet",
+    TEXT: "Jitsi Meet ist eine vollständig verschlüsselte, 100 % Open-Source-Videokonferenzlösung, die Sie den ganzen Tag, jeden Tag kostenlos nutzen können – ohne dass ein Konto erforderlich ist.",
+    LINK: "https://jitsi.binkert-patrick.de/",
+    BUTTON_TEXT: "Let's talk!",
+    TAGS: [
+      {
+        TYPE: TAGS_TYPE.SELFHOSTED,
+        VALUE: "selfhosted",
+      },
+      {
+        TYPE: TAGS_TYPE.EDU,
+        VALUE: "conference",
+      },
+      {
+        TYPE: TAGS_TYPE.EDU,
+        VALUE: "videoconference",
+      },
+      {
+        TYPE: TAGS_TYPE.EDU,
+        VALUE: "screensharing",
+      },
+    ],
+    COPYRIGHT: "© https://jitsi.org/",
     HINT: "",
   },
 };

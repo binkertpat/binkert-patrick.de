@@ -14,29 +14,4 @@ export const MENU_STRUCTURE = {
     URL: "/education",
     ENABLED: true,
   },
-  X2: {
-    NAME: "... coming soon ...",
-    URL: "#",
-    ENABLED: false,
-  },
-  X3: {
-    NAME: "... coming soon ...",
-    URL: "#",
-    ENABLED: false,
-  },
-  X4: {
-    NAME: "... coming soon ...",
-    URL: "#",
-    ENABLED: false,
-  },
-  X5: {
-    NAME: "... coming soon ...",
-    URL: "#",
-    ENABLED: false,
-  },
-  X6: {
-    NAME: "... coming soon ...",
-    URL: "#",
-    ENABLED: false,
-  },
 };
