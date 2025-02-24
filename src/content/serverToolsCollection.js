@@ -380,7 +380,7 @@ export const SERVER_TOOLS_COLLECTION = {
     COPYRIGHT: "© codeberg.org/ladigitale/digiboard",
     HINT: "",
   },
-  DIGISCREEN: {
+  JITSI: {
     IMG: JITSI_IMAGE,
     TITLE: "Jitsi Meet",
     TEXT: "Jitsi Meet ist eine vollständig verschlüsselte, 100 % Open-Source-Videokonferenzlösung, die Sie den ganzen Tag, jeden Tag kostenlos nutzen können – ohne dass ein Konto erforderlich ist.",
