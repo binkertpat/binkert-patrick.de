@@ -33,7 +33,9 @@ if(isset($_POST["reference"])) {
 if(isset($_POST["issue"])) {
     $message = $message."Anliegen:\r\n".$_POST["issue"]."\r\n\n";
 }
-                  
+       
+$mail = new PHPMailer();   
+
 try {
     $mail->SMTPDebug = 0;                               
     $mail->isSMTP();                                      
