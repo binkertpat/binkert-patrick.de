@@ -46,6 +46,9 @@ try {
 
     $mail->send();
     echo(true);
+    header('Location: https://binkert-patrick.de/contact?success=true');
+    exit;
 } catch (Exception $e) {
-    echo(false);
+    header('Location: https://binkert-patrick.de/contact?success=false');
+    exit;
 }
