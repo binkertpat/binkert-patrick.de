@@ -35,7 +35,7 @@ const Contact = () => {
   }
 
   const handleBotCheck = () => {
-    setIsBot("/contact_form.php");
+    setIsBot("/mail-sending-utility/contact_form.php");
   };
 
   return (

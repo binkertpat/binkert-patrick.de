@@ -1,0 +1,6 @@
+{
+    "name": "root/sending-mails",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
