@@ -33,7 +33,7 @@ try {
     $mail->Host = 'mail.smtp2go.com'; 
     $mail->SMTPAuth = true;                             
     $mail->Username = 'admin@binkert-patrick.de';                 
-    $mail->Password = '6Es6y2VRmITNfFu9jhgjlhGI!Hih23hi1u24';
+    $mail->Password = $_ENV['SMTP_CREDENTIALS'];
     $mail->SMTPSecure = 'tls';                        
     $mail->Port = 2525; 
 
