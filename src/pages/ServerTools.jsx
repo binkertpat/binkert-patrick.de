@@ -1,5 +1,5 @@
 import ToolsCard from "../components/ToolsCard";
-import { SERVER_TOOLS_COLLECTION } from "../content/serverToolsCollection";
+import { EXTERNAL_PROGRAMMS_COLLECTION, SERVER_TOOLS_COLLECTION } from "../content/serverToolsCollection";
 import { EXTERNAL_TOOLS_COLLECTION } from "../content/serverToolsCollection";
 
 const ServerTools = () => {
@@ -13,10 +13,19 @@ const ServerTools = () => {
       </div>
       <h2 className="display-5 fw-bold lh-1 mb-3 mt-5">
         {" "}
-        Weitere nützliche Tools
+        Externe Online-Tools
       </h2>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {Object.values(EXTERNAL_TOOLS_COLLECTION).map((item, i) => {
+          return <ToolsCard key={i} props={item} />;
+        })}
+      </div>
+      <h2 className="display-5 fw-bold lh-1 mb-3 mt-5">
+        {" "}
+        Software
+      </h2>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {Object.values(EXTERNAL_PROGRAMMS_COLLECTION).map((item, i) => {
           return <ToolsCard key={i} props={item} />;
         })}
       </div>

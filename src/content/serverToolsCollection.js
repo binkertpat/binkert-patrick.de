@@ -11,6 +11,11 @@ import DIGISCREEN_IMAGE from "../img/digiscreen.png";
 import T1P_IMAGE from "../img/urlshort.png";
 import WEBNETSIM__IMAGE from "../img/webnetsim.png";
 import JITSI_IMAGE from "../img/jitsi.png";
+import ONLINE_PYTHON_IMAGE from "../img/online_python.png";
+import EXALIDRAW_IMAGE from "../img/excalidraw.png";
+import LOGIGATOR_IMAGE from "../img/logigator.png";
+import FLACI_IMAGE from "../img/flaci.png";
+import FLINGA_IMAGE from "../img/flinga.png";
 
 const TAGS_TYPE = {
   SELFHOSTED: "text-bg-success",
@@ -283,41 +288,7 @@ export const SERVER_TOOLS_COLLECTION = {
     COPYRIGHT: "© github.com/dokuwiki/dokuwiki",
     HINT: "Nur von <strong>registrierten Nutzern</strong> bearbeitbar.",
   },
-  VSCODE: {
-    IMG: VSCODE_IMAGE,
-    TITLE: "VS-Code-Server",
-    TEXT: "Webbasierter Visual Studio Code Editor.",
-    LINK: "https://code.binkert-patrick.de/?folder=/home/vscode/PROGRAMMIERUNG",
-    BUTTON_TEXT: "Start coding!",
-    TAGS: [
-      {
-        TYPE: TAGS_TYPE.SELFHOSTED,
-        VALUE: "selfhosted",
-      },
-      {
-        TYPE: TAGS_TYPE.IT,
-        VALUE: "ide",
-      },
-      {
-        TYPE: TAGS_TYPE.IT,
-        VALUE: "vscode",
-      },
-      {
-        TYPE: TAGS_TYPE.IT,
-        VALUE: "programmierung",
-      },
-      {
-        TYPE: TAGS_TYPE.IT,
-        VALUE: "coding",
-      },
-      {
-        TYPE: TAGS_TYPE.IT,
-        VALUE: "editor",
-      },
-    ],
-    COPYRIGHT: "© github.com/coder/code-server",
-    HINT: "Das Passwort wird <strong>auf Anfrage</strong> herausgegeben.",
-  },
+  
   DEV_TOOLS: {
     IMG: DEV_TOOLS_IMAGE,
     TITLE: "DEV-Tools",
@@ -484,4 +455,225 @@ export const EXTERNAL_TOOLS_COLLECTION = {
     COPYRIGHT: "",
     HINT: "",
   },
+  VSCODE: {
+    IMG: VSCODE_IMAGE,
+    TITLE: "VS-Code online",
+    TEXT: "Webbasierter Visual Studio Code Editor",
+    LINK: "https://vscode.dev",
+    BUTTON_TEXT: "Start coding!",
+    TAGS: [
+      {
+        TYPE: TAGS_TYPE.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "ide",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "vscode",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "programmierung",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "coding",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "editor",
+      },
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  PYTHON_ONLINE: {
+    IMG: ONLINE_PYTHON_IMAGE,
+    TITLE: "ONLINE PYTHON",
+    TEXT: "Webbasierte Python IDE",
+    LINK: "https://www.online-python.com/",
+    BUTTON_TEXT: "print('Hello world!')",
+    TAGS: [
+      {
+        TYPE: TAGS_TYPE.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "ide",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "python",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "programmierung",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "coding",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "editor",
+      },
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  EXALIDRAW: {
+    IMG: EXALIDRAW_IMAGE,
+    TITLE: "Excalidraw",
+    TEXT: "Online Whiteboard für kollaborative Zusammenarbeit",
+    LINK: "https://excalidraw.com/",
+    BUTTON_TEXT: "Let's draw!",
+    TAGS: [
+      {
+        TYPE: TAGS_TYPE.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "whiteboard",
+      },
+      {
+        TYPE: TAGS_TYPE.EDU,
+        VALUE: "kollaboration",
+      },
+      {
+        TYPE: TAGS_TYPE.EDU,
+        VALUE: "kooperation",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "echtzeit",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  FLINGA: {
+    IMG: FLINGA_IMAGE,
+    TITLE: "FLINGA",
+    TEXT: "Kollaborative Zusammenarbeit und Feedback in Echtzeit.",
+    LINK: "https://flinga.fi/tools",
+    BUTTON_TEXT: "Jetzt starten !",
+    TAGS: [
+      {
+        TYPE: TAGS_TYPE.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "whiteboard",
+      },
+      {
+        TYPE: TAGS_TYPE.EDU,
+        VALUE: "kollaboration",
+      },
+      {
+        TYPE: TAGS_TYPE.EDU,
+        VALUE: "kooperation",
+      },
+      {
+        TYPE: TAGS_TYPE.EDU,
+        VALUE: "feedback",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  LOGIGATOR: {
+    IMG: LOGIGATOR_IMAGE,
+    TITLE: "LOGIGATOR",
+    TEXT: "Baue, simuliere und verwalte komplexe Logikschaltungen.",
+    LINK: "https://logigator.com/editor/",
+    BUTTON_TEXT: "1 + 1 = 10!",
+    TAGS: [
+      {
+        TYPE: TAGS_TYPE.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "simulation",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "logik",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "gatter",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "AND",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "OR",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "XOR",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "NAND",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  }
+};
+
+export const EXTERNAL_PROGRAMMS_COLLECTION = {
+  FLACI: {
+    IMG: FLACI_IMAGE,
+    TITLE: "FLACI",
+    TEXT: "Formale Sprachen, abstrakte Automaten, Compiler und Interpreter.",
+    LINK: "https://flaci.com/home/",
+    BUTTON_TEXT: "[a-z]{1,10}@{2,10}\\.de",
+    TAGS: [
+      {
+        TYPE: TAGS_TYPE.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "formale_sprachen",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "regulaere_ausdruecke",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "compiler",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "automaten",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "interpreten",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "NEA",
+      },
+      {
+        TYPE: TAGS_TYPE.IT,
+        VALUE: "DEA",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  }
 };
