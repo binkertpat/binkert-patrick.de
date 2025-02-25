@@ -7,23 +7,23 @@ require 'vendor/autoload.php';
 $message = "";
 
 if(isset($_POST["firstname"])) {
-    $message = $message."Vorname: ".$_POST["firstname"]."\r\n<br/><br/>";
+    $message = $message."Vorname: ".$_POST["firstname"]."\r\n\n";
 }
 
 if(isset($_POST["lastname"])) {
-    $message = $message."Nachname: ".$_POST["lastname"]."\r\n<br/><br/>";
+    $message = $message."Nachname: ".$_POST["lastname"]."\r\n\n";
 }
 
 if(isset($_POST["email"])) {
-    $message = $message."E-Mail: ".$_POST["email"]."\r\n<br/><br/>";
+    $message = $message."E-Mail: ".$_POST["email"]."\r\n\n";
 }
 
 if(isset($_POST["reference"])) {
-    $message = $message."Betreff: ".$_POST["reference"]."\r\n<br/><br/>";
+    $message = $message."Betreff: ".$_POST["reference"]."\r\n\n";
 }
 
 if(isset($_POST["issue"])) {
-    $message = $message."Anliegen:\r\n".$_POST["issue"]."\r\n<br/><br/>";
+    $message = $message."Anliegen:\r\n".$_POST["issue"]."\r\n\n";
 }
 
 $mail = new PHPMailer();                             
@@ -37,7 +37,7 @@ try {
     $mail->SMTPSecure = 'tls';                        
     $mail->Port = 2525; 
 
-    $mail->setFrom('admin@binkert-patrick.de', 'Linux-Server <admin@binkert-patrick.de>');
+    $mail->setFrom('admin@binkert-patrick.de', 'Linux-Server');
     $mail->addAddress('patrick.binkert@outlook.de', 'Patrick Binkert <patrick.binkert@outlook.de>');  
     $mail->addReplyTo('admin@binkert-patrick.de', 'Linux-Server <admin@binkert-patrick.de>');
 
