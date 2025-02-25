@@ -1,8 +1,16 @@
 <?php
 
+// ini_set('display_errors', '1');
+// ini_set('display_startup_errors', '1');
+// error_reporting(E_ALL);
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use vlucas\phpdotenv;
 require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 $message = "";
 
@@ -25,8 +33,7 @@ if(isset($_POST["reference"])) {
 if(isset($_POST["issue"])) {
     $message = $message."Anliegen:\r\n".$_POST["issue"]."\r\n\n";
 }
-
-$mail = new PHPMailer();                             
+                  
 try {
     $mail->SMTPDebug = 0;                               
     $mail->isSMTP();                                      
@@ -45,7 +52,6 @@ try {
     $mail->Body    =  $message;
 
     $mail->send();
-    echo(true);
     header('Location: https://binkert-patrick.de/contact?success=true');
     exit;
 } catch (Exception $e) {
