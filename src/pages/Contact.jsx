@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const Contact = () => {
-  const [isBot, setIsBot] = useState("");
+  const [isBot, isMaybeNotABot] = useState("");
   const [searchParams, _] = useSearchParams();
   const [firstname, setFirstName] = useState(
     searchParams.get("firstname") ?? "",
@@ -35,7 +35,7 @@ const Contact = () => {
   }
 
   const handleBotCheck = () => {
-    setIsBot("/mail-sending-utility/contact_form.php");
+    isMaybeNotABot("/mail-sending-utility/contact_form.php");
   };
 
   return (
@@ -122,6 +122,7 @@ const Contact = () => {
             Abschicken
           </button>
         </div>
+        
       </form>
     </>
   );

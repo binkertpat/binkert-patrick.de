@@ -5,7 +5,6 @@ import Breadcrumbs from "./components/Breadcrumbs.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import Contact from "./pages/Contact.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ServerTools from "./pages/ServerTools.jsx";
 import Footer from "./components/Footer.jsx";
 import { useStateContext } from "../hooks/useStateContext.jsx";
 import { useEffect } from "react";
@@ -13,6 +12,9 @@ import { ACTIONS } from "./constants/enums.js";
 import BugReport from "./components/BugReport.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import EducationMaterial from "./pages/EducationMaterial.jsx";
+import SelfHostedTools from "./pages/SelfHostedTools.jsx";
+import ExternalTools from "./pages/ExternalTools.jsx";
+import ExternalPrograms from "./pages/ExternalPrograms.jsx";
 
 function App() {
   const { _, dispatch } = useStateContext();
@@ -64,7 +66,9 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/servertools" element={<ServerTools />} />
+            <Route path="/self-hosted-tools" element={<SelfHostedTools />} />
+            <Route path="/external-tools" element={<ExternalTools />} />
+            <Route path="/external-programs" element={<ExternalPrograms />} />
             <Route path="/education" element={<EducationMaterial />} />
           </Routes>
         </BrowserRouter>
