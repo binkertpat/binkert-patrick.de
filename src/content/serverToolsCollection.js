@@ -405,7 +405,7 @@ export const SERVER_TOOLS_COLLECTION = {
       },
     ],
     COPYRIGHT: "© https://jitsi.org/",
-    HINT: "",
+    HINT: "<strong>Nutzername</strong> und <strong>Passwort</strong> sind jeweils: <code>jitsi@BvC</code>",
   },
 };
 
