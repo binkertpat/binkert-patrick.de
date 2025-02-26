@@ -176,7 +176,7 @@ export const SELF_HOSTED_TOOLS = {
         VALUE: "webbased",
       },
     ],
-    COPYRIGHT: "© github.com/openpatch/struktog",
+    COPYRIGHT: "© https://gitlab.com/dev-ddi",
     HINT: "",
   },
   ETHERPAD: {
