@@ -50,6 +50,11 @@ const OffCanvas = () => {
             <p className="text-center text-body-secondary mt-1 mb-0">
               © 2024 Patrick Binkert
             </p>
+            <p className="text-center text-body-secondary mt-1 mb-0">
+              <a className="text-decoration-none text-body-secondary" href={__GITHUB_REPO__}>
+                v{ __PACKAGE__.version }-{ __COMMIT_HASH__ }
+              </a>
+            </p>
           </div>
         </div>
       </div>
