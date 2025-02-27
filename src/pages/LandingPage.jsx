@@ -1,5 +1,6 @@
 import IT_TOOLS_STOCK from "../img/it_tools_stock.png";
 import BOOK_IMAGE from "../img/book_image.png";
+import BIBER_2024 from "../img/biber_am_bvc_2024.png";
 
 const LandingPage = () => {
   return (
@@ -30,7 +31,7 @@ const LandingPage = () => {
             <a href="/self-hosted-tools">
               <button
                 type="button"
-                className="btn btn-success btn-lg px-4 me-md-2"
+                className="btn btn-primary btn-lg px-4 me-md-2"
               >
                 self-hosted Tools
               </button>
@@ -46,7 +47,7 @@ const LandingPage = () => {
             <a href="/external-programs">
               <button
                 type="button"
-                className="btn btn-secondary btn-lg px-4 me-md-2"
+                className="btn btn-primary btn-lg px-4 me-md-2"
               >
                 Programme
               </button>
@@ -54,7 +55,39 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+
       <div className="row flex-lg-row align-items-center g-5 py-5">
+        <div className="col-10 col-sm-8 col-lg-6">
+          <img
+            src={BIBER_2024}
+            className="d-block mx-lg-auto img-fluid"
+            alt="Tools und Apps"
+            title="Tools und Apps"
+            width="700"
+            height="500"
+            loading="lazy"
+          />
+        </div>
+        <div className="col-lg-6">
+          <h2 className="display-5 fw-bold lh-1 mb-3">Informatikbiber@BvC 2024</h2>
+          <span className="badge bg-success mb-3">Wettbewerb</span>
+          <p className="lead">
+            Auf der nachfolgenden Seite könnt ihr euch eure Zugangsdaten für Informatikbiber zusammen klicken. Das Passwort wird euch im Unterricht mitgeteilt. Viel Erfolg!
+          </p>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="/self-hosted-tools">
+              <button
+                type="button"
+                className="btn btn-primary btn-lg px-4 me-md-2"
+              >
+                zu den Zugangsdaten
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div className="col-10 col-sm-8 col-lg-6">
           <img
             src={BOOK_IMAGE}

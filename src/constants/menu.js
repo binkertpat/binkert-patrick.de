@@ -24,4 +24,9 @@ export const MENU_STRUCTURE = {
     URL: "/education",
     ENABLED: true,
   },
+  BIBER: {
+    NAME: "Informatikbiber@BvC 2024 ",
+    URL: "https://biber.binkert-patrick.de/",
+    ENABLED: true,
+  },
 };
