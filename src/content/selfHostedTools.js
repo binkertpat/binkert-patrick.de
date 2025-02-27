@@ -52,7 +52,7 @@ export const SELF_HOSTED_TOOLS = {
       },
     ],
     COPYRIGHT: "© github.com/wi-wissen/InstaHub",
-    HINT: "Eine Freischaltung erfolgt <strong>ausschließlich</strong> im Unterricht.",
+    HINT: "Zur Zeit nicht verfügbar.",
   },
   PHPMYADMIN: {
     IMG: PHPMYADMIN_IMAGE,
