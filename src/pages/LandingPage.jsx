@@ -75,7 +75,7 @@ const LandingPage = () => {
             Auf der nachfolgenden Seite könnt ihr euch eure Zugangsdaten für Informatikbiber zusammen klicken. Das Passwort wird euch im Unterricht mitgeteilt. Viel Erfolg!
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-            <a href="/self-hosted-tools">
+            <a href="https://biber.binkert-patrick.de/">
               <button
                 type="button"
                 className="btn btn-primary btn-lg px-4 me-md-2"
