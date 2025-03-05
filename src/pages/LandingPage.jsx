@@ -1,6 +1,7 @@
 import IT_TOOLS_STOCK from "../img/it_tools_stock.png";
 import BOOK_IMAGE from "../img/book_image.png";
 import BIBER_2024 from "../img/biber_am_bvc_2024.png";
+import PBM_EDITOR_IMAGE from "../img/pbm_editor.png";
 
 const LandingPage = () => {
   return (
@@ -132,6 +133,38 @@ const LandingPage = () => {
                 className="btn btn-secondary btn-lg px-4 me-md-2"
               >
                 GitHub
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="row flex-lg-row align-items-center g-5 py-5">
+        <div className="col-10 col-sm-8 col-lg-6">
+          <img
+            src={PBM_EDITOR_IMAGE}
+            className="d-block mx-lg-auto img-fluid"
+            alt="Tools und Apps"
+            title="Tools und Apps"
+            width="700"
+            height="500"
+            loading="lazy"
+          />
+        </div>
+        <div className="col-lg-6">
+          <h2 className="display-5 fw-bold lh-1 mb-3">PBM-Editor</h2>
+          <span className="badge bg-danger mb-3 me-2">work in progress</span>
+          <span className="badge bg-danger mb-3">beta</span>
+          <p className="lead">
+            Ein kleiner Online-Editor, der das Erstellen und Rendern von Portable Bitmap Dateien in 3 Modi erlaubt. Zur Einführung stehen 3 Beispieldokumente zur Verfügung.
+          </p>
+          <div className="d-grid gap-2 d-flex justify-content-md-start">
+            <a href="/pbm">
+              <button
+                type="button"
+                className="btn btn-primary btn-lg px-4 me-md-2"
+              >
+                Rein da!
               </button>
             </a>
           </div>
