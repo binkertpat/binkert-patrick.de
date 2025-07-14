@@ -103,7 +103,7 @@ const LandingPage = () => {
         <div className="col-lg-6">
           <h2 className="display-5 fw-bold lh-1 mb-3">Schulbuch</h2>
           <span className="badge bg-danger mb-3 me-2">work in progress</span>
-          <span className="badge bg-success mb-3">coming soon</span>
+          <span className="badge bg-success mb-3">take a look</span>
           <p className="lead">
             Das Schulbuch wird sich kontinuierlich weiterentwickeln - sei es in
             den kommenden Tagen, Wochen, Jahren oder sogar Jahrzehnten.
@@ -119,7 +119,7 @@ const LandingPage = () => {
             .
           </p>
           <div className="d-grid gap-2 d-flex justify-content-md-start">
-            <a href="https://bookv2.binkert-patrick.de/">
+            <a href="https://book.binkert-patrick.de/">
               <button
                 type="button"
                 className="btn btn-primary btn-lg px-4 me-md-2"
