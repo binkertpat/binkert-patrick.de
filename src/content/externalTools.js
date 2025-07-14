@@ -6,6 +6,12 @@ import EXALIDRAW_IMAGE from "../img/excalidraw.png";
 import LOGIGATOR_IMAGE from "../img/logigator.png";
 import FLACI_IMAGE from "../img/flaci.png";
 import FLINGA_IMAGE from "../img/flinga.png";
+import DRAWDB_IMAGE from "../img/drawdb.png";
+import DEBUGGEX_IMAGE from "../img/debuggex.png";
+import MERMAID_IMAGE from "../img/mermaid.png";
+import REGEX101_IMAGE from "../img/regex101.png";
+import REGEXPER_IMAGE from "../img/regexper.png";
+import TODIAGRAM_IMAGE from "../img/todiagram.png";
 import { TAG_TYPES } from "../constants/tagTypes";
 
 export const EXTERNAL_TOOLS = {
@@ -184,37 +190,7 @@ export const EXTERNAL_TOOLS = {
     COPYRIGHT: "",
     HINT: "",
   },
-  FLINGA: {
-    IMG: FLINGA_IMAGE,
-    TITLE: "FLINGA",
-    TEXT: "Kollaborative Zusammenarbeit und Feedback in Echtzeit.",
-    LINK: "https://flinga.fi/tools",
-    BUTTON_TEXT: "Jetzt starten !",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "whiteboard",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "kollaboration",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "kooperation",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "feedback",
-      }
-    ],
-    COPYRIGHT: "",
-    HINT: "",
-  },
+  
   LOGIGATOR: {
     IMG: LOGIGATOR_IMAGE,
     TITLE: "LOGIGATOR",
@@ -253,6 +229,243 @@ export const EXTERNAL_TOOLS = {
       {
         TYPE: TAG_TYPES.IT,
         VALUE: "NAND",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  DRAWDB: {
+    IMG: DRAWDB_IMAGE,
+    TITLE: "drawDB",
+    TEXT: "drawDB ist ein kostenloser Online-Open-Source-Datenbankdiagrammeditor.",
+    LINK: "https://www.drawdb.app/editor",
+    BUTTON_TEXT: "SELECT drawDB FROM editor;",
+    TAGS: [
+      {
+        TYPE: TAG_TYPES.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "datenbank",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "modellierung",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "uml",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "sql",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "schema",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "datentypen",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "kardinalitäten",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  TODIAGRAM: {
+    IMG: TODIAGRAM_IMAGE,
+    TITLE: "ToDiagram",
+    TEXT: "ToDiagram stellt JSON, CSV, YAML und XML-Dateien mit Hilfe interaktiver Diagramme dar.",
+    LINK: "https://todiagram.com/editor",
+    BUTTON_TEXT: "{\"user\" : \"Hans\"}",
+    TAGS: [
+      {
+        TYPE: TAG_TYPES.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "datentypen",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "datenstrukturen",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "json",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "xml",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "csv",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "yaml",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  MERMAID: {
+    IMG: MERMAID_IMAGE,
+    TITLE: "Mermaid",
+    TEXT: "Mermaid ist ein JavaScript-basiertes Diagrammerstellungstool, das Markdown-inspirierte Textdefinitionen und einen Renderer zum Erstellen und Bearbeiten komplexer Diagramme verwendet.",
+    LINK: "https://mermaid.live/edit",
+    BUTTON_TEXT: "[*] --> Moving",
+    TAGS: [
+      {
+        TYPE: TAG_TYPES.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "diagramme",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "flowchart",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "sequence",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "class",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "state",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "entityrelationship",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  REGEXPER: {
+    IMG: REGEXPER_IMAGE,
+    TITLE: "REGEXPER",
+    TEXT: "Visualisierung von regulären Ausdrücken.",
+    LINK: "https://regexper.com/",
+    BUTTON_TEXT: "^(\\d\\d\\.\\d\\d\\.\\d\\d\\d\\d)$",
+    TAGS: [
+      {
+        TYPE: TAG_TYPES.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "regex",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "regulaereAusdruecke",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "visualisierung",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  DEBUGGEX: {
+    IMG: DEBUGGEX_IMAGE,
+    TITLE: "REGEXPER",
+    TEXT: "Visualisierung, Testen und Debuggen von regulären Ausdrücken.",
+    LINK: "https://www.debuggex.com/",
+    BUTTON_TEXT: "(a|b|ab)*bc",
+    TAGS: [
+      {
+        TYPE: TAG_TYPES.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "regex",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "regulaereAusdruecke",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "visualisierung",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  REGEX101: {
+    IMG: REGEX101_IMAGE,
+    TITLE: "regular expressions 101",
+    TEXT: "Visualisierung, Testen und Debuggen von regulären Ausdrücken, inklusive Genereriung von Code-Snippets in verschiedenen Programmiersprachen.",
+    LINK: "https://regex101.com/",
+    BUTTON_TEXT: "([rgb](?:[- ][rgb]){0,5}",
+    TAGS: [
+      {
+        TYPE: TAG_TYPES.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "regex",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "regulaereAusdruecke",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "visualisierung",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "codeSnippets",
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  FLINGA: {
+    IMG: FLINGA_IMAGE,
+    TITLE: "FLINGA",
+    TEXT: "Kollaborative Zusammenarbeit und Feedback in Echtzeit.",
+    LINK: "https://flinga.fi/tools",
+    BUTTON_TEXT: "Jetzt starten!",
+    TAGS: [
+      {
+        TYPE: TAG_TYPES.EXTERN,
+        VALUE: "extern",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "whiteboard",
+      },
+      {
+        TYPE: TAG_TYPES.EDU,
+        VALUE: "kollaboration",
+      },
+      {
+        TYPE: TAG_TYPES.EDU,
+        VALUE: "kooperation",
+      },
+      {
+        TYPE: TAG_TYPES.EDU,
+        VALUE: "feedback",
       }
     ],
     COPYRIGHT: "",
