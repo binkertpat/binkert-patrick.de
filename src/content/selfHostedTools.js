@@ -8,6 +8,7 @@ import WIKI_IMAGE from "../img/dokuwiki.png";
 import DEV_TOOLS_IMAGE from "../img/dev_tools.png";
 import DIGISCREEN_IMAGE from "../img/digiscreen.png";
 import JITSI_IMAGE from "../img/jitsi.png";
+import DRAWDB_IMAGE from "../img/drawdb.png";
 import { TAG_TYPES } from "../constants/tagTypes";
 
 export const SELF_HOSTED_TOOLS = {
@@ -100,6 +101,61 @@ export const SELF_HOSTED_TOOLS = {
     ],
     COPYRIGHT: "© github.com/phpmyadmin/phpmyadmin",
     HINT: "Zugänge werden <strong>ausschließlich</strong> im Unterricht vergeben.",
+  },
+  DRAWDB: {
+    IMG: DRAWDB_IMAGE,
+    TITLE: "drawDB",
+    TEXT: "drawDB ist ein kostenloser Online-Open-Source-Datenbankdiagrammeditor mit diversen Funktionen zur Erstellung und Visualiserung von Datenbankmodellen, inklusive Import- und Exportfunktionen zu bspw. phpMyAdmin.",
+    LINK: "https://db.binkert-patrick.de/",
+    BUTTON_TEXT: "SELECT drawDB FROM editor;",
+    TAGS: [
+      {
+        TYPE: TAG_TYPES.SELFHOSTED,
+        VALUE: "selfhosted",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "datenbank",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "modellierung",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "entity",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "relationship",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "relationen",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "uml",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "sql",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "schema",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "datentypen",
+      },
+      {
+        TYPE: TAG_TYPES.IT,
+        VALUE: "kardinalitäten",
+      }
+    ],
+    COPYRIGHT: "github.com/drawdb-io/drawdb",
+    HINT: "",
   },
   JUPYTERHUB: {
     IMG: JUPYTERHUB_IMAGE,
