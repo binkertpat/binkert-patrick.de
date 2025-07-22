@@ -19,8 +19,9 @@ import PHYSIK_INTERAKTIV_IMAGE from '../img/physik_interaktiv.png';
 import O_PHYSICS_IMAGE from '../img/o_physics.png';
 import OPENCAST_STUDIO_IMAGE from '../img/opencast_studio.png';
 import MAL_DEN_CODE_IMAGE from '../img/mal_den_code.png';
+import CRYPTPAD_IMAGE from '../img/cryptpad.png';
 
-export const EXTERNAL_TOOLS_EVERYDAYLIFE = {
+export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
   T1P: {
     IMG: T1P_IMAGE,
     TITLE: "t1p und babsi",
@@ -98,7 +99,34 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE = {
     ],
     COPYRIGHT: "",
     HINT: "",
-  }
+  },
+  MAL_DEN_CODE: {
+    IMG: MAL_DEN_CODE_IMAGE,
+    TITLE: "Mal-den-Code.de",
+    TEXT: "Dieses Tool generiert QR-Codes zum Ausmalen – ideal für interaktive Schulaktivitäten wie Quizformate oder Wettbewerbe. Die erstellten Vorlagen lassen sich vielseitig im Unterricht einsetzen.",
+    LINKSET: [
+      {
+        URL: "https://mal-den-code.de/",
+        BUTTON_TEXT: "Starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  CRYPTPAD: {
+    IMG: CRYPTPAD_IMAGE,
+    TITLE: "CryptPad.fr",
+    TEXT: "CryptPad ist eine datenschutzfreundliche, vollständig verschlüsselte Online-Office-Suite für kollaboratives Arbeiten. Texte, Präsentationen, Whiteboards und mehr können gemeinsam bearbeitet werden – ohne dass der Server Einblick in die Inhalte erhält.",
+    LINKSET: [
+      {
+        URL: "https://cryptpad.fr/",
+        BUTTON_TEXT: "Jetzt zusammenarbeiten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+
 }
 
 export const EXTERNAL_TOOLS_INFORMATIK = {
@@ -290,17 +318,5 @@ export const EXTERNAL_TOOLS_PHYSIK = {
 };
 
 export const EXTERNAL_TOOLS_EDU = {
-  MAL_DEN_CODE: {
-    IMG: MAL_DEN_CODE_IMAGE,
-    TITLE: "Mal-den-Code.de",
-    TEXT: "Dieses Tool generiert QR-Codes zum Ausmalen – ideal für interaktive Schulaktivitäten wie Quizformate oder Wettbewerbe. Die erstellten Vorlagen lassen sich vielseitig im Unterricht einsetzen.",
-    LINKSET: [
-      {
-        URL: "https://mal-den-code.de/",
-        BUTTON_TEXT: "Starten!"
-      }
-    ],
-    COPYRIGHT: "",
-    HINT: "",
-  },
+  
 };
