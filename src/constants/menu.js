@@ -9,11 +9,11 @@ export const MENU_STRUCTURE = {
     URL: "/external-tools",
     ENABLED: true,
   },
-  EXTERNAL_PROGRAMS: {
-    NAME: "Programme",
-    URL: "/external-programs",
-    ENABLED: true,
-  },
+  // EXTERNAL_PROGRAMS: {
+  //   NAME: "Programme",
+  //   URL: "/external-programs",
+  //   ENABLED: true,
+  // },
   BIBER: {
     NAME: "Informatikbiber@BvC 2024",
     URL: "https://biber.binkert-patrick.de/",
