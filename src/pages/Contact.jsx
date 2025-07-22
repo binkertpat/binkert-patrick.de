@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const Contact = () => {

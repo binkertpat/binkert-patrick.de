@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const ToolsCard = ({ props }) => {
   return (
     <div className="col">
@@ -11,10 +12,13 @@ const ToolsCard = ({ props }) => {
         <div className="card-body">
           <h5 className="card-title">{props.TITLE}</h5>
           <p className="card-text"> {props.TEXT} </p>
-          <a href={props.LINK} className="btn btn-primary">
-            {" "}
-            {props.BUTTON_TEXT}
-          </a>
+          {Object.values(props.LINKSET).map((link, i) => (
+            <div key={i} className="mb-2 gy-2">
+              <a href={link.URL} className="btn btn-primary">
+                {link.BUTTON_TEXT}
+              </a>
+            </div>
+          ))}
         </div>
         <ul className="list-group list-group-flush">
           {props.HINT != "" && (
@@ -26,7 +30,7 @@ const ToolsCard = ({ props }) => {
               ></div>
             </li>
           )}
-          <li className="list-group-item">
+          {/* <li className="list-group-item">
             {Object.values(props.TAGS).map((item, i) => {
               return (
                 <span key={i} className={"badge me-1 " + item.TYPE}>
@@ -34,7 +38,7 @@ const ToolsCard = ({ props }) => {
                 </span>
               );
             })}
-          </li>
+          </li> */}
         </ul>
         {props.COPYRIGHT != "" && (
           <div className="card-footer text-body-secondary">

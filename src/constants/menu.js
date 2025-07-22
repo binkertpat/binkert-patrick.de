@@ -14,24 +14,25 @@ export const MENU_STRUCTURE = {
     URL: "/external-programs",
     ENABLED: true,
   },
-  CONTACT: {
-    NAME: "Kontakt",
-    URL: "/contact",
-    ENABLED: true,
-  },
-  EDUCATION: {
-    NAME: "Unterrichtsmaterial & Arbeitsblätter",
-    URL: "/education",
-    ENABLED: true,
-  },
   BIBER: {
     NAME: "Informatikbiber@BvC 2024",
     URL: "https://biber.binkert-patrick.de/",
     ENABLED: true,
   },
-  PBM_EDITOR: {
-    NAME: "PBM-Editor",
-    URL: "/pbm",
+  CONTACT: {
+    NAME: "Kontakt",
+    URL: "/contact",
     ENABLED: true,
-  }
+  },
+  // EDUCATION: {
+  //   NAME: "Unterrichtsmaterial & Arbeitsblätter",
+  //   URL: "/education",
+  //   ENABLED: true,
+  // },
+
+  // PBM_EDITOR: {
+  //   NAME: "PBM-Editor",
+  //   URL: "/pbm",
+  //   ENABLED: true,
+  // }
 };

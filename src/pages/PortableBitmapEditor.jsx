@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from "react";
 
 const PortableBitmapEditor = () => {
@@ -230,8 +231,6 @@ const PortableBitmapEditor = () => {
           </div>
         </>
       )}
-          
-
     </>
   );
 };

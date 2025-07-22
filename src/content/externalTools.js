@@ -4,157 +4,59 @@ import WEBNETSIM__IMAGE from "../img/webnetsim.png";
 import ONLINE_PYTHON_IMAGE from "../img/online_python.png";
 import EXALIDRAW_IMAGE from "../img/excalidraw.png";
 import LOGIGATOR_IMAGE from "../img/logigator.png";
-import FLACI_IMAGE from "../img/flaci.png";
 import FLINGA_IMAGE from "../img/flinga.png";
 import DEBUGGEX_IMAGE from "../img/debuggex.png";
 import MERMAID_IMAGE from "../img/mermaid.png";
 import REGEX101_IMAGE from "../img/regex101.png";
 import REGEXPER_IMAGE from "../img/regexper.png";
 import TODIAGRAM_IMAGE from "../img/todiagram.png";
-import { TAG_TYPES } from "../constants/tagTypes";
+import PAIR_DROP from '../img/pairdrop.png'
+import TEN_MINUTE_MAIL from '../img/ten_minute_mail.png'
+import METHOD_DRAW_VECTOR_IMAGE from '../img/method_draw_vector.png'
+import GRAPHITE_IMAGE from '../img/graphite.png';
+import MINTAPPS_IMAGE from '../img/mintapps.png';
+import PHYSIK_INTERAKTIV_IMAGE from '../img/physik_interaktiv.png';
+import O_PHYSICS_IMAGE from '../img/o_physics.png';
+import OPENCAST_STUDIO_IMAGE from '../img/opencast_studio.png';
+import MAL_DEN_CODE_IMAGE from '../img/mal_den_code.png';
 
-export const EXTERNAL_TOOLS = {
+export const EXTERNAL_TOOLS_EVERYDAYLIFE = {
   T1P: {
     IMG: T1P_IMAGE,
-    TITLE: "t1p",
-    TEXT: "URL-Shortener",
-    LINK: "https://t1p.de/",
-    BUTTON_TEXT: "Link kürzen!",
-    TAGS: [
+    TITLE: "t1p und babsi",
+    TEXT: "Zwei datenschutzfreundliche URL-Shortener mit diversen zusätzlichen Funktionen, wie: QR-Codes generieren, Multilinks, Passwortschutz, Gültigkeitszeitraum, uvm.",
+    LINKSET: [
       {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
+        URL: "https://t1p.de/",
+        BUTTON_TEXT: "t1p.de"
       },
       {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "usability",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "shortener",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "link",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "url",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "usability",
-      },
+        URL: "https://t1p.de/",
+        BUTTON_TEXT: "bab.si"
+      }
     ],
     COPYRIGHT: "",
     HINT: "",
   },
-  WEBNETSIM: {
-    IMG: WEBNETSIM__IMAGE,
-    TITLE: "WebNetSim",
-    TEXT: "Eine kollaborative Simulationsumgebung zum Erstellen eines eigenen Netzwerks mit Routern, Computern und Servern.",
-    LINK: "https://webnetsim.de/",
-    BUTTON_TEXT: "Sim a Network!",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "network",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "router",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "provider",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "isp",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "client",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "server",
-      },
-    ],
+  PAIRDROP: {
+    IMG: PAIR_DROP,
+    TITLE: "PairDrop",
+    TEXT: "PairDrop ist eine plattformübergreifende Lösung zum einfachen Teilen von Dateien, Bildern oder Texten im lokalen Netzwerk per Peer-to-Peer-Verbindung – ähnlich wie AirDrop, aber für alle Geräte. Es funktioniert als Web-App in jedem modernen Browser und erlaubt auch das Teilen über das Internet via temporäre öffentliche Räume. So lassen sich z. B. Fotos in Originalqualität zwischen iOS- und Android-Geräten oder Dateien zwischen Linux-Systemen direkt und sicher übertragen.",
+    LINKSET: [{
+      URL: "https://pairdrop.net/",
+      BUTTON_TEXT: "pairdrop.net"
+    }],
     COPYRIGHT: "",
     HINT: "",
   },
-  VSCODE: {
-    IMG: VSCODE_IMAGE,
-    TITLE: "VS-Code online",
-    TEXT: "Webbasierter Visual Studio Code Editor",
-    LINK: "https://vscode.dev",
-    BUTTON_TEXT: "Start coding!",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "ide",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "vscode",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "programmierung",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "coding",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "editor",
-      },
-    ],
-    COPYRIGHT: "",
-    HINT: "",
-  },
-  PYTHON_ONLINE: {
-    IMG: ONLINE_PYTHON_IMAGE,
-    TITLE: "ONLINE PYTHON",
-    TEXT: "Webbasierte Python IDE",
-    LINK: "https://www.online-python.com/",
-    BUTTON_TEXT: "print('Hello world!')",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "ide",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "python",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "programmierung",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "coding",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "editor",
-      },
-    ],
+  TEN_MINUTE_MAIL: {
+    IMG: TEN_MINUTE_MAIL,
+    TITLE: "10 Minute Mail",
+    TEXT: "Eine 10-Minuten-Mail ist eine temporäre E-Mail-Adresse, die automatisch erstellt und nach kurzer Zeit (meist 10 Minuten) wieder gelöscht wird. Sie dient dazu, sich anonym oder ohne Spam-Risiko bei Online-Diensten zu registrieren, ohne die eigene private E-Mail-Adresse anzugeben. So lässt sich der Schutz der Privatsphäre erhöhen und unerwünschte Werbung vermeiden.",
+    LINKSET: [{
+      URL: "https://10minutemail.com/",
+      BUTTON_TEXT: "10minutemail.com"
+    }],
     COPYRIGHT: "",
     HINT: "",
   },
@@ -162,235 +64,10 @@ export const EXTERNAL_TOOLS = {
     IMG: EXALIDRAW_IMAGE,
     TITLE: "Excalidraw",
     TEXT: "Online Whiteboard für kollaborative Zusammenarbeit",
-    LINK: "https://excalidraw.com/",
-    BUTTON_TEXT: "Let's draw!",
-    TAGS: [
+    LINKSET: [
       {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "whiteboard",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "kollaboration",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "kooperation",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "echtzeit",
-      }
-    ],
-    COPYRIGHT: "",
-    HINT: "",
-  },
-  
-  LOGIGATOR: {
-    IMG: LOGIGATOR_IMAGE,
-    TITLE: "LOGIGATOR",
-    TEXT: "Baue, simuliere und verwalte komplexe Logikschaltungen.",
-    LINK: "https://logigator.com/editor/",
-    BUTTON_TEXT: "1 + 1 = 10!",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "simulation",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "logik",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "gatter",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "AND",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "OR",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "XOR",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "NAND",
-      }
-    ],
-    COPYRIGHT: "",
-    HINT: "",
-  },
-  TODIAGRAM: {
-    IMG: TODIAGRAM_IMAGE,
-    TITLE: "ToDiagram",
-    TEXT: "ToDiagram stellt JSON, CSV, YAML und XML-Dateien mit Hilfe interaktiver Diagramme dar.",
-    LINK: "https://todiagram.com/editor",
-    BUTTON_TEXT: "Starten!",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "datentypen",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "datenstrukturen",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "json",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "xml",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "csv",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "yaml",
-      }
-    ],
-    COPYRIGHT: "",
-    HINT: "",
-  },
-  MERMAID: {
-    IMG: MERMAID_IMAGE,
-    TITLE: "Mermaid",
-    TEXT: "Mermaid ist ein JavaScript-basiertes Diagrammerstellungstool, das Markdown-inspirierte Textdefinitionen und einen Renderer zum Erstellen und Bearbeiten komplexer Diagramme verwendet.",
-    LINK: "https://mermaid.live/edit",
-    BUTTON_TEXT: "Starten!",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "diagramme",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "flowchart",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "sequence",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "class",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "state",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "entityrelationship",
-      }
-    ],
-    COPYRIGHT: "",
-    HINT: "",
-  },
-  REGEXPER: {
-    IMG: REGEXPER_IMAGE,
-    TITLE: "REGEXPER",
-    TEXT: "Visualisierung von regulären Ausdrücken.",
-    LINK: "https://regexper.com/",
-    BUTTON_TEXT: "Starten!",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "regex",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "regulaereAusdruecke",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "visualisierung",
-      }
-    ],
-    COPYRIGHT: "",
-    HINT: "",
-  },
-  DEBUGGEX: {
-    IMG: DEBUGGEX_IMAGE,
-    TITLE: "Debuggex",
-    TEXT: "Visualisierung, Testen und Debuggen von regulären Ausdrücken.",
-    LINK: "https://www.debuggex.com/",
-    BUTTON_TEXT: "Starten!",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "regex",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "regulaereAusdruecke",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "visualisierung",
-      }
-    ],
-    COPYRIGHT: "",
-    HINT: "",
-  },
-  REGEX101: {
-    IMG: REGEX101_IMAGE,
-    TITLE: "regular expressions 101",
-    TEXT: "Visualisierung, Testen und Debuggen von regulären Ausdrücken, inklusive Genereriung von Code-Snippets in verschiedenen Programmiersprachen.",
-    LINK: "Starten!",
-    BUTTON_TEXT: "L",
-    TAGS: [
-      {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "regex",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "regulaereAusdruecke",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "visualisierung",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "codeSnippets",
+        URL: "https://excalidraw.com/",
+        BUTTON_TEXT: "Let's draw!",
       }
     ],
     COPYRIGHT: "",
@@ -400,77 +77,230 @@ export const EXTERNAL_TOOLS = {
     IMG: FLINGA_IMAGE,
     TITLE: "FLINGA",
     TEXT: "Kollaborative Zusammenarbeit und Feedback in Echtzeit.",
-    LINK: "https://flinga.fi/tools",
-    BUTTON_TEXT: "Starten!",
-    TAGS: [
+    LINKSET: [
       {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "whiteboard",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "kollaboration",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "kooperation",
-      },
-      {
-        TYPE: TAG_TYPES.EDU,
-        VALUE: "feedback",
+        URL: "https://flinga.fi/tools",
+        BUTTON_TEXT: "Starten!",
       }
     ],
     COPYRIGHT: "",
     HINT: "",
+  },
+  OPENCAST_STUDIO: {
+    IMG: OPENCAST_STUDIO_IMAGE,
+    TITLE: "Opencast Studio",
+    TEXT: "Opencast Studio ist ein webbasiertes Aufnahmestudio, mit dem sich Kamera, Bildschirm und Mikrofon direkt im Browser aufnehmen lassen – ganz ohne Server. Die Aufnahmen werden ausschließlich lokal gespeichert.",
+    LINKSET: [
+      {
+        URL: "https://studio.opencast.org/",
+        BUTTON_TEXT: "Aufnahme starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  }
+}
+
+export const EXTERNAL_TOOLS_INFORMATIK = {
+  WEBNETSIM: {
+    IMG: WEBNETSIM__IMAGE,
+    TITLE: "WebNetSim",
+    TEXT: "Eine kollaborative Simulationsumgebung zum Erstellen eines eigenen Netzwerks mit Routern, Computern und Servern.",
+    LINKSET: [
+      {
+        URL: "https://webnetsim.de/",
+        BUTTON_TEXT: "Sim a Network!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  VSCODE: {
+    IMG: VSCODE_IMAGE,
+    TITLE: "VS-Code online",
+    TEXT: "Webbasierter Visual Studio Code Editor",
+    LINKSET: [
+      {
+        URL: "https://vscode.dev",
+        BUTTON_TEXT: "Start coding!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  PYTHON_ONLINE: {
+    IMG: ONLINE_PYTHON_IMAGE,
+    TITLE: "ONLINE PYTHON",
+    TEXT: "Webbasierte Python IDE",
+    LINKSET: [
+      {
+        URL: "https://www.online-python.com/",
+        BUTTON_TEXT: "print('Hello world!')"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  LOGIGATOR: {
+    IMG: LOGIGATOR_IMAGE,
+    TITLE: "LOGIGATOR",
+    TEXT: "Baue, simuliere und verwalte komplexe Logikschaltungen.",
+    LINKSET: [
+      {
+        URL: "https://logigator.com/editor/",
+        BUTTON_TEXT: "1 + 1 = 10!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  TODIAGRAM: {
+    IMG: TODIAGRAM_IMAGE,
+    TITLE: "ToDiagram",
+    TEXT: "ToDiagram stellt JSON, CSV, YAML und XML-Dateien mit Hilfe interaktiver Diagramme dar.",
+    LINKSET: [
+      {
+        URL: "https://todiagram.com/editor",
+        BUTTON_TEXT: "Starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  MERMAID: {
+    IMG: MERMAID_IMAGE,
+    TITLE: "Mermaid",
+    TEXT: "Mermaid ist ein JavaScript-basiertes Diagrammerstellungstool, das Markdown-inspirierte Textdefinitionen und einen Renderer zum Erstellen und Bearbeiten komplexer Diagramme verwendet.",
+    LINKSET: [
+      {
+        URL: "https://mermaid.live/edit",
+        BUTTON_TEXT: "Starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  REGEXPER: {
+    IMG: REGEXPER_IMAGE,
+    TITLE: "REGEXPER",
+    TEXT: "Visualisierung von regulären Ausdrücken.",
+    LINKSET: [
+      {
+        URL: "https://regexper.com/",
+        BUTTON_TEXT: "Starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  DEBUGGEX: {
+    IMG: DEBUGGEX_IMAGE,
+    TITLE: "Debuggex",
+    TEXT: "Visualisierung, Testen und Debuggen von regulären Ausdrücken.",
+    LINKSET: [
+      {
+        URL: "https://www.debuggex.com/",
+        BUTTON_TEXT: "Starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  REGEX101: {
+    IMG: REGEX101_IMAGE,
+    TITLE: "regular expressions 101",
+    TEXT: "Visualisierung, Testen und Debuggen von regulären Ausdrücken, inklusive Genereriung von Code-Snippets in verschiedenen Programmiersprachen.",
+    LINKSET: [
+      {
+        URL: "https://regex101.com/",
+        BUTTON_TEXT: "Starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  METHOD_DRAW_VECTOR: {
+    IMG: METHOD_DRAW_VECTOR_IMAGE,
+    TITLE: "Method Draw",
+    TEXT: "Method Draw ist ein einfacher open-source SVG-Editor, der es ermöglicht, Vektorgrafiken zu erstellen und zu bearbeiten. Er bietet eine benutzerfreundliche Oberfläche und alle grundlegende Funktionen zum Zeichnen und Bearbeiten von SVG-Grafiken.",
+    LINKSET: [
+      {
+        URL: "https://editor.method.ac/",
+        BUTTON_TEXT: "Starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  GRAPHITE: {
+    IMG: GRAPHITE_IMAGE,
+    TITLE: "Graphite",
+    TEXT: "Graphite ist ein kostenloser, quelloffener 2D-Grafikeditor für Vektor- und Rastergrafiken.",
+    LINKSET: [
+      {
+        URL: "https://editor.graphite.rs/",
+        BUTTON_TEXT: "Starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "Derzeit nur als Alpha, aber das Tool scheint aktiv weiterentwickelt zu werden.",
   }
 };
 
-export const EXTERNAL_PROGRAMMS_COLLECTION = {
-  FLACI: {
-    IMG: FLACI_IMAGE,
-    TITLE: "FLACI",
-    TEXT: "Formale Sprachen, abstrakte Automaten, Compiler und Interpreter.",
-    LINK: "https://flaci.com/home/",
-    BUTTON_TEXT: "[a-z]{1,10}@{2,10}\\.de",
-    TAGS: [
+export const EXTERNAL_TOOLS_PHYSIK = {
+  MINTAPPS: {
+    IMG: MINTAPPS_IMAGE,
+    TITLE: "MintApps",
+    TEXT: "Simulationen und Animationen zur Physik - von der Mechanik bis zu Quantenphysik.",
+    LINKSET: [
       {
-        TYPE: TAG_TYPES.EXTERN,
-        VALUE: "extern",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "formale_sprachen",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "regulaere_ausdruecke",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "compiler",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "automaten",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "interpreten",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "NEA",
-      },
-      {
-        TYPE: TAG_TYPES.IT,
-        VALUE: "DEA",
+        URL: "https://mintapps.org/html/mint-index-physics.html",
+        BUTTON_TEXT: "Experimente starten!"
       }
     ],
     COPYRIGHT: "",
     HINT: "",
-  }
+  },
+  PHYSIK_INTERAKTIV: {
+    IMG: PHYSIK_INTERAKTIV_IMAGE,
+    TITLE: "Physik interaktiv",
+    TEXT: "Eine Sammlung diverser interaktiver Simulationen und Animationen zu diversen physikalischen Themen vom Gymnasium Westerstede.",
+    LINKSET: [
+      {
+        URL: "https://www.physik.gym-wst.de/",
+        BUTTON_TEXT: "Experimente starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  O_PHYSICS: {
+    IMG: O_PHYSICS_IMAGE,
+    TITLE: "Interactive Physics Simulations",
+    TEXT: "Eine Sammlung diverser interaktiver Simulationen und Animationen zu diversen physikalischen Themen.",
+    LINKSET: [
+      {
+        URL: "https://ophysics.com/index.html",
+        BUTTON_TEXT: "Experimente starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+};
+
+export const EXTERNAL_TOOLS_EDU = {
+  MAL_DEN_CODE: {
+    IMG: MAL_DEN_CODE_IMAGE,
+    TITLE: "Mal-den-Code.de",
+    TEXT: "Dieses Tool generiert QR-Codes zum Ausmalen – ideal für interaktive Schulaktivitäten wie Quizformate oder Wettbewerbe. Die erstellten Vorlagen lassen sich vielseitig im Unterricht einsetzen.",
+    LINKSET: [
+      {
+        URL: "https://mal-den-code.de/",
+        BUTTON_TEXT: "Starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
 };
