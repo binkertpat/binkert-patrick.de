@@ -1,7 +1,7 @@
 {
-    "name": "root/sending-mails",
-    "require": {
-        "phpmailer/phpmailer": "^6.9",
-        "vlucas/phpdotenv": "^5.6"
-    }
+  "name": "root/sending-mails",
+  "require": {
+    "phpmailer/phpmailer": "^6.9",
+    "vlucas/phpdotenv": "^5.6"
+  }
 }

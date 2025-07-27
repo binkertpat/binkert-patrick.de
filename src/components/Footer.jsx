@@ -16,7 +16,10 @@ const Footer = () => {
         © 2024 Patrick Binkert
       </p>
       <p className="text-center text-body-secondary">
-        <a className="text-decoration-none text-body-secondary" href={__GITHUB_REPO__}>
+        <a
+          className="text-decoration-none text-body-secondary"
+          href={__GITHUB_REPO__}
+        >
           v{__PACKAGE__.version}-{__COMMIT_HASH__}
         </a>
       </p>

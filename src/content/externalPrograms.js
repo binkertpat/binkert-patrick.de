@@ -9,5 +9,5 @@ export const EXTERNAL_PROGRAMS = {
     BUTTON_TEXT: "[a-z]{1,10}@{2,10}\\.de",
     COPYRIGHT: "",
     HINT: "",
-  }
+  },
 };

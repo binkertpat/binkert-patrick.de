@@ -18,8 +18,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://bvc-social.de/",
-        BUTTON_TEXT: "Let's be social!"
-      }
+        BUTTON_TEXT: "Let's be social!",
+      },
     ],
     COPYRIGHT: "© github.com/wi-wissen/InstaHub",
     HINT: "Zur Zeit nicht verfügbar.",
@@ -31,8 +31,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://pma.binkert-patrick.de",
-        BUTTON_TEXT: "phpMyAdmin starten!"
-      }
+        BUTTON_TEXT: "phpMyAdmin starten!",
+      },
     ],
     COPYRIGHT: "© github.com/phpmyadmin/phpmyadmin",
     HINT: "Zugänge werden <strong>ausschließlich</strong> im Unterricht vergeben.",
@@ -44,8 +44,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://db.binkert-patrick.de/",
-        BUTTON_TEXT: "SELECT drawDB FROM editor;"
-      }
+        BUTTON_TEXT: "SELECT drawDB FROM editor;",
+      },
     ],
     COPYRIGHT: "github.com/drawdb-io/drawdb",
     HINT: "",
@@ -57,8 +57,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://hub.binkert-patrick.de/hub",
-        BUTTON_TEXT: "JupyterHub starten!"
-      }
+        BUTTON_TEXT: "JupyterHub starten!",
+      },
     ],
     COPYRIGHT: "© github.com/jupyterhub/jupyterhub",
     HINT: "Eine Freischaltung des Accounts ist <strong>auf Anfrage</strong> möglich.",
@@ -70,8 +70,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://binkert-patrick.de/struktog",
-        BUTTON_TEXT: "Struktogramm-Editor starten!"
-      }
+        BUTTON_TEXT: "Struktogramm-Editor starten!",
+      },
     ],
     COPYRIGHT: "© https://gitlab.com/dev-ddi",
     HINT: "",
@@ -83,8 +83,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://pad.binkert-patrick.de/",
-        BUTTON_TEXT: "Pad erstellen!"
-      }
+        BUTTON_TEXT: "Pad erstellen!",
+      },
     ],
     COPYRIGHT: "© github.com/ether/etherpad-lite",
     HINT: "",
@@ -96,8 +96,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://chat.binkert-patrick.de/",
-        BUTTON_TEXT: "Let's chat!"
-      }
+        BUTTON_TEXT: "Let's chat!",
+      },
     ],
     COPYRIGHT: "© github.com/jeremyckahn/chitchatter",
     HINT: "",
@@ -109,8 +109,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "http://wiki.binkert-patrick.de/doku.php",
-        BUTTON_TEXT: "Wiki öffnen!"
-      }
+        BUTTON_TEXT: "Wiki öffnen!",
+      },
     ],
     COPYRIGHT: "© github.com/dokuwiki/dokuwiki",
     HINT: "Nur von <strong>registrierten Nutzern</strong> bearbeitbar.",
@@ -122,8 +122,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://dev.binkert-patrick.de/",
-        BUTTON_TEXT: "Schau rein!"
-      }
+        BUTTON_TEXT: "Schau rein!",
+      },
     ],
     COPYRIGHT: "© github.com/CorentinTh/it-tools",
     HINT: "",
@@ -135,8 +135,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://board.binkert-patrick.de/",
-        BUTTON_TEXT: "Tafel starten!"
-      }
+        BUTTON_TEXT: "Tafel starten!",
+      },
     ],
     COPYRIGHT: "© codeberg.org/ladigitale/digiboard",
     HINT: "",
@@ -148,8 +148,8 @@ export const SELF_HOSTED_TOOLS = {
     LINKSET: [
       {
         URL: "https://jitsi.binkert-patrick.de/",
-        BUTTON_TEXT: "Let's talk!"
-      }
+        BUTTON_TEXT: "Let's talk!",
+      },
     ],
     COPYRIGHT: "© https://jitsi.org/",
     HINT: "<strong>Nutzername</strong> und <strong>Passwort</strong> sind jeweils: <code>jitsi@BvC</code>",

@@ -42,7 +42,7 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    if(searchParams.get("success")) {
+    if (searchParams.get("success")) {
       setSuccess(searchParams.get("success"));
     }
   }, [searchParams]);
@@ -56,7 +56,8 @@ const Contact = () => {
           role="alert"
         >
           <div className="text-center">
-            Die E-Mail wurde <b>erfolgreich versendet</b>. Vielen Dank für deine Nachricht. Ich melde mich so schnell wie möglich bei dir zurück.
+            Die E-Mail wurde <b>erfolgreich versendet</b>. Vielen Dank für deine
+            Nachricht. Ich melde mich so schnell wie möglich bei dir zurück.
           </div>
         </div>
       )}
@@ -66,7 +67,8 @@ const Contact = () => {
           role="alert"
         >
           <div className="text-center">
-            Die E-Mail wurde <b>nicht versendet</b>. Bitte überprüfe deine Eingaben und versuche es (ggf. später) erneut.
+            Die E-Mail wurde <b>nicht versendet</b>. Bitte überprüfe deine
+            Eingaben und versuche es (ggf. später) erneut.
           </div>
         </div>
       )}
@@ -151,7 +153,6 @@ const Contact = () => {
             Abschicken
           </button>
         </div>
-        
       </form>
     </>
   );

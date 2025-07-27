@@ -20,12 +20,13 @@ const LandingPage = () => {
         <div className="col-lg-6">
           <h2 className="display-5 fw-bold lh-1 mb-3">Tools und Apps</h2>
           <p className="lead">
-            Die verlinkten Seiten enthalten eine Vielzahl von Links zu verschiedenen Tools und
-            Anwendungen, die speziell für den Einsatz im Unterricht konzipiert
-            sind. Einige dieser Tools sind selbst gehostet, das heißt, sie
-            werden auf meinem eigenen Servern betrieben, während andere extern
-            über das Internet zugänglich sind. Keines dieser Tools ist
-            kostenpflichtig oder sammelt unnötige personenbezogene Daten!
+            Die verlinkten Seiten enthalten eine Vielzahl von Links zu
+            verschiedenen Tools und Anwendungen, die speziell für den Einsatz im
+            Unterricht konzipiert sind. Einige dieser Tools sind selbst
+            gehostet, das heißt, sie werden auf meinem eigenen Servern
+            betrieben, während andere extern über das Internet zugänglich sind.
+            Keines dieser Tools ist kostenpflichtig oder sammelt unnötige
+            personenbezogene Daten!
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
             <a href="/self-hosted-tools">
@@ -69,12 +70,18 @@ const LandingPage = () => {
           />
         </div>
         <div className="col-lg-6">
-          <h2 className="display-5 fw-bold lh-1 mb-3">Informatikbiber@BvC 2024</h2>
+          <h2 className="display-5 fw-bold lh-1 mb-3">
+            Informatikbiber@BvC 2024
+          </h2>
           <span className="badge bg-success mb-3">Wettbewerb</span>
           <p className="lead">
-            Auf der nachfolgenden Seite könnt ihr euch eure Zugangsdaten für Informatikbiber zusammen klicken. Das Passwort wird euch im Unterricht mitgeteilt. Viel Erfolg! 
-            <br/><br/>
-            Nach dem Wettbewerb könnt ihr mit diesem Zugang eure Ergebnisse auf der Seite einsehen und die Aufgaben noch einmal durchgehen.
+            Auf der nachfolgenden Seite könnt ihr euch eure Zugangsdaten für
+            Informatikbiber zusammen klicken. Das Passwort wird euch im
+            Unterricht mitgeteilt. Viel Erfolg!
+            <br />
+            <br />
+            Nach dem Wettbewerb könnt ihr mit diesem Zugang eure Ergebnisse auf
+            der Seite einsehen und die Aufgaben noch einmal durchgehen.
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
             <a href="https://biber.binkert-patrick.de/">

@@ -10,21 +10,21 @@ import MERMAID_IMAGE from "../img/mermaid.png";
 import REGEX101_IMAGE from "../img/regex101.png";
 import REGEXPER_IMAGE from "../img/regexper.png";
 import TODIAGRAM_IMAGE from "../img/todiagram.png";
-import PAIR_DROP from '../img/pairdrop.png'
-import TEN_MINUTE_MAIL from '../img/ten_minute_mail.png'
-import METHOD_DRAW_VECTOR_IMAGE from '../img/method_draw_vector.png'
-import GRAPHITE_IMAGE from '../img/graphite.png';
-import MINTAPPS_IMAGE from '../img/mintapps.png';
-import PHYSIK_INTERAKTIV_IMAGE from '../img/physik_interaktiv.png';
-import O_PHYSICS_IMAGE from '../img/o_physics.png';
-import OPENCAST_STUDIO_IMAGE from '../img/opencast_studio.png';
-import MAL_DEN_CODE_IMAGE from '../img/mal_den_code.png';
-import CRYPTPAD_IMAGE from '../img/cryptpad.png';
-import TWEEDBACK_IMAGE from '../img/tweedback.png'; 
-import NUUDLE_IMAGE from '../img/nuudle.png';
-import DRAW_CHAT_IMAGE from '../img/draw_chat.png';
-import LEARNINGVIEW_IMAGE from '../img/learningview.png';
-import HTML_CSS_JS_CHEATSHEET_IMAGE from '../img/html_css_js_cheatsheet.png';
+import PAIR_DROP from "../img/pairdrop.png";
+import TEN_MINUTE_MAIL from "../img/ten_minute_mail.png";
+import METHOD_DRAW_VECTOR_IMAGE from "../img/method_draw_vector.png";
+import GRAPHITE_IMAGE from "../img/graphite.png";
+import MINTAPPS_IMAGE from "../img/mintapps.png";
+import PHYSIK_INTERAKTIV_IMAGE from "../img/physik_interaktiv.png";
+import O_PHYSICS_IMAGE from "../img/o_physics.png";
+import OPENCAST_STUDIO_IMAGE from "../img/opencast_studio.png";
+import MAL_DEN_CODE_IMAGE from "../img/mal_den_code.png";
+import CRYPTPAD_IMAGE from "../img/cryptpad.png";
+import TWEEDBACK_IMAGE from "../img/tweedback.png";
+import NUUDLE_IMAGE from "../img/nuudle.png";
+import DRAW_CHAT_IMAGE from "../img/draw_chat.png";
+import LEARNINGVIEW_IMAGE from "../img/learningview.png";
+import HTML_CSS_JS_CHEATSHEET_IMAGE from "../img/html_css_js_cheatsheet.png";
 
 export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
   T1P: {
@@ -34,12 +34,12 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     LINKSET: [
       {
         URL: "https://t1p.de/",
-        BUTTON_TEXT: "t1p.de"
+        BUTTON_TEXT: "t1p.de",
       },
       {
         URL: "https://t1p.de/",
-        BUTTON_TEXT: "bab.si"
-      }
+        BUTTON_TEXT: "bab.si",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -48,10 +48,12 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     IMG: PAIR_DROP,
     TITLE: "PairDrop",
     TEXT: "PairDrop ist eine plattformübergreifende Lösung zum einfachen Teilen von Dateien, Bildern oder Texten im lokalen Netzwerk per Peer-to-Peer-Verbindung – ähnlich wie AirDrop, aber für alle Geräte. Es funktioniert als Web-App in jedem modernen Browser und erlaubt auch das Teilen über das Internet via temporäre öffentliche Räume. So lassen sich z. B. Fotos in Originalqualität zwischen iOS- und Android-Geräten oder Dateien zwischen Linux-Systemen direkt und sicher übertragen.",
-    LINKSET: [{
-      URL: "https://pairdrop.net/",
-      BUTTON_TEXT: "pairdrop.net"
-    }],
+    LINKSET: [
+      {
+        URL: "https://pairdrop.net/",
+        BUTTON_TEXT: "pairdrop.net",
+      },
+    ],
     COPYRIGHT: "",
     HINT: "",
   },
@@ -59,10 +61,12 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     IMG: TEN_MINUTE_MAIL,
     TITLE: "10 Minute Mail",
     TEXT: "Eine 10-Minuten-Mail ist eine temporäre E-Mail-Adresse, die automatisch erstellt und nach kurzer Zeit (meist 10 Minuten) wieder gelöscht wird. Sie dient dazu, sich anonym oder ohne Spam-Risiko bei Online-Diensten zu registrieren, ohne die eigene private E-Mail-Adresse anzugeben. So lässt sich der Schutz der Privatsphäre erhöhen und unerwünschte Werbung vermeiden.",
-    LINKSET: [{
-      URL: "https://10minutemail.com/",
-      BUTTON_TEXT: "10minutemail.com"
-    }],
+    LINKSET: [
+      {
+        URL: "https://10minutemail.com/",
+        BUTTON_TEXT: "10minutemail.com",
+      },
+    ],
     COPYRIGHT: "",
     HINT: "",
   },
@@ -74,7 +78,7 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
       {
         URL: "https://excalidraw.com/",
         BUTTON_TEXT: "Let's draw!",
-      }
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -87,7 +91,7 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
       {
         URL: "https://flinga.fi/tools",
         BUTTON_TEXT: "Starten!",
-      }
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -99,8 +103,8 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     LINKSET: [
       {
         URL: "https://draw.chat/",
-        BUTTON_TEXT: "Jetzt zusammenarbeiten!"
-      }
+        BUTTON_TEXT: "Jetzt zusammenarbeiten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -112,8 +116,8 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     LINKSET: [
       {
         URL: "https://studio.opencast.org/",
-        BUTTON_TEXT: "Aufnahme starten!"
-      }
+        BUTTON_TEXT: "Aufnahme starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -125,8 +129,8 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     LINKSET: [
       {
         URL: "https://mal-den-code.de/",
-        BUTTON_TEXT: "Starten!"
-      }
+        BUTTON_TEXT: "Starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -138,8 +142,8 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     LINKSET: [
       {
         URL: "https://cryptpad.fr/",
-        BUTTON_TEXT: "Jetzt zusammenarbeiten!"
-      }
+        BUTTON_TEXT: "Jetzt zusammenarbeiten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -151,8 +155,8 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     LINKSET: [
       {
         URL: "https://tweedback.de/",
-        BUTTON_TEXT: "Feedback einholen!"
-      }
+        BUTTON_TEXT: "Feedback einholen!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -164,8 +168,8 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     LINKSET: [
       {
         URL: "https://nuudel.digitalcourage.de/",
-        BUTTON_TEXT: "Termine finden!"
-      }
+        BUTTON_TEXT: "Termine finden!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -177,13 +181,13 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     LINKSET: [
       {
         URL: "https://learningview.org/",
-        BUTTON_TEXT: "LearningView starten!"
-      }
+        BUTTON_TEXT: "LearningView starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
   },
-}
+};
 
 export const EXTERNAL_TOOLS_INFORMATIK = {
   WEBNETSIM: {
@@ -193,8 +197,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://webnetsim.de/",
-        BUTTON_TEXT: "Sim a Network!"
-      }
+        BUTTON_TEXT: "Sim a Network!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -206,8 +210,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://vscode.dev",
-        BUTTON_TEXT: "Start coding!"
-      }
+        BUTTON_TEXT: "Start coding!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -219,8 +223,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://www.online-python.com/",
-        BUTTON_TEXT: "print('Hello world!')"
-      }
+        BUTTON_TEXT: "print('Hello world!')",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -232,8 +236,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://logigator.com/editor/",
-        BUTTON_TEXT: "1 + 1 = 10!"
-      }
+        BUTTON_TEXT: "1 + 1 = 10!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -245,8 +249,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://todiagram.com/editor",
-        BUTTON_TEXT: "Starten!"
-      }
+        BUTTON_TEXT: "Starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -258,8 +262,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://mermaid.live/edit",
-        BUTTON_TEXT: "Starten!"
-      }
+        BUTTON_TEXT: "Starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -271,8 +275,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://regexper.com/",
-        BUTTON_TEXT: "Starten!"
-      }
+        BUTTON_TEXT: "Starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -284,8 +288,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://www.debuggex.com/",
-        BUTTON_TEXT: "Starten!"
-      }
+        BUTTON_TEXT: "Starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -297,8 +301,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://regex101.com/",
-        BUTTON_TEXT: "Starten!"
-      }
+        BUTTON_TEXT: "Starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -310,8 +314,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://editor.method.ac/",
-        BUTTON_TEXT: "Starten!"
-      }
+        BUTTON_TEXT: "Starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -323,8 +327,8 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://editor.graphite.rs/",
-        BUTTON_TEXT: "Starten!"
-      }
+        BUTTON_TEXT: "Starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "Derzeit nur als Alpha, aber das Tool scheint aktiv weiterentwickelt zu werden.",
@@ -336,12 +340,12 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     LINKSET: [
       {
         URL: "https://htmlcheatsheet.com/",
-        BUTTON_TEXT: "Let's cheat!"
-      }
+        BUTTON_TEXT: "Let's cheat!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
-  }
+  },
 };
 
 export const EXTERNAL_TOOLS_PHYSIK = {
@@ -352,8 +356,8 @@ export const EXTERNAL_TOOLS_PHYSIK = {
     LINKSET: [
       {
         URL: "https://mintapps.org/html/mint-index-physics.html",
-        BUTTON_TEXT: "Experimente starten!"
-      }
+        BUTTON_TEXT: "Experimente starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -365,8 +369,8 @@ export const EXTERNAL_TOOLS_PHYSIK = {
     LINKSET: [
       {
         URL: "https://www.physik.gym-wst.de/",
-        BUTTON_TEXT: "Experimente starten!"
-      }
+        BUTTON_TEXT: "Experimente starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
@@ -378,14 +382,12 @@ export const EXTERNAL_TOOLS_PHYSIK = {
     LINKSET: [
       {
         URL: "https://ophysics.com/index.html",
-        BUTTON_TEXT: "Experimente starten!"
-      }
+        BUTTON_TEXT: "Experimente starten!",
+      },
     ],
     COPYRIGHT: "",
     HINT: "",
   },
 };
 
-export const EXTERNAL_TOOLS_EDU = {
-  
-};
+export const EXTERNAL_TOOLS_EDU = {};
