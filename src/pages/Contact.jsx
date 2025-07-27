@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { use } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const Contact = () => {
@@ -10,6 +11,7 @@ const Contact = () => {
   );
   const [lastname, setLastName] = useState(searchParams.get("lastname") ?? "");
   const [email, setEmail] = useState(searchParams.get("email") ?? "");
+  const [success, setSuccess] = useState("");
   const [reference, setReference] = useState(
     searchParams.get("reference") ?? "",
   );
@@ -39,9 +41,35 @@ const Contact = () => {
     isMaybeNotABot("/mail-sending-utility/contact_form.php");
   };
 
+  useEffect(() => {
+    if(searchParams.get("success")) {
+      setSuccess(searchParams.get("success"));
+    }
+  }, [searchParams]);
+
   return (
     <>
       <h1 className="display-5 fw-bold lh-1 mb-3">Kontaktformular</h1>
+      {success == "true" && (
+        <div
+          className="alert alert-info d-flex align-items-center justify-content-center text-center"
+          role="alert"
+        >
+          <div className="text-center">
+            Die E-Mail wurde <b>erfolgreich versendet</b>. Vielen Dank für deine Nachricht. Ich melde mich so schnell wie möglich bei dir zurück.
+          </div>
+        </div>
+      )}
+      {success == "false" && (
+        <div
+          className="alert alert-danger d-flex align-items-center justify-content-center text-center"
+          role="alert"
+        >
+          <div className="text-center">
+            Die E-Mail wurde <b>nicht versendet</b>. Bitte überprüfe deine Eingaben und versuche es (ggf. später) erneut.
+          </div>
+        </div>
+      )}
       <form
         className="row g-3"
         method="POST"
@@ -85,7 +113,7 @@ const Contact = () => {
             className="form-control"
             id="email"
             name="email"
-            placeholder="ntuzer@beispiel.de"
+            placeholder="nutzer@beispiel.de"
             value={email}
             onChange={handleEmailChange}
           />
@@ -99,7 +127,7 @@ const Contact = () => {
             className="form-control"
             id="reference"
             name="reference"
-            placeholder="Betreff ..."
+            placeholder="Betreff"
             value={reference}
             onChange={handleReferenceChange}
           />

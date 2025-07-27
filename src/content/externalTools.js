@@ -20,6 +20,11 @@ import O_PHYSICS_IMAGE from '../img/o_physics.png';
 import OPENCAST_STUDIO_IMAGE from '../img/opencast_studio.png';
 import MAL_DEN_CODE_IMAGE from '../img/mal_den_code.png';
 import CRYPTPAD_IMAGE from '../img/cryptpad.png';
+import TWEEDBACK_IMAGE from '../img/tweedback.png'; 
+import NUUDLE_IMAGE from '../img/nuudle.png';
+import DRAW_CHAT_IMAGE from '../img/draw_chat.png';
+import LEARNINGVIEW_IMAGE from '../img/learningview.png';
+import HTML_CSS_JS_CHEATSHEET_IMAGE from '../img/html_css_js_cheatsheet.png';
 
 export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
   T1P: {
@@ -87,6 +92,19 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     COPYRIGHT: "",
     HINT: "",
   },
+  DRAW_CHAT: {
+    IMG: DRAW_CHAT_IMAGE,
+    TITLE: "Draw.Chat",
+    TEXT: "Draw.Chat ist ein webbasiertes Whiteboard für die kollaborative Zusammenarbeit in Echtzeit – ganz ohne Registrierung. Es ermöglicht gemeinsames Zeichnen über Bildern, PDFs oder Karten, Videokonferenzen, Dateiübertragungen sowie die Integration eines KI-Assistenten. Nutzer können individuelle Boards erstellen, speichern, teilen und mit vielfältigen Zeichenwerkzeugen natürlich arbeiten – ideal für Unterricht, Teamarbeit oder kreative Prozesse. Dateien und Boards bleiben mindestens 30 Tage verfügbar und lassen sich bei Bedarf exportieren oder manuell löschen.",
+    LINKSET: [
+      {
+        URL: "https://draw.chat/",
+        BUTTON_TEXT: "Jetzt zusammenarbeiten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
   OPENCAST_STUDIO: {
     IMG: OPENCAST_STUDIO_IMAGE,
     TITLE: "Opencast Studio",
@@ -126,7 +144,45 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
     COPYRIGHT: "",
     HINT: "",
   },
-
+  TWEEDBACK: {
+    IMG: TWEEDBACK_IMAGE,
+    TITLE: "tweedback - Wir lieben Feedback",
+    TEXT: "Die Plattform tweedback ermöglicht es, Feedback zu geben und zu erhalten. Das Ganze dabei anonym und in Echtzeit!",
+    LINKSET: [
+      {
+        URL: "https://tweedback.de/",
+        BUTTON_TEXT: "Feedback einholen!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  NUUDEL: {
+    IMG: NUUDLE_IMAGE,
+    TITLE: "nuudel",
+    TEXT: "nuudel ist die datenschutzfreundliche Alternative zu Doodle. Es ermöglicht die einfache Planung von Terminen und Veranstaltungen, ohne dass persönliche Daten preisgegeben werden müssen.",
+    LINKSET: [
+      {
+        URL: "https://nuudel.digitalcourage.de/",
+        BUTTON_TEXT: "Termine finden!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  LEARNINGVIEW: {
+    IMG: LEARNINGVIEW_IMAGE,
+    TITLE: "LearningView",
+    TEXT: "LearningView ist eine kostenfreie, nicht-kommerzielle Plattform der Pädagogischen Hochschule Schwyz zur Unterrichtsorganisation mit individualisierten Wochenplänen, multimedialen Aufgaben und digitalen Portfolios. Lehrpersonen können Lernziele strukturieren, Aufgaben zuordnen und den Lernfortschritt beobachten – während die Schüler:innen eigenständig Arbeitsstände planen, reflektieren und mit Texten, Bildern, Audios oder Videoarbeiten dokumentieren.",
+    LINKSET: [
+      {
+        URL: "https://learningview.org/",
+        BUTTON_TEXT: "LearningView starten!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
 }
 
 export const EXTERNAL_TOOLS_INFORMATIK = {
@@ -272,6 +328,19 @@ export const EXTERNAL_TOOLS_INFORMATIK = {
     ],
     COPYRIGHT: "",
     HINT: "Derzeit nur als Alpha, aber das Tool scheint aktiv weiterentwickelt zu werden.",
+  },
+  HTML_CSS_JS_CHEATSHEET: {
+    IMG: HTML_CSS_JS_CHEATSHEET_IMAGE,
+    TITLE: "HTML, CSS und JS Cheatsheet",
+    TEXT: "Die Seite bietet eine umfassende Sammlung von Cheatsheets für HTML, CSS und JavaScript. Sie ist ideal für (zukünftige) Webentwickler, die schnell auf die wichtiges Informationen zugreifen möchten.",
+    LINKSET: [
+      {
+        URL: "https://htmlcheatsheet.com/",
+        BUTTON_TEXT: "Let's cheat!"
+      }
+    ],
+    COPYRIGHT: "",
+    HINT: "",
   }
 };
 
