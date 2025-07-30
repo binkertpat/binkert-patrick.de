@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 
 const SurfaceWin11UpgradeBooking = () => {
+  const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
   const [freeTimeslots, setFreeTimeslots] = useState([]);
   const [optionState, updateOptionState] = useState({})
@@ -62,6 +63,7 @@ const SurfaceWin11UpgradeBooking = () => {
   const initFetching = async () => {
     await fetchGetBookings();
     await fetchFreeTimeslots();
+    setLoading(false);
   };
 
   const [count, setCount] = useState(0)
@@ -78,7 +80,7 @@ const SurfaceWin11UpgradeBooking = () => {
     <>
       <h1 className="display-5 fw-bold lh-1 mb-3">Zeitslot buchen</h1>
 
-      {bookings.length == 0 || freeTimeslots.length == 0 && (
+      {loading && (
         <div className="d-flex justify-content-center">
           <Spinner />
         </div>
