@@ -19,6 +19,7 @@ import ExternalTools from "./pages/ExternalTools.jsx";
 import ExternalPrograms from "./pages/ExternalPrograms.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import PortableBitmapEditor from "./pages/PortableBitmapEditor.jsx";
+import SurfaceWin11UpgradeBooking from "./pages/SurfaceWin11UpgradeBooking.jsx";
 
 function App() {
   const { _, dispatch } = useStateContext();
@@ -62,6 +63,7 @@ function App() {
             <Route path="/external-programs" element={<ExternalPrograms />} />
             <Route path="/education" element={<EducationMaterial />} />
             <Route path="/pbm" element={<PortableBitmapEditor />} />
+            <Route path="/SurfaceWin11UpgradeBooking" element={<SurfaceWin11UpgradeBooking />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
