@@ -87,63 +87,65 @@ const SurfaceWin11UpgradeBooking = () => {
       )}
 
       {bookings.length > 0 && freeTimeslots.length > 0 && (
-        <div className="table-responsive">
-          <table className="table table-striped align-middle text-center">
-            <thead>
-              <tr>
-                {/* <th scope="col">#</th> */}
-                <th scope="col">Initialen</th>
-                <th scope="col">Inventarnummer</th>
-                <th scope="col">Zeitslot</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.values(bookings).map((item, i) => {
-                return (
-                  <tr key={i}>
-                    {/* <th scope="row">#{item.userID}</th> */}
-                    <td>{item.shortText}</td>
-                    <td>{item.inventaryNumber}</td>
-                    {item.bookedTimeSlot != undefined && (
-                      <td>{item.timeSlot}</td>
-                    )}
-                    {item.bookedTimeSlot == undefined && (
-                      <td>
-                        <div className="d-grid gap-2 align-items-center">
-                          <select
-                            style={{ minWidth: '250px' }}
-                            key={item.userID}
-                            className="form-select"
-                            aria-label="Zeitslot-Selector"
-                            value={optionState[item.userID]}
-                            placeholder="Wähle deinen Zeitslot!"
-                            onChange={(e) => handleOptionChange(e, item.userID)}
-                          >
-                            <option>Wähle deinen Tag!</option>
-                            {Object.values(freeTimeslots).map((time) => {
-                              return (
-                                <option
-                                  key={time.timeID}
-                                  value={time.timeID}>{time.timeSlot}</option>
-                              )
-                            })}
-                          </select>
-                          <button
-                            type="button"
-                            className="btn btn-success ms-2"
-                            onClick={(e) => handleSubmitButton(e, item.userID)}
-                          >
-                            Bestätigen
-                          </button>
-                        </div>
-                      </td>
-                    )}
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
+        <><div className="alert alert-danger" role="alert">
+          Es kann sein, dass die Initialen nicht aktuell sind bzw. nicht zum aktuellen Nutzer des Geräts passen. Am Ende zählt und gewinnt die Inventarnummer! :-)
+        </div><div className="table-responsive">
+            <table className="table table-striped align-middle text-center">
+              <thead>
+                <tr>
+                  {/* <th scope="col">#</th> */}
+                  <th scope="col">Initialen</th>
+                  <th scope="col">Inventarnummer</th>
+                  <th scope="col">Zeitslot</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.values(bookings).map((item, i) => {
+                  return (
+                    <tr key={i}>
+                      {/* <th scope="row">#{item.userID}</th> */}
+                      <td>{item.shortText}</td>
+                      <td>{item.inventaryNumber}</td>
+                      {item.bookedTimeSlot != undefined && (
+                        <td>{item.timeSlot}</td>
+                      )}
+                      {item.bookedTimeSlot == undefined && (
+                        <td>
+                          <div className="d-grid gap-2 align-items-center">
+                            <select
+                              style={{ minWidth: '250px' }}
+                              key={item.userID}
+                              className="form-select"
+                              aria-label="Zeitslot-Selector"
+                              value={optionState[item.userID]}
+                              placeholder="Wähle deinen Zeitslot!"
+                              onChange={(e) => handleOptionChange(e, item.userID)}
+                            >
+                              <option>Wähle deinen Tag!</option>
+                              {Object.values(freeTimeslots).map((time) => {
+                                return (
+                                  <option
+                                    key={time.timeID}
+                                    value={time.timeID}>{time.timeSlot}</option>
+                                );
+                              })}
+                            </select>
+                            <button
+                              type="button"
+                              className="btn btn-success ms-2"
+                              onClick={(e) => handleSubmitButton(e, item.userID)}
+                            >
+                              Bestätigen
+                            </button>
+                          </div>
+                        </td>
+                      )}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div></>
       )}
     </>
   );
