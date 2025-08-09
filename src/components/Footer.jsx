@@ -13,7 +13,7 @@ const Footer = () => {
         />
       </a>
       <p className="text-center text-body-secondary mt-1 mb-0">
-        © 2024 Patrick Binkert
+        © 2025 Patrick Binkert
       </p>
       <p className="text-center text-body-secondary">
         <a

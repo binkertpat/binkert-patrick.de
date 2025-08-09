@@ -51,7 +51,7 @@ function App() {
           className="alert alert-success d-flex align-items-center justify-content-center text-center"
           role="alert"
         >
-          <div className="text-center">☀️🏝️🏖️ Schöne Ferien! 🏖️🏝️☀️</div>
+          <div className="text-center">Einen guten und erfolgreichen Start ins neue Schuljahr! 📖👨‍🏫</div>
         </div>
         <BrowserRouter>
           <Routes>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 
@@ -25,7 +26,7 @@ const SurfaceWin11UpgradeBooking = () => {
       if (!response.ok) {
         throw new Error("Cannot load bookings.");
       }
-      const json = await response.json();
+      await response.json();
       setAddedBooking(!addedBooking)
     } catch (error) {
       console.error("Error fetching bookings:", error.message);
