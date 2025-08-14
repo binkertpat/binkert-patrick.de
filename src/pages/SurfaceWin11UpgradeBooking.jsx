@@ -9,6 +9,10 @@ const SurfaceWin11UpgradeBooking = () => {
   const [optionState, updateOptionState] = useState({})
   const [addedBooking, setAddedBooking] = useState(false)
 
+  const ACTUAL_DATE = new Date();
+  const ACTUAL_MONTH = ACTUAL_DATE.getMonth() + 1; // Months are zero-indexed
+  const ACTUAL_DAY = ACTUAL_DATE.getDate();
+
   const handleOptionChange = (e, userID) => {
     updateOptionState({ ...optionState, ...{ [userID]: e.target.value } })
   }
@@ -47,6 +51,16 @@ const SurfaceWin11UpgradeBooking = () => {
     }
   };
 
+  const checkIfDateStringIsPast = (timeString) => {
+    timeString = timeString.split(", der ")[1]
+    let timeSlotDay = parseInt(timeString.split(".")[0]);
+    let timeSlotMonth = parseInt(timeString.split(".")[1]);
+    if (ACTUAL_MONTH > timeSlotMonth || (ACTUAL_MONTH === timeSlotMonth && ACTUAL_DAY > timeSlotDay)) {
+      return true
+    }
+    return false;
+  }
+
   const fetchFreeTimeslots = async () => {
     const url = "https://binkert-patrick.de/api/getFreeTimeslots.php";
     try {
@@ -55,6 +69,11 @@ const SurfaceWin11UpgradeBooking = () => {
         throw new Error("Cannot load free timeslots.");
       }
       const json = await response.json();
+      for (const [key, value] of Object.entries(json)) {
+        if (checkIfDateStringIsPast(value.timeSlot)) {
+          delete json[key];
+        }
+      }
       setFreeTimeslots(json);
     } catch (error) {
       console.error("Error fetching free timeslots:", error.message);
@@ -102,47 +121,51 @@ const SurfaceWin11UpgradeBooking = () => {
               </thead>
               <tbody>
                 {Object.values(bookings).map((item, i) => {
-                  return (
-                    <tr key={i}>
-                      {/* <th scope="row">#{item.userID}</th> */}
-                      <td>{item.shortText}</td>
-                      <td>{item.inventaryNumber}</td>
-                      {item.bookedTimeSlot != undefined && (
-                        <td>{item.timeSlot}</td>
-                      )}
-                      {item.bookedTimeSlot == undefined && (
-                        <td>
-                          <div className="d-grid gap-2 align-items-center">
-                            <select
-                              style={{ minWidth: '250px' }}
-                              key={item.userID}
-                              className="form-select"
-                              aria-label="Zeitslot-Selector"
-                              value={optionState[item.userID]}
-                              placeholder="Wähle deinen Zeitslot!"
-                              onChange={(e) => handleOptionChange(e, item.userID)}
-                            >
-                              <option>Wähle deinen Tag!</option>
-                              {Object.values(freeTimeslots).map((time) => {
-                                return (
-                                  <option
-                                    key={time.timeID}
-                                    value={time.timeID}>{time.timeSlot}</option>
-                                );
-                              })}
-                            </select>
-                            <button
-                              type="button"
-                              className="btn btn-success ms-2"
-                              onClick={(e) => handleSubmitButton(e, item.userID)}
-                            >
-                              Bestätigen
-                            </button>
-                          </div>
-                        </td>
-                      )}
-                    </tr>
-                  );
+                  if (item.bookedTimeSlot != undefined && item.timeSlot != undefined && checkIfDateStringIsPast(item.timeSlot)) {
+                    return 
+                  } else {
+                    return (
+                      <tr key={i}>
+                        <td>{item.shortText}</td>
+                        <td>{item.inventaryNumber}</td>
+                        {item.bookedTimeSlot != undefined && (
+                          <td>{item.timeSlot}</td>
+                        )}
+                        {item.bookedTimeSlot == undefined && (
+                          <td>
+                            <div className="d-grid gap-2 align-items-center">
+                              <select
+                                style={{ minWidth: '250px' }}
+                                key={item.userID}
+                                className="form-select"
+                                aria-label="Zeitslot-Selector"
+                                value={optionState[item.userID]}
+                                placeholder="Wähle deinen Zeitslot!"
+                                onChange={(e) => handleOptionChange(e, item.userID)}
+                              >
+                                <option>Wähle deinen Tag!</option>
+                                {Object.values(freeTimeslots).map((time) => {
+                                  return (
+                                    <option
+                                      key={time.timeID}
+                                      value={time.timeID}>{time.timeSlot}</option>
+                                  );
+                                })}
+                              </select>
+                              <button
+                                type="button"
+                                className="btn btn-success ms-2"
+                                onClick={(e) => handleSubmitButton(e, item.userID)}
+                              >
+                                Bestätigen
+                              </button>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  }
+
                 })}
               </tbody>
             </table>
