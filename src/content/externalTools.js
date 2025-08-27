@@ -18,6 +18,7 @@ import MINTAPPS_IMAGE from "../img/mintapps.png";
 import PHYSIK_INTERAKTIV_IMAGE from "../img/physik_interaktiv.png";
 import O_PHYSICS_IMAGE from "../img/o_physics.png";
 import OPENCAST_STUDIO_IMAGE from "../img/opencast_studio.png";
+import DRAW_IO_IMAGE from "../img/draw_io.png";
 import MAL_DEN_CODE_IMAGE from "../img/mal_den_code.png";
 import CRYPTPAD_IMAGE from "../img/cryptpad.png";
 import TWEEDBACK_IMAGE from "../img/tweedback.png";
@@ -78,6 +79,19 @@ export const EXTERNAL_TOOLS_EVERYDAYLIFE_AND_EDU = {
       {
         URL: "https://excalidraw.com/",
         BUTTON_TEXT: "Let's draw!",
+      },
+    ],
+    COPYRIGHT: "",
+    HINT: "",
+  },
+  DRAW_IO: {
+    IMG: DRAW_IO_IMAGE,
+    TITLE: "draw.io",
+    TEXT: "Tool zum Erstellen von Diagrammen, Modellen, Ablaufdiagrammen, ... uvw. Läuft im Browser und kann bei Bedarf auch lokal installiert werden. Vollständig kostenfrei nutzbar!",
+    LINKSET: [
+      {
+        URL: "https://app.diagrams.net/",
+        BUTTON_TEXT: "draw.io",
       },
     ],
     COPYRIGHT: "",
