@@ -52,7 +52,9 @@ function App() {
           className="alert alert-success d-flex align-items-center justify-content-center text-center"
           role="alert"
         >
-          <div className="text-center">Einen guten und erfolgreichen Start ins neue Schuljahr! 📖👨‍🏫</div>
+          <div className="text-center">
+            Einen guten und erfolgreichen Start ins neue Schuljahr! 📖👨‍🏫
+          </div>
         </div>
         <BrowserRouter>
           <Routes>
@@ -64,7 +66,10 @@ function App() {
             <Route path="/external-programs" element={<ExternalPrograms />} />
             <Route path="/education" element={<EducationMaterial />} />
             <Route path="/pbm" element={<PortableBitmapEditor />} />
-            <Route path="/SurfaceWin11UpgradeBooking" element={<SurfaceWin11UpgradeBooking />} />
+            <Route
+              path="/SurfaceWin11UpgradeBooking"
+              element={<SurfaceWin11UpgradeBooking />}
+            />
             <Route path="/Biber2025" element={<Biber2025 />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

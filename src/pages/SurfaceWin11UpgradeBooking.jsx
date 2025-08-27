@@ -6,32 +6,36 @@ const SurfaceWin11UpgradeBooking = () => {
   const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
   const [freeTimeslots, setFreeTimeslots] = useState([]);
-  const [optionState, updateOptionState] = useState({})
-  const [addedBooking, setAddedBooking] = useState(false)
+  const [optionState, updateOptionState] = useState({});
+  const [addedBooking, setAddedBooking] = useState(false);
 
   const ACTUAL_DATE = new Date();
   const ACTUAL_MONTH = ACTUAL_DATE.getMonth() + 1; // Months are zero-indexed
   const ACTUAL_DAY = ACTUAL_DATE.getDate();
 
   const handleOptionChange = (e, userID) => {
-    updateOptionState({ ...optionState, ...{ [userID]: e.target.value } })
-  }
+    updateOptionState({ ...optionState, ...{ [userID]: e.target.value } });
+  };
 
   const handleSubmitButton = (e, userID) => {
     if (optionState[userID] != undefined) {
-      addBooking(userID, optionState[userID])
+      addBooking(userID, optionState[userID]);
     }
-  }
+  };
 
   const addBooking = async (userID, timeID) => {
-    const url = "https://binkert-patrick.de/api/addBooking.php?timeID=" + timeID + "&userID=" + userID;
+    const url =
+      "https://binkert-patrick.de/api/addBooking.php?timeID=" +
+      timeID +
+      "&userID=" +
+      userID;
     try {
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Cannot load bookings.");
       }
       await response.json();
-      setAddedBooking(!addedBooking)
+      setAddedBooking(!addedBooking);
     } catch (error) {
       console.error("Error fetching bookings:", error.message);
     }
@@ -52,14 +56,17 @@ const SurfaceWin11UpgradeBooking = () => {
   };
 
   const checkIfDateStringIsPast = (timeString) => {
-    timeString = timeString.split(", der ")[1]
+    timeString = timeString.split(", der ")[1];
     let timeSlotDay = parseInt(timeString.split(".")[0]);
     let timeSlotMonth = parseInt(timeString.split(".")[1]);
-    if (ACTUAL_MONTH > timeSlotMonth || (ACTUAL_MONTH === timeSlotMonth && ACTUAL_DAY > timeSlotDay)) {
-      return true
+    if (
+      ACTUAL_MONTH > timeSlotMonth ||
+      (ACTUAL_MONTH === timeSlotMonth && ACTUAL_DAY > timeSlotDay)
+    ) {
+      return true;
     }
     return false;
-  }
+  };
 
   const fetchFreeTimeslots = async () => {
     const url = "https://binkert-patrick.de/api/getFreeTimeslots.php";
@@ -86,11 +93,11 @@ const SurfaceWin11UpgradeBooking = () => {
     setLoading(false);
   };
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 5000)
-    return () => clearTimeout(timer)
-  }, [count])
+    const timer = setTimeout(() => setCount(count + 1), 5000);
+    return () => clearTimeout(timer);
+  }, [count]);
 
   useEffect(() => {
     initFetching();
@@ -107,9 +114,13 @@ const SurfaceWin11UpgradeBooking = () => {
       )}
 
       {bookings.length > 0 && freeTimeslots.length > 0 && (
-        <><div className="alert alert-danger" role="alert">
-          Es kann sein, dass die Initialen nicht aktuell sind bzw. nicht zum aktuellen Nutzer des Geräts passen. Am Ende zählt und gewinnt die Inventarnummer! :-)
-        </div><div className="table-responsive">
+        <>
+          <div className="alert alert-danger" role="alert">
+            Es kann sein, dass die Initialen nicht aktuell sind bzw. nicht zum
+            aktuellen Nutzer des Geräts passen. Am Ende zählt und gewinnt die
+            Inventarnummer! :-)
+          </div>
+          <div className="table-responsive">
             <table className="table table-striped align-middle text-center">
               <thead>
                 <tr>
@@ -121,8 +132,12 @@ const SurfaceWin11UpgradeBooking = () => {
               </thead>
               <tbody>
                 {Object.values(bookings).map((item, i) => {
-                  if (item.bookedTimeSlot != undefined && item.timeSlot != undefined && checkIfDateStringIsPast(item.timeSlot)) {
-                    return 
+                  if (
+                    item.bookedTimeSlot != undefined &&
+                    item.timeSlot != undefined &&
+                    checkIfDateStringIsPast(item.timeSlot)
+                  ) {
+                    return;
                   } else {
                     return (
                       <tr key={i}>
@@ -135,27 +150,34 @@ const SurfaceWin11UpgradeBooking = () => {
                           <td>
                             <div className="d-grid gap-2 align-items-center">
                               <select
-                                style={{ minWidth: '250px' }}
+                                style={{ minWidth: "250px" }}
                                 key={item.userID}
                                 className="form-select"
                                 aria-label="Zeitslot-Selector"
                                 value={optionState[item.userID]}
                                 placeholder="Wähle deinen Zeitslot!"
-                                onChange={(e) => handleOptionChange(e, item.userID)}
+                                onChange={(e) =>
+                                  handleOptionChange(e, item.userID)
+                                }
                               >
                                 <option>Wähle deinen Tag!</option>
                                 {Object.values(freeTimeslots).map((time) => {
                                   return (
                                     <option
                                       key={time.timeID}
-                                      value={time.timeID}>{time.timeSlot}</option>
+                                      value={time.timeID}
+                                    >
+                                      {time.timeSlot}
+                                    </option>
                                   );
                                 })}
                               </select>
                               <button
                                 type="button"
                                 className="btn btn-success ms-2"
-                                onClick={(e) => handleSubmitButton(e, item.userID)}
+                                onClick={(e) =>
+                                  handleSubmitButton(e, item.userID)
+                                }
                               >
                                 Bestätigen
                               </button>
@@ -165,11 +187,11 @@ const SurfaceWin11UpgradeBooking = () => {
                       </tr>
                     );
                   }
-
                 })}
               </tbody>
             </table>
-          </div></>
+          </div>
+        </>
       )}
     </>
   );

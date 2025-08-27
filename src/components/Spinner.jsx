@@ -26,9 +26,33 @@ const Spinner = () => (
         83.33%{ x: 1px; y: 1px }
       }
     `}</style>
-    <rect className="spinner_9y7u" fill="grey" x="1" y="1" rx="1" width="10" height="10" />
-    <rect className="spinner_9y7u spinner_DF2s" fill="grey" x="1" y="1" rx="1" width="10" height="10" />
-    <rect className="spinner_9y7u spinner_q27e" fill="grey" x="1" y="1" rx="1" width="10" height="10" />
+    <rect
+      className="spinner_9y7u"
+      fill="grey"
+      x="1"
+      y="1"
+      rx="1"
+      width="10"
+      height="10"
+    />
+    <rect
+      className="spinner_9y7u spinner_DF2s"
+      fill="grey"
+      x="1"
+      y="1"
+      rx="1"
+      width="10"
+      height="10"
+    />
+    <rect
+      className="spinner_9y7u spinner_q27e"
+      fill="grey"
+      x="1"
+      y="1"
+      rx="1"
+      width="10"
+      height="10"
+    />
   </svg>
 );
 
