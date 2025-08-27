@@ -20,6 +20,7 @@ import ExternalPrograms from "./pages/ExternalPrograms.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import PortableBitmapEditor from "./pages/PortableBitmapEditor.jsx";
 import SurfaceWin11UpgradeBooking from "./pages/SurfaceWin11UpgradeBooking.jsx";
+import Biber2025 from "./pages/Biber2025.jsx";
 
 function App() {
   const { _, dispatch } = useStateContext();
@@ -64,6 +65,7 @@ function App() {
             <Route path="/education" element={<EducationMaterial />} />
             <Route path="/pbm" element={<PortableBitmapEditor />} />
             <Route path="/SurfaceWin11UpgradeBooking" element={<SurfaceWin11UpgradeBooking />} />
+            <Route path="/Biber2025" element={<Biber2025 />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
