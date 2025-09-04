@@ -7,8 +7,9 @@ const Biber2025 = () => {
   // TODO: add link to biber site
   // TODO: add typing or padding to birthday
 
-  const GIVEN_PASSWORD_HASH = "n2bHazHjPp0MG4aACY5DssoJKi8NzYbYF4ofGpOVdd0=";
-  const [passwordHash, setPasswordHash] = useState("");
+  const API_VALIDATION_ENDPOINT = "https://binkert-patrick.de/api/biber2025Validate.php";
+  const API_DATA_ENDPOINT = "https://binkert-patrick.de/api/biber2025.php";
+  const [apiKey, setApiKey] = useState('');
   
   const [insertPassword, setInsertPassword] = useState("");
   const [insertClass, setInsertClass] = useState("");
@@ -26,15 +27,27 @@ const Biber2025 = () => {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
 
   const handlePasswordSubmit = () => {
-    if (passwordHash === GIVEN_PASSWORD_HASH) {
-      setClassAreaVisible(true);
-    } else {
-      alert("Falsches Passwort! Bitte versuche es erneut.");
+    if (insertPassword != '') {
+      requestApiKey(insertPassword);
     }
   }
 
+  useEffect(() => {
+    if (apiKey.success) {
+      fetchHelper('class');
+      fetchHelper('user');
+    }
+  }, [apiKey])
+  
+  useEffect(() => {
+    if(avaiableClasses.length > 0) {
+      setClassAreaVisible(true);
+    }
+  }, [avaiableClasses])
+
   const handleClassSubmit = () => {
     if (insertClass !== "") {
+      console.log(avaiableUsers)
       setStudentAreaVisible(true);
     }
   }
@@ -55,29 +68,19 @@ const Biber2025 = () => {
     }
   }
 
-  async function sha256Base64(value) {
-    const data = new TextEncoder().encode(value);
-    const buf = await crypto.subtle.digest("SHA-256", data);
-    const bytes = new Uint8Array(buf);
-    let bin = "";
-    for (let b of bytes) bin += String.fromCharCode(b);
-    return btoa(bin);
-  }
-
   const insertPasswordUpdate = async (value) => {
-    setPasswordHash(await sha256Base64(value));
     setInsertPassword(value);
   }
 
-  const fetchHelper = (type) => {
+  const fetchHelper = async (type) => {
     const REQUEST_HEADER = new Headers();
     REQUEST_HEADER.append("Content-Type", "application/x-www-form-urlencoded");
 
     const URL_ENCODED = new URLSearchParams();
-    URL_ENCODED.append("password", "ksr@MA@4dVa2ksr@MA@4dVa2");
+    URL_ENCODED.append("apiKey", apiKey.apiKey);
     URL_ENCODED.append("requested_file", type);
 
-    const API_ENDPOINT = "https://binkert-patrick.de/api/biber2025.php";
+    console.log(URL_ENCODED.toString());
 
     const REQUEST_OPTIONS = {
       method: "POST",
@@ -87,26 +90,34 @@ const Biber2025 = () => {
     };
 
     if (type == 'user' && avaiableUsers.length == 0) {
-      fetch(API_ENDPOINT, REQUEST_OPTIONS)
+      fetch(API_DATA_ENDPOINT, REQUEST_OPTIONS)
         .then((response) => response.json())
         .then((result) => setAvaiableUsers(result))
         .catch((error) => console.error(error));
     } else if (type == 'class' && avaiableClasses.length == 0) {
-      fetch(API_ENDPOINT, REQUEST_OPTIONS)
+      fetch(API_DATA_ENDPOINT, REQUEST_OPTIONS)
         .then((response) => response.json())
         .then((result) => setAvaiableClasses(result))
         .catch((error) => console.error(error));
     }
   }
 
-  useEffect(() => {
-    fetchHelper('user');
-  }, []);
+  const requestApiKey = async (insertPassword) => {
+    const formdata = new FormData();
+    formdata.append("password", insertPassword);
 
-  useEffect(() => {
-    fetchHelper('class');
-  }, []);
+    const requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow"
+    };
 
+    fetch(API_VALIDATION_ENDPOINT, requestOptions)
+      .then((response) => response.text())
+      .then((result) => setApiKey(JSON.parse(result)))
+      .catch((error) => console.error(error));
+      }
+    
   return (
     <>
       <h1 className="display-5 fw-bold lh-1 mb-3">Informatikbiber@BvC 2025</h1>
@@ -133,7 +144,7 @@ const Biber2025 = () => {
         </button>
       </div>
 
-      {classAreaVisible && <> <hr />
+      {classAreaVisible && avaiableClasses.length > 0 && <> <hr />
         <div className="mb-3">
           <label htmlFor="classInput" className="form-label fw-bold">
             Wähle deine Klasse aus.
@@ -143,7 +154,6 @@ const Biber2025 = () => {
             id="classInput"
             aria-label="Bitte wähle deine Klasse aus."
             value={insertClass}
-            defaultValue=""
             onChange={(e) => setInsertClass(e.target.value)}
           >
             <option value="">Klasse auswählen</option>
@@ -170,7 +180,7 @@ const Biber2025 = () => {
             value={insertUser}
             onChange={(e) => setInsertUser(e.target.value)}
           >
-            <option value="" selected>Schüler / Schülerin auswählen</option>
+            <option value="">Schüler / Schülerin auswählen</option>
             {avaiableUsers[insertClass].map((avaiableUser, index) => (
               <option key={index} value={avaiableUser.USERNAME}>{avaiableUser.LASTNAME}, {avaiableUser.PRENAME}</option>
             ))}
