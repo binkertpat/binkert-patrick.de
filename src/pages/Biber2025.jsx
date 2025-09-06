@@ -6,7 +6,7 @@ const Biber2025 = () => {
   // TODO: add error messages
   // TODO: add copy to clipboard button
   // TODO: add link to biber site
-  // TODO: add typing or padding to birthday
+  // TODO: dont load users PW before birthday
 
   const DAYS = []
   for (let i = 1; i <= 31; i++) DAYS.push(i)
@@ -120,8 +120,8 @@ const Biber2025 = () => {
         setCredentialsVisible(true);
       } else {
         setCredentialsVisible(false)
-        setBirthdayErrorInput('Passwort und Benutzer stimmen nicht überein. Korrigiere deine Eingabe oder wende dich an: it@cottagym.lernsax.de')
-        console.error('Passwort und Benutzer stimmen nicht überein. Korrigiere deine Eingabe oder wende dich an it@cottagym.lernsax.de.')
+        setBirthdayErrorInput('Benutzer und Geburtsdatum stimmen nicht überein. Korrigiere deine Eingabe oder wende dich an: it@cottagym.lernsax.de')
+        console.error('Benutzer und Geburtsdatum stimmen nicht überein. Korrigiere deine Eingabe oder wende dich an it@cottagym.lernsax.de.')
       }
     } else {
       setCredentialsVisible(false)
