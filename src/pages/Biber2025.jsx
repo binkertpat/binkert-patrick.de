@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CopyPasteSVG from "../components/SunSVG copy";
+import Spinner from "../components/Spinner";
 
 const Biber2025 = () => {
   // TODO: add error messages
@@ -7,10 +8,24 @@ const Biber2025 = () => {
   // TODO: add link to biber site
   // TODO: add typing or padding to birthday
 
+  const DAYS = []
+  for (let i = 1; i <= 31; i++) DAYS.push(i)
+  const MONTHS = []
+  for (let i = 1; i <= 12; i++) MONTHS.push(i)
+  const MONTHS_NAMING = [
+    'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+  ]
+  const YEARS = []
+  for (let i = 2000; i <= 2025; i++) YEARS.push(i)
+
   const API_VALIDATION_ENDPOINT =
     "https://binkert-patrick.de/api/biber2025Validate.php";
   const API_DATA_ENDPOINT = "https://binkert-patrick.de/api/biber2025.php";
   const [apiKey, setApiKey] = useState("");
+
+  const [apiQueryIsRunning, setApiQueryIsRunning] = useState(false);
+  const [entryCodeError, setEntryCodeError] = useState(false)
+  const [birthdayInputError, setBirthdayErrorInput] = useState('')
 
   const [insertPassword, setInsertPassword] = useState("");
   const [insertClass, setInsertClass] = useState("");
@@ -35,57 +50,83 @@ const Biber2025 = () => {
   });
 
   const handlePasswordSubmit = () => {
+    setApiQueryIsRunning(true);
     if (insertPassword != "") {
       requestApiKey(insertPassword);
     }
   };
 
   useEffect(() => {
-    if (apiKey.success) {
-      fetchHelper("class");
-      fetchHelper("user");
+    async function fetchData() {
+      if (apiKey.success) {
+        console.info('Zugang gewährt. API-Key erhalten. Lade Daten im Hintergrund.')
+        await fetchHelper("class");
+        await fetchHelper("user");
+      }
     }
+    fetchData();
   }, [apiKey]);
 
   useEffect(() => {
     if (avaiableClasses.length > 0) {
       setClassAreaVisible(true);
+      setApiQueryIsRunning(false)
+      setEntryCodeError(false)
     }
   }, [avaiableClasses]);
 
   const handleClassSubmit = () => {
     if (insertClass !== "") {
-      console.log(avaiableUsers);
+      console.info('Klasse wurde erfolgreich ausgewählt: ' + insertClass)
       setStudentAreaVisible(true);
     }
   };
 
   const handleStudentSubmit = () => {
     if (insertUser !== "") {
+      console.info('Nutzer wurde erfolgreich ausgewählt. Der Nutzername ist: ' + insertUser)
       setBirthDayAreaVisible(true);
     }
   };
 
-  const handleBirthdaySubmit = () => {
+  async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+  }
+
+  const handleBirthdaySubmit = async () => {
     if (
       insertBirthday.day != "" &&
       insertBirthday.month != "" &&
       insertBirthday.year != ""
     ) {
+      console.info('Ein vollständiges Geburtsdatum wurde übergeben.')
       let userData = avaiableUsers[insertClass].find(
         (user) => user.USERNAME === insertUser,
       );
-      if (
-        userData.DATE_OF_BIRTH_DAY == insertBirthday.day &&
-        userData.DATE_OF_BIRTH_MONTH == insertBirthday.month &&
-        userData.DATE_OF_BIRTH_YEAR == insertBirthday.year
-      ) {
+      const combinedInsertBirthday = insertBirthday.day + '.' + insertBirthday.month + '.' + insertBirthday.year
+      const combinedInsertBirthdayHashed = await sha256(combinedInsertBirthday)
+      console.info('Das Geburtsdatum wurde vor dem Überprüfen gehashed.')
+      if (userData.DATE_OF_BIRTH == combinedInsertBirthdayHashed) {
+        console.info('Die gehashte Eingabe stimmt mit dem gespeicherten Hash überein. Nutzer erfolgreich validiert. Zeige Credentials.')
         setCredentials({
           username: userData.USERNAME,
           password: userData.PASSWORD,
         });
+        setBirthdayErrorInput('')
         setCredentialsVisible(true);
+      } else {
+        setCredentialsVisible(false)
+        setBirthdayErrorInput('Passwort und Benutzer stimmen nicht überein. Korrigiere deine Eingabe oder wende dich an: it@cottagym.lernsax.de')
+        console.error('Passwort und Benutzer stimmen nicht überein. Korrigiere deine Eingabe oder wende dich an it@cottagym.lernsax.de.')
       }
+    } else {
+      setCredentialsVisible(false)
+      setBirthdayErrorInput('Das eingebene Geburtsdatum ist unvollständig.')
+      console.error('Das eingebene Geburtsdatum ist unvollständig.')
     }
   };
 
@@ -101,8 +142,6 @@ const Biber2025 = () => {
     URL_ENCODED.append("apiKey", apiKey.apiKey);
     URL_ENCODED.append("requested_file", type);
 
-    console.log(URL_ENCODED.toString());
-
     const REQUEST_OPTIONS = {
       method: "POST",
       headers: REQUEST_HEADER,
@@ -114,14 +153,18 @@ const Biber2025 = () => {
       fetch(API_DATA_ENDPOINT, REQUEST_OPTIONS)
         .then((response) => response.json())
         .then((result) => setAvaiableUsers(result))
-        .catch((error) => console.error(error));
+        .catch(() => setEntryCodeError(true));
     } else if (type == "class" && avaiableClasses.length == 0) {
       fetch(API_DATA_ENDPOINT, REQUEST_OPTIONS)
         .then((response) => response.json())
         .then((result) => setAvaiableClasses(result))
-        .catch((error) => console.error(error));
+        .catch(() => setEntryCodeError(true));
     }
   };
+
+  useEffect(() => {
+    setApiQueryIsRunning(false)
+  }, [entryCodeError])
 
   const requestApiKey = async (insertPassword) => {
     const formdata = new FormData();
@@ -136,7 +179,7 @@ const Biber2025 = () => {
     fetch(API_VALIDATION_ENDPOINT, requestOptions)
       .then((response) => response.text())
       .then((result) => setApiKey(JSON.parse(result)))
-      .catch((error) => console.error(error));
+      .catch(() => setEntryCodeError(true));
   };
 
   return (
@@ -147,18 +190,19 @@ const Biber2025 = () => {
         <label
           htmlFor="passwordInput"
           className="form-label fw-bold"
-          aria-label="Gib das Passwort ein, welches dir durch deinen Info- oder Mathelehrer mitgeteilt wurde."
+          aria-label="Gib den Zugangscode ein, welches dir durch deinen Info- oder Mathelehrer mitgeteilt wurde."
         >
-          Gib das Passwort ein, welches dir durch deinen Info- oder Mathelehrer
+          Gib den Zugangscode ein, welches dir durch deinen Info- oder Mathelehrer
           mitgeteilt wurde.
         </label>
         <input
           type="text"
           className="form-control"
           id="passwordInput"
-          placeholder="Passwort ..."
+          placeholder="Zugangscode ..."
           value={insertPassword}
           onChange={(e) => insertPasswordUpdate(e.target.value)}
+          autoComplete="off"
         />
         <button
           className="btn btn-success mt-3"
@@ -168,73 +212,89 @@ const Biber2025 = () => {
         >
           Auswahl bestätigen
         </button>
+        {entryCodeError &&
+          <div className="alert alert-danger mt-3" role="alert">
+            Der Zugangscode scheint falsch zu sein. Versuche es erneut. Lade ggf. die Seite neu.
+          </div>
+        }
       </div>
 
-      {classAreaVisible && avaiableClasses.length > 0 && (
-        <>
-          {" "}
-          <hr />
-          <div className="mb-3">
-            <label htmlFor="classInput" className="form-label fw-bold">
-              Wähle deine Klasse aus.
-            </label>
-            <select
-              className="form-select"
-              id="classInput"
-              aria-label="Bitte wähle deine Klasse aus."
-              value={insertClass}
-              onChange={(e) => setInsertClass(e.target.value)}
-            >
-              <option value="">Klasse auswählen</option>
-              {avaiableClasses.map((avaiableClass, index) => (
-                <option key={index} value={avaiableClass}>
-                  {avaiableClass}
-                </option>
-              ))}
-            </select>
-            <button
-              className="btn btn-success mt-3"
-              type="button"
-              onClick={handleClassSubmit}
-            >
-              Auswahl bestätigen
-            </button>
-          </div>
-        </>
+      {apiQueryIsRunning && (
+        <div className="d-flex justify-content-center">
+          <Spinner />
+        </div>
       )}
 
-      {studentAreaVisible && (
-        <>
-          {" "}
-          <hr />
-          <div className="mb-3">
-            <label htmlFor="userInput" className="form-label fw-bold">
-              Wähle den richtigen Schüler aus als dich selbst!
-            </label>
-            <select
-              className="form-select"
-              id="userInput"
-              aria-label="Wähle dich aus."
-              value={insertUser}
-              onChange={(e) => setInsertUser(e.target.value)}
-            >
-              <option value="">Schüler / Schülerin auswählen</option>
-              {avaiableUsers[insertClass].map((avaiableUser, index) => (
-                <option key={index} value={avaiableUser.USERNAME}>
-                  {avaiableUser.LASTNAME}, {avaiableUser.PRENAME}
-                </option>
-              ))}
-            </select>
-            <button
-              className="btn btn-success mt-3"
-              type="button"
-              onClick={handleStudentSubmit}
-            >
-              Auswahl bestätigen
-            </button>
+      {((classAreaVisible && avaiableClasses.length > 0) || studentAreaVisible) && <hr />}
+
+      <div className="container p-0">
+        <div className="row">
+          <div className="col col-12 col-md-6">
+            {classAreaVisible && avaiableClasses.length > 0 && (
+              <>
+                <div className="mb-3">
+                  <label htmlFor="classInput" className="form-label fw-bold">
+                    Wähle deine Klasse aus.
+                  </label>
+                  <select
+                    className="form-select"
+                    id="classInput"
+                    aria-label="Bitte wähle deine Klasse aus."
+                    value={insertClass}
+                    onChange={(e) => setInsertClass(e.target.value)}
+                  >
+                    <option value="">Klasse auswählen</option>
+                    {avaiableClasses.map((avaiableClass, index) => (
+                      <option key={index} value={avaiableClass}>
+                        {avaiableClass}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    className="btn btn-success mt-3"
+                    type="button"
+                    onClick={handleClassSubmit}
+                  >
+                    Auswahl bestätigen
+                  </button>
+                </div>
+              </>
+            )}
           </div>
-        </>
-      )}
+          <div className="col col-12 col-md-6">
+            {studentAreaVisible && (
+              <>
+                <div className="mb-3">
+                  <label htmlFor="userInput" className="form-label fw-bold">
+                    Wähle dich selsbt aus!
+                  </label>
+                  <select
+                    className="form-select"
+                    id="userInput"
+                    aria-label="Wähle dich aus."
+                    value={insertUser}
+                    onChange={(e) => setInsertUser(e.target.value)}
+                  >
+                    <option value="">Schüler / Schülerin auswählen</option>
+                    {avaiableUsers[insertClass].map((avaiableUser, index) => (
+                      <option key={index} value={avaiableUser.USERNAME}>
+                        {avaiableUser.PRENAME} {avaiableUser.LASTNAME}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    className="btn btn-success mt-3"
+                    type="button"
+                    onClick={handleStudentSubmit}
+                  >
+                    Auswahl bestätigen
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
 
       {birthDayAreaVisible && (
         <>
@@ -249,36 +309,53 @@ const Biber2025 = () => {
               Gib dein Geburtsdatum ein.
             </label>
             <div className="d-flex flex-row text-center" id="dateOfBirthInput">
-              <input
-                type="number"
-                className="form-control me-1 text-center"
-                placeholder="TT"
+              <select
+                className="form-select"
+                id="birthdayDayInput"
+                aria-label="Wähle den Tag deines Geburtstages aus."
                 value={insertBirthday.day}
-                onChange={(e) =>
-                  setInsertBirthday({ ...insertBirthday, day: e.target.value })
-                }
-              />
-              <input
-                type="number"
-                className="form-control text-center"
-                placeholder="MM"
+                onChange={(e) => setInsertBirthday({ ...insertBirthday, day: e.target.value })}
+              >
+                <option value="">Tag auswählen</option>
+                {Array.from(DAYS).map((day, index) => (
+                  <option key={index} value={String(day).padStart(2, '0')}>
+                    {String(day).padStart(2, '0')}
+                  </option>
+                ))}
+              </select>
+
+
+              <select
+                className="form-select me-3 ms-3"
+                id="birthdayMonthInput"
+                aria-label="Wähle den Monat deines Geburtstages aus."
                 value={insertBirthday.month}
-                onChange={(e) =>
-                  setInsertBirthday({
-                    ...insertBirthday,
-                    month: e.target.value,
-                  })
-                }
-              />
-              <input
-                type="number"
-                className="form-control ms-1 text-center"
-                placeholder="JJJJ"
+                onChange={(e) => setInsertBirthday({ ...insertBirthday, month: e.target.value })}
+              >
+                <option value="">Monat auswählen</option>
+                {Array.from(MONTHS).map((month, index) => (
+                  <option key={index} value={String(month).padStart(2, '0')}>
+                    {MONTHS_NAMING[month - 1]}
+                  </option>
+                ))}
+              </select>
+
+              <select
+                className="form-select"
+                id="birthdayYearInput"
+                aria-label="Wähle das Jahr deines Geburtstages aus."
                 value={insertBirthday.year}
                 onChange={(e) =>
                   setInsertBirthday({ ...insertBirthday, year: e.target.value })
                 }
-              />
+              >
+                <option value="">Jahr auswählen</option>
+                {Array.from(YEARS).map((year, index) => (
+                  <option key={index} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
             </div>
             <button
               className="btn btn-success mt-3"
@@ -287,6 +364,11 @@ const Biber2025 = () => {
             >
               Auswahl bestätigen
             </button>
+            {birthdayInputError != '' &&
+              <div className="alert alert-danger mt-3" role="alert">
+                {birthdayInputError}
+              </div>
+            }
           </div>
         </>
       )}
