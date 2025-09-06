@@ -66,10 +66,10 @@ function App() {
             <Route path="/external-programs" element={<ExternalPrograms />} />
             <Route path="/education" element={<EducationMaterial />} />
             <Route path="/pbm" element={<PortableBitmapEditor />} />
-            <Route
+            {/* <Route
               path="/SurfaceWin11UpgradeBooking"
               element={<SurfaceWin11UpgradeBooking />}
-            />
+            /> */}
             <Route path="/Biber2025" element={<Biber2025 />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
