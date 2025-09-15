@@ -1,24 +1,25 @@
-import { useCallback, useEffect, useMemo } from "react";
-import Spinner from "../components/Spinner";
-import UserSelect from "../components/Biber/UserSelect";
-import BirthdayForm from "../components/Biber/BirthdayForm";
-import ClassSelect from "../components/Biber/ClassSelect";
-import CredentialsView from "../components/Biber/CredentialsView";
+import { useCallback, useEffect, useMemo } from 'react';
+import Spinner from '../components/Spinner';
+import UserSelect from '../components/Biber/UserSelect';
+import BirthdayForm from '../components/Biber/BirthdayForm';
+import ClassSelect from '../components/Biber/ClassSelect';
+import CredentialsView from '../components/Biber/CredentialsView';
 import {
   API_CONCRETE_LOGIN_ENDPOINT,
   API_DATA_ENDPOINT,
   API_VALIDATION_ENDPOINT,
-} from "../constants/BiberEndpoints";
-import { useBiberContext } from "../../hooks/useBiberContext";
-import { ACTIONS } from "../constants/enums";
-import { sha256 } from "../utils/hashUtils";
-import { doFetch } from "../utils/fetchPostJson";
+} from '../constants/BiberEndpoints';
+import { useBiberContext } from '../../hooks/useBiberContext';
+import { ACTIONS } from '../constants/enums';
+import { sha256 } from '../utils/hashUtils';
+import { doFetch } from '../utils/fetchPostJson';
+import PasswordForm from '../components/Biber/PasswordForm';
 
 const Biber2025 = () => {
   // TODO: only one char of lastname
   // TODO: copy to clipboard
   // TODO: consistent error messages and validating
-  
+
   const { state, dispatch } = useBiberContext();
 
   const usersForSelectedClass = useMemo(() => {
@@ -45,6 +46,12 @@ const Biber2025 = () => {
           SHOW_STUDENT_AREA: true,
         },
       });
+      dispatch({
+        type: ACTIONS.BIBER_UPDATE_UI,
+        payload: {
+          HIDE_CLASS_SUBMIT_BUTTON: true,
+        },
+      })
     }
   }, [state.INSERT_CLASS, dispatch]);
 
@@ -56,6 +63,12 @@ const Biber2025 = () => {
           SHOW_BIRTHDAY_AREA: true,
         },
       });
+      dispatch({
+        type: ACTIONS.BIBER_UPDATE_UI,
+        payload: {
+          HIDE_STUDENT_SUBMIT_BUTTON: true,
+        },
+      })
     }
   }, [state.INSERT_USER, dispatch]);
 
@@ -117,10 +130,10 @@ const Biber2025 = () => {
       });
       try {
         const formdata = new FormData();
-        formdata.append("PASSWORD", password);
+        formdata.append('PASSWORD', password);
         const text = await doFetch(API_VALIDATION_ENDPOINT, {
           body: formdata,
-          as: "text",
+          as: 'text',
         });
         const parsed = JSON.parse(text);
         dispatch({
@@ -148,28 +161,28 @@ const Biber2025 = () => {
 
   const fetchHelper = useCallback(
     async (type) => {
-      if (type === "class" && state.AVAIVABLE_CLASSES.length > 0) return;
-      if (type === "user" && Object.keys(state.AVAIVABLE_USERS).length > 0)
+      if (type === 'class' && state.AVAIVABLE_CLASSES.length > 0) return;
+      if (type === 'user' && Object.keys(state.AVAIVABLE_USERS).length > 0)
         return;
 
       const formdata = new FormData();
-      formdata.append("API_KEY", state.API_KEY?.API_KEY ?? "");
-      formdata.append("REQUESTED_FILE", type);
+      formdata.append('API_KEY', state.API_KEY?.API_KEY ?? '');
+      formdata.append('REQUESTED_FILE', type);
 
       try {
-        if (type === "class") {
+        if (type === 'class') {
           const result = await doFetch(API_DATA_ENDPOINT, {
             body: formdata,
-            as: "json",
+            as: 'json',
           });
           dispatch({
             type: ACTIONS.BIBER_STORE_CLASSES,
             payload: result,
           });
-        } else if (type === "user") {
+        } else if (type === 'user') {
           const result = await doFetch(API_DATA_ENDPOINT, {
             body: formdata,
-            as: "json",
+            as: 'json',
           });
           if (Array.isArray(result)) {
             const usersObj = {};
@@ -232,20 +245,20 @@ const Biber2025 = () => {
     try {
       const combined =
         state.INSERT_BIRTHDAY.DAY +
-        "." +
+        '.' +
         state.INSERT_BIRTHDAY.MONTH +
-        "." +
+        '.' +
         state.INSERT_BIRTHDAY.YEAR;
       const hashed = await sha256(combined);
       const formdata = new FormData();
-      formdata.append("API_KEY", state.API_KEY?.API_KEY ?? "");
-      formdata.append("USER_SECRET", state.INSERT_USER + hashed);
+      formdata.append('API_KEY', state.API_KEY?.API_KEY ?? '');
+      formdata.append('USER_SECRET', state.INSERT_USER + hashed);
 
       const text = await doFetch(API_CONCRETE_LOGIN_ENDPOINT, {
         body: formdata,
-        as: "text",
+        as: 'text',
       });
-      const pwd = String(text).replace(/"/g, "");
+      const pwd = String(text).replace(/'/g, '');
       dispatch({
         type: ACTIONS.BIBER_STORE_CREDENTIALS,
         payload: {
@@ -286,10 +299,14 @@ const Biber2025 = () => {
   useEffect(() => {
     if (!state.API_KEY?.SUCCESS) return;
     (async () => {
-      await fetchHelper("class");
-      await fetchHelper("user");
+      await fetchHelper('class');
+      await fetchHelper('user');
+      dispatch({
+        type: ACTIONS.BIBER_UPDATE_UI,
+        payload: { SHOW_CLASS_AREA: true, HIDE_PASSWORD_SUBMIT_BUTTON: true },
+      });
     })();
-  }, [state.API_KEY, fetchHelper]);
+  }, [state.API_KEY, fetchHelper, dispatch]);
 
   const handlePasswordSubmit = useCallback(() => {
     dispatch({
@@ -300,6 +317,7 @@ const Biber2025 = () => {
     });
     if (state.INSERT_PASSWORD) {
       requestApiKey(state.INSERT_PASSWORD);
+
     } else {
       dispatch({
         type: ACTIONS.BIBER_SET_LOADING_STATE,
@@ -316,7 +334,7 @@ const Biber2025 = () => {
       dispatch({
         type: ACTIONS.BIBER_SET_BIBER_ERROR_STATE,
         payload: {
-          BIRTHDAY: "Das eingebene Geburtsdatum ist unvollständig.",
+          BIRTHDAY: 'Das eingebene Geburtsdatum ist unvollständig.',
         },
       });
       dispatch({
@@ -334,27 +352,27 @@ const Biber2025 = () => {
       dispatch({
         type: ACTIONS.BIBER_SET_BIBER_ERROR_STATE,
         payload: {
-          BIRTHDAY: "Benutzer nicht gefunden.",
+          BIRTHDAY: 'Benutzer nicht gefunden.',
         },
       });
       return;
     }
 
-    const combined = DAY + "." + MONTH + "." + YEAR;
+    const combined = DAY + '.' + MONTH + '.' + YEAR;
     const hashed = await sha256(combined);
-    console.log("TEST");
+    console.log('TEST');
     if (userData.DATE_OF_BIRTH === hashed) {
       dispatch({
         type: ACTIONS.BIBER_STORE_CREDENTIALS,
         payload: {
           USERNAME: userData.USERNAME,
-          PASSWORD: "",
+          PASSWORD: '',
         },
       });
       dispatch({
         type: ACTIONS.BIBER_SET_BIBER_ERROR_STATE,
         payload: {
-          BIRTHDAY: "",
+          BIRTHDAY: '',
         },
       });
       await getUserCredentials();
@@ -363,7 +381,7 @@ const Biber2025 = () => {
         type: ACTIONS.BIBER_SET_BIBER_ERROR_STATE,
         payload: {
           BIRTHDAY:
-            "Benutzer und Geburtsdatum stimmen nicht überein. Korrigiere deine Eingabe oder wende dich an: it@cottagym.lernsax.de",
+            'Benutzer und Geburtsdatum stimmen nicht überein. <br/>Korrigiere deine Eingabe oder wende dich an: it@cottagym.lernsax.de',
         },
       });
       dispatch({
@@ -372,7 +390,7 @@ const Biber2025 = () => {
           SHOW_CREDENTIALS_AREA: false,
         },
       });
-      console.error("Benutzer und Geburtsdatum stimmen nicht überein.");
+      console.error('Benutzer und Geburtsdatum stimmen nicht überein.');
     }
   }, [
     dispatch,
@@ -383,60 +401,49 @@ const Biber2025 = () => {
     getUserCredentials,
   ]);
 
+  useEffect(() => {
+    console.log(state)
+  }, [state])
+
   return (
     <>
-      <h1 className="display-5 fw-bold lh-1 mb-3">Informatikbiber@BvC 2025</h1>
-
-      <div className="mb-3">
-        <label htmlFor="passwordInput" className="form-label fw-bold">
-          Gib den Zugangscode ein, welches dir durch deinen Info- oder
-          Mathelehrer mitgeteilt wurde.
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="passwordInput"
-          placeholder="Zugangscode ..."
-          value={state.INSERT_PASSWORD}
-          onChange={(e) => handleInsertPasswordChange(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") handlePasswordSubmit();
-          }}
-          autoComplete="off"
-        />
-        <button
-          className="btn btn-success mt-3"
-          type="button"
-          id="submit_password_input"
-          onClick={handlePasswordSubmit}
-        >
-          Auswahl bestätigen
-        </button>
-
-        {state.ERRORS.ENTRY_CODE && (
-          <div className="alert alert-danger mt-3" role="alert">
-            Der Zugangscode scheint falsch zu sein. Versuche es erneut. Lade
-            ggf. die Seite neu.
-          </div>
-        )}
-      </div>
+      <h1 className='display-5 fw-bold lh-1 mb-3'>Informatikbiber@BvC 2025</h1>
+      <PasswordForm
+        state={state}
+        onInsertPassword={(value) => {
+          dispatch({
+            type: ACTIONS.BIBER_UPDATE_UI,
+            payload: {
+              ENABLE_PASSWORD_SUBMIT_BUTTON: (value !== '' ? true : false),
+            },
+          });
+          handleInsertPasswordChange(value)
+        }}
+        onPasswordSubmit={handlePasswordSubmit}
+      />
 
       {state.LOADING.API_QUERY && (
-        <div className="d-flex justify-content-center">
+        <div className='d-flex justify-content-center'>
           <Spinner />
         </div>
       )}
 
       {state.UI.SHOW_CLASS_AREA && state.AVAIVABLE_CLASSES.length > 0 && <hr />}
 
-      <div className="container p-0">
-        <div className="row">
-          <div className="col col-12 col-md-6">
+      <div className='container p-0'>
+        <div className='row'>
+          <div className='col col-12 col-md-6'>
             {state.UI.SHOW_CLASS_AREA && state.AVAIVABLE_CLASSES.length > 0 && (
               <ClassSelect
                 classes={state.AVAIVABLE_CLASSES}
                 value={state.INSERT_CLASS}
-                onChange={(value) =>
+                onChange={(value) => {
+                  dispatch({
+                    type: ACTIONS.BIBER_UPDATE_UI,
+                    payload: {
+                      ENABLE_CLASS_SUBMIT_BUTTON: (value !== '' ? true : false),
+                    },
+                  })
                   dispatch({
                     type: ACTIONS.BIBER_STORE_DATA,
                     payload: {
@@ -444,25 +451,34 @@ const Biber2025 = () => {
                     },
                   })
                 }
+                }
                 onConfirm={handleClassConfirm}
+                state={state}
               />
             )}
           </div>
 
-          <div className="col col-12 col-md-6">
+          <div className='col col-12 col-md-6'>
             {state.UI.SHOW_STUDENT_AREA && (
               <UserSelect
                 users={usersForSelectedClass}
                 value={state.INSERT_USER}
-                onChange={(value) =>
+                onChange={(value) => {
+                  dispatch({
+                    type: ACTIONS.BIBER_UPDATE_UI,
+                    payload: {
+                      ENABLE_STUDENT_SUBMIT_BUTTON: (value !== '' ? true : false),
+                    },
+                  })
                   dispatch({
                     type: ACTIONS.BIBER_STORE_DATA,
                     payload: {
                       INSERT_USER: value,
                     },
                   })
-                }
+                }}
                 onConfirm={handleStudentConfirm}
+                state={state}
               />
             )}
           </div>
@@ -497,7 +513,7 @@ const Biber2025 = () => {
             onCopyPassword={handleCopyPassword}
           />
           {state.UI.USER_NAME_COPIED && (
-            <div className="alert alert-success mt-3" role="alert">
+            <div className='alert alert-success mt-3' role='alert'>
               Der Nutzername wurde kopiert.
             </div>
           )}

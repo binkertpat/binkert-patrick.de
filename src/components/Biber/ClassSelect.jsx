@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const ClassSelect = ({ classes, value, onChange, onConfirm }) => (
+const ClassSelect = ({ classes, value, onChange, onConfirm, state = {} }) => (
   <div className="mb-3">
     <label htmlFor="classInput" className="form-label fw-bold">
       Wähle deine Klasse aus.
@@ -11,6 +11,7 @@ const ClassSelect = ({ classes, value, onChange, onConfirm }) => (
       aria-label="Bitte wähle deine Klasse aus."
       value={value}
       onChange={(e) => onChange(e.target.value)}
+      disabled={!state.UI.HIDE_CLASS_SUBMIT_BUTTON ? '' : 'disabled'}
     >
       <option value="">Klasse auswählen</option>
       {classes.map((c, i) => (
@@ -19,9 +20,12 @@ const ClassSelect = ({ classes, value, onChange, onConfirm }) => (
         </option>
       ))}
     </select>
-    <button className="btn btn-success mt-3" type="button" onClick={onConfirm}>
+    {!state.UI.HIDE_CLASS_SUBMIT_BUTTON &&
+    <button className="btn btn-success mt-3" type="button" onClick={onConfirm} disabled={state.UI.ENABLE_CLASS_SUBMIT_BUTTON ? '' : 'disabled'}>
       Auswahl bestätigen
     </button>
+    }
+    
   </div>
 );
 
@@ -30,6 +34,7 @@ ClassSelect.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onConfirm: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired
 };
 
 export default ClassSelect;
