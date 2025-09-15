@@ -16,17 +16,13 @@ import { doFetch } from "../utils/fetchPostJson";
 import PasswordForm from "../components/Biber/PasswordForm";
 
 const Biber2025 = () => {
-  // TODO: only one char of lastname
-  // TODO: copy to clipboard
-  // TODO: consistent error messages and validating
-
   const { state, dispatch } = useBiberContext();
 
   const handleHardReload = () => {
     dispatch({
-      type: ACTIONS.SET_DEFAULT_STATE
-    })
-  }
+      type: ACTIONS.SET_DEFAULT_STATE,
+    });
+  };
 
   const usersForSelectedClass = useMemo(() => {
     return state.AVAIVABLE_USERS[state.INSERT_CLASS] || [];
@@ -81,7 +77,7 @@ const Biber2025 = () => {
   const handleCopyUsername = useCallback(
     (username) => {
       if (!username) return;
-      navigator.clipboard?.writeText(username);
+      navigator.clipboard.writeText(username);
       dispatch({
         type: ACTIONS.BIBER_UPDATE_UI,
         payload: {
@@ -400,7 +396,9 @@ const Biber2025 = () => {
           SHOW_CREDENTIALS_AREA: false,
         },
       });
-      console.error("Benutzer und Geburtsdatum stimmen nicht überein. Korrigiere deine Eingabe oder wende dich mit Hilfe deiner LernSax-E-Mail an: it@cottagym.lernsax.de");
+      console.error(
+        "Benutzer und Geburtsdatum stimmen nicht überein. Korrigiere deine Eingabe oder wende dich mit Hilfe deiner LernSax-E-Mail an: it@cottagym.lernsax.de",
+      );
     }
   }, [
     dispatch,
@@ -417,7 +415,9 @@ const Biber2025 = () => {
 
   return (
     <>
-      <h1 className="display-5 fw-bold lh-1 mb-3">Informatikbiber@BvC 2025</h1>
+      <h1 className="display-5 fw-bold lh-1 mb-3 mt-3 pt-3 pb-3">
+        Informatikbiber@BvC 2025
+      </h1>
       <PasswordForm
         state={state}
         onInsertPassword={(value) => {
@@ -505,15 +505,17 @@ const Biber2025 = () => {
                 payload: {
                   INSERT_BIRTHDAY: value,
                 },
-              })
+              });
               dispatch({
                 type: ACTIONS.BIBER_UPDATE_UI,
                 payload: {
-                  ENABLE_BIRTHDAY_SUBMIT_BUTTON: (value.DAY !== '' && value.MONTH !== '' && value.YEAR !== '') ? true : false,
+                  ENABLE_BIRTHDAY_SUBMIT_BUTTON:
+                    value.DAY !== "" && value.MONTH !== "" && value.YEAR !== ""
+                      ? true
+                      : false,
                 },
               });
-            }
-            }
+            }}
             onConfirm={handleBirthdaySubmit}
             error={state.ERRORS.BIRTHDAY}
             state={state}
@@ -529,23 +531,31 @@ const Biber2025 = () => {
             onCopyUsername={handleCopyUsername}
             onCopyPassword={handleCopyPassword}
           />
-          {state.UI.USER_NAME_COPIED && (
-            <div className="alert alert-success mt-3" role="alert">
-              Der Nutzername wurde kopiert.
-            </div>
-          )}
+          <div className="d-grid gap-2">
+            <a
+              className="btn btn-success mt-1 mb-1"
+              role="button"
+              href="https://wettbewerb.informatik-biber.de/index.php?action=login"
+              target="_blank"
+            >
+              Zum Informatikbiber! 🚀
+            </a>
+          </div>
         </>
       )}
 
-      {state.API_KEY?.SUCCESS &&
+      {state.API_KEY?.SUCCESS && (
         <>
           <hr />
-          <button className="btn btn-danger mt-1" type="button" onClick={handleHardReload}>
-            neu beginnen
+          <button
+            className="btn btn-danger mt-1"
+            type="button"
+            onClick={handleHardReload}
+          >
+            Neu Beginnen!
           </button>
         </>
-      }
-
+      )}
     </>
   );
 };

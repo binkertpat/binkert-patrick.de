@@ -28,9 +28,13 @@ const CredentialsView = ({ credentials, onCopyUsername, onCopyPassword }) => (
             aria-label="Passwort"
             id="explicit_credentials_holder_password"
             readOnly
-            value={credentials.PASSWORD.replaceAll('"','')}
+            value={credentials.PASSWORD.replaceAll('"', "")}
           />
-          <CopyPasteSVG onClick={() => onCopyPassword(credentials.PASSWORD)} />
+          <CopyPasteSVG
+            onClick={() =>
+              onCopyPassword(credentials.PASSWORD.replaceAll('"', ""))
+            }
+          />
         </div>
       </div>
     </div>
