@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { createContext, useReducer } from "react";
 import { ACTIONS, THEMES } from "../src/constants/enums";
 
@@ -42,4 +44,8 @@ export const StateContextProvider = ({ children }) => {
       {children}
     </StateContext.Provider>
   );
+};
+
+StateContextProvider.propTypes = {
+  children: PropTypes.node,
 };

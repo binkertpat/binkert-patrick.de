@@ -1,10 +1,9 @@
 const CopyPasteSVG = () => {
   return (
     <span
-      className="input-group-text"
+      className="input-group-text copy-paste-button-biber"
       id="addon-wrapping"
-      title="Click to copy"
-      name="explicit_credentials_holder_username_copy"
+      title="Anklicken zum Kopieren!"
       role="button"
     >
       <svg

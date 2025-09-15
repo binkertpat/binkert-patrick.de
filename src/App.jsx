@@ -21,6 +21,7 @@ import NotFound from "./pages/NotFound.jsx";
 import PortableBitmapEditor from "./pages/PortableBitmapEditor.jsx";
 import SurfaceWin11UpgradeBooking from "./pages/SurfaceWin11UpgradeBooking.jsx";
 import Biber2025 from "./pages/Biber2025.jsx";
+import { BiberContextProvider } from "../context/BiberContext.jsx";
 
 function App() {
   const { _, dispatch } = useStateContext();
