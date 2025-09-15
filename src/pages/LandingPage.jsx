@@ -1,6 +1,6 @@
 import IT_TOOLS_STOCK from "../img/it_tools_stock.png";
 import BOOK_IMAGE from "../img/book_image.png";
-import BIBER_2024 from "../img/biber_am_bvc_2024.png";
+import BIBER_2025 from "../img/biber_am_bvc_2025.png";
 
 const LandingPage = () => {
   return (
@@ -60,7 +60,7 @@ const LandingPage = () => {
       <div className="row flex-lg-row align-items-center g-5 py-5">
         <div className="col-10 col-sm-8 col-lg-6">
           <img
-            src={BIBER_2024}
+            src={BIBER_2025}
             className="d-block mx-lg-auto img-fluid"
             alt="Tools und Apps"
             title="Tools und Apps"
