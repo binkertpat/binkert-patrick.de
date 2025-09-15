@@ -22,6 +22,12 @@ const Biber2025 = () => {
 
   const { state, dispatch } = useBiberContext();
 
+  const handleHardReload = () => {
+    dispatch({
+      type: ACTIONS.SET_DEFAULT_STATE
+    })
+  }
+
   const usersForSelectedClass = useMemo(() => {
     return state.AVAIVABLE_USERS[state.INSERT_CLASS] || [];
   }, [state.AVAIVABLE_USERS, state.INSERT_CLASS]);
@@ -268,6 +274,12 @@ const Biber2025 = () => {
       dispatch({
         type: ACTIONS.BIBER_UPDATE_UI,
         payload: {
+          HIDE_BIRTHDAY_SUBMIT_BUTTON: true,
+        },
+      });
+      dispatch({
+        type: ACTIONS.BIBER_UPDATE_UI,
+        payload: {
           SHOW_CREDENTIALS_AREA: true,
         },
       });
@@ -359,7 +371,6 @@ const Biber2025 = () => {
 
     const combined = DAY + "." + MONTH + "." + YEAR;
     const hashed = await sha256(combined);
-    console.log("TEST");
     if (userData.DATE_OF_BIRTH === hashed) {
       dispatch({
         type: ACTIONS.BIBER_STORE_CREDENTIALS,
@@ -380,7 +391,7 @@ const Biber2025 = () => {
         type: ACTIONS.BIBER_SET_BIBER_ERROR_STATE,
         payload: {
           BIRTHDAY:
-            "Benutzer und Geburtsdatum stimmen nicht überein. <br/>Korrigiere deine Eingabe oder wende dich an: it@cottagym.lernsax.de",
+            "Benutzer und Geburtsdatum stimmen nicht überein. Korrigiere deine Eingabe oder wende dich mit Hilfe deiner LernSax-E-Mail an: it@cottagym.lernsax.de",
         },
       });
       dispatch({
@@ -389,7 +400,7 @@ const Biber2025 = () => {
           SHOW_CREDENTIALS_AREA: false,
         },
       });
-      console.error("Benutzer und Geburtsdatum stimmen nicht überein.");
+      console.error("Benutzer und Geburtsdatum stimmen nicht überein. Korrigiere deine Eingabe oder wende dich mit Hilfe deiner LernSax-E-Mail an: it@cottagym.lernsax.de");
     }
   }, [
     dispatch,
@@ -488,16 +499,24 @@ const Biber2025 = () => {
           <hr />
           <BirthdayForm
             birthday={state.INSERT_BIRTHDAY}
-            setBirthday={(value) =>
+            setBirthday={(value) => {
               dispatch({
                 type: ACTIONS.BIBER_STORE_DATA,
                 payload: {
                   INSERT_BIRTHDAY: value,
                 },
               })
+              dispatch({
+                type: ACTIONS.BIBER_UPDATE_UI,
+                payload: {
+                  ENABLE_BIRTHDAY_SUBMIT_BUTTON: (value.DAY !== '' && value.MONTH !== '' && value.YEAR !== '') ? true : false,
+                },
+              });
+            }
             }
             onConfirm={handleBirthdaySubmit}
             error={state.ERRORS.BIRTHDAY}
+            state={state}
           />
         </>
       )}
@@ -517,6 +536,16 @@ const Biber2025 = () => {
           )}
         </>
       )}
+
+      {state.API_KEY?.SUCCESS &&
+        <>
+          <hr />
+          <button className="btn btn-danger mt-1" type="button" onClick={handleHardReload}>
+            neu beginnen
+          </button>
+        </>
+      }
+
     </>
   );
 };

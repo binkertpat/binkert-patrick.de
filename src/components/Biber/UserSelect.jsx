@@ -16,7 +16,7 @@ const UserSelect = ({ users = [], value, onChange, onConfirm, state = {} }) => (
       <option value="">Schüler / Schülerin auswählen</option>
       {users.map((u) => (
         <option key={u.USERNAME} value={u.USERNAME}>
-          {u.PRENAME} {u.LASTNAME}
+          {u.PRENAME} {u.LASTNAME[0]+'.'}
         </option>
       ))}
     </select>
