@@ -14,6 +14,7 @@ import { ACTIONS } from "../constants/enums";
 import { sha256 } from "../utils/hashUtils";
 import { doFetch } from "../utils/fetchPostJson";
 import PasswordForm from "../components/Biber/PasswordForm";
+import { copyToClipboard } from "../utils/copyUtils";
 
 const Biber2025 = () => {
   const { state, dispatch } = useBiberContext();
@@ -74,53 +75,45 @@ const Biber2025 = () => {
     }
   }, [state.INSERT_USER, dispatch]);
 
-  const handleCopyUsername = useCallback(
-    (username) => {
-      if (!username) return;
-      navigator.clipboard.writeText(username);
-      dispatch({
-        type: ACTIONS.BIBER_UPDATE_UI,
-        payload: {
-          USER_NAME_COPIED: true,
-        },
-      });
-      setTimeout(
-        () =>
-          dispatch({
-            type: ACTIONS.BIBER_UPDATE_UI,
-            payload: {
-              USER_NAME_COPIED: false,
-            },
-          }),
-        2000,
-      );
-    },
-    [dispatch],
-  );
+const handleCopyUsername = useCallback(
+  async (username) => {
+    if (!username) return;
+    const ok = await copyToClipboard(username);
+    dispatch({
+      type: ACTIONS.BIBER_UPDATE_UI,
+      payload: { USER_NAME_COPIED: ok },
+    });
+    if (ok) {
+      setTimeout(() => {
+        dispatch({
+          type: ACTIONS.BIBER_UPDATE_UI,
+          payload: { USER_NAME_COPIED: false },
+        });
+      }, 2000);
+    }
+  },
+  [dispatch],
+);
 
-  const handleCopyPassword = useCallback(
-    (password) => {
-      if (!password) return;
-      navigator.clipboard?.writeText(password);
-      dispatch({
-        type: ACTIONS.BIBER_UPDATE_UI,
-        payload: {
-          PASSWORD_COPIED: true,
-        },
-      });
-      setTimeout(
-        () =>
-          dispatch({
-            type: ACTIONS.BIBER_UPDATE_UI,
-            payload: {
-              PASSWORD_COPIED: false,
-            },
-          }),
-        2000,
-      );
-    },
-    [dispatch],
-  );
+const handleCopyPassword = useCallback(
+  async (password) => {
+    if (!password) return;
+    const ok = await copyToClipboard(password);
+    dispatch({
+      type: ACTIONS.BIBER_UPDATE_UI,
+      payload: { PASSWORD_COPIED: ok },
+    });
+    if (ok) {
+      setTimeout(() => {
+        dispatch({
+          type: ACTIONS.BIBER_UPDATE_UI,
+          payload: { PASSWORD_COPIED: false },
+        });
+      }, 2000);
+    }
+  },
+  [dispatch],
+);
 
   const requestApiKey = useCallback(
     async (password) => {
