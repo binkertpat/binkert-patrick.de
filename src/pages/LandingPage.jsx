@@ -71,7 +71,7 @@ const LandingPage = () => {
         </div>
         <div className="col-lg-6">
           <h2 className="display-5 fw-bold lh-1 mb-3">
-            Informatikbiber@BvC 2024
+            Informatikbiber@BvC 2025
           </h2>
           <span className="badge bg-success mb-3">Wettbewerb</span>
           <p className="lead">
