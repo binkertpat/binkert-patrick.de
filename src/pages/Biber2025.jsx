@@ -15,6 +15,10 @@ import { sha256 } from "../utils/hashUtils";
 import { doFetch } from "../utils/fetchPostJson";
 
 const Biber2025 = () => {
+  // TODO: only one char of lastname
+  // TODO: copy to clipboard
+  // TODO: consistent error messages and validating
+  
   const { state, dispatch } = useBiberContext();
 
   const usersForSelectedClass = useMemo(() => {

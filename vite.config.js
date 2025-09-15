@@ -22,4 +22,7 @@ export default defineConfig({
       "https://github.com/binkertpat/binkert-patrick.de",
     ),
   },
+  build: {
+    minify: true
+  },
 });
