@@ -84,7 +84,7 @@ const LandingPage = () => {
             der Seite einsehen und die Aufgaben noch einmal durchgehen.
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-            <a href="https://biber.binkert-patrick.de/">
+            <a href="/Biber2025">
               <button
                 type="button"
                 className="btn btn-primary btn-lg px-4 me-md-2"

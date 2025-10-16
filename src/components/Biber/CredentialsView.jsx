@@ -22,7 +22,7 @@ const CredentialsView = ({ credentials, onCopyUsername, onCopyPassword }) => (
             type="button"
             className="btn btn-outline-secondary"
             aria-label="Nutzername kopieren"
-            style={{border: 'none'}}
+            style={{border: 'none', transform: 'scale(0.99)'}}
             onClick={() => onCopyUsername(credentials.USERNAME ?? "")}
           >
             <CopyPasteSVG aria-hidden="true" />
@@ -46,7 +46,7 @@ const CredentialsView = ({ credentials, onCopyUsername, onCopyPassword }) => (
             type="button"
             className="btn btn-outline-secondary"
             aria-label="Passwort kopieren"
-            style={{border: 'none'}}
+            style={{border: 'none', transform: 'scale(0.99)'}}
             onClick={() =>
               onCopyPassword((credentials.PASSWORD ?? "").replaceAll('"', ""))
             }
