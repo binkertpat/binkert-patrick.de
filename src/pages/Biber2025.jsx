@@ -75,45 +75,45 @@ const Biber2025 = () => {
     }
   }, [state.INSERT_USER, dispatch]);
 
-const handleCopyUsername = useCallback(
-  async (username) => {
-    if (!username) return;
-    const ok = await copyToClipboard(username);
-    dispatch({
-      type: ACTIONS.BIBER_UPDATE_UI,
-      payload: { USER_NAME_COPIED: ok },
-    });
-    if (ok) {
-      setTimeout(() => {
-        dispatch({
-          type: ACTIONS.BIBER_UPDATE_UI,
-          payload: { USER_NAME_COPIED: false },
-        });
-      }, 2000);
-    }
-  },
-  [dispatch],
-);
+  const handleCopyUsername = useCallback(
+    async (username) => {
+      if (!username) return;
+      const ok = await copyToClipboard(username);
+      dispatch({
+        type: ACTIONS.BIBER_UPDATE_UI,
+        payload: { USER_NAME_COPIED: ok },
+      });
+      if (ok) {
+        setTimeout(() => {
+          dispatch({
+            type: ACTIONS.BIBER_UPDATE_UI,
+            payload: { USER_NAME_COPIED: false },
+          });
+        }, 2000);
+      }
+    },
+    [dispatch],
+  );
 
-const handleCopyPassword = useCallback(
-  async (password) => {
-    if (!password) return;
-    const ok = await copyToClipboard(password);
-    dispatch({
-      type: ACTIONS.BIBER_UPDATE_UI,
-      payload: { PASSWORD_COPIED: ok },
-    });
-    if (ok) {
-      setTimeout(() => {
-        dispatch({
-          type: ACTIONS.BIBER_UPDATE_UI,
-          payload: { PASSWORD_COPIED: false },
-        });
-      }, 2000);
-    }
-  },
-  [dispatch],
-);
+  const handleCopyPassword = useCallback(
+    async (password) => {
+      if (!password) return;
+      const ok = await copyToClipboard(password);
+      dispatch({
+        type: ACTIONS.BIBER_UPDATE_UI,
+        payload: { PASSWORD_COPIED: ok },
+      });
+      if (ok) {
+        setTimeout(() => {
+          dispatch({
+            type: ACTIONS.BIBER_UPDATE_UI,
+            payload: { PASSWORD_COPIED: false },
+          });
+        }, 2000);
+      }
+    },
+    [dispatch],
+  );
 
   const requestApiKey = useCallback(
     async (password) => {

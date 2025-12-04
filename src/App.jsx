@@ -6,7 +6,13 @@ import Header from "./components/Header.jsx";
 import Breadcrumbs from "./components/Breadcrumbs.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import Contact from "./pages/Contact.jsx";
-import { BrowserRouter, Routes, Route, useSearchParams, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useSearchParams,
+  useLocation,
+} from "react-router-dom";
 import Footer from "./components/Footer.jsx";
 import { useStateContext } from "../hooks/useStateContext.jsx";
 import { useEffect, useState } from "react";
@@ -44,14 +50,14 @@ function App() {
   return (
     <>
       <BrowserRouter>
-          <>
-            <div className="container">
-              <OffCanvas />
-              <Header />
-              <Breadcrumbs />
-            </div>
-            <div className="container">
-              {/* <div
+        <>
+          <div className="container">
+            <OffCanvas />
+            <Header />
+            <Breadcrumbs />
+          </div>
+          <div className="container">
+            {/* <div
           className="alert alert-success d-flex align-items-center justify-content-center text-center"
           role="alert"
         >
@@ -60,28 +66,31 @@ function App() {
           </div>
         </div> */}
 
-              <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/self-hosted-tools" element={<SelfHostedTools />} />
-                <Route path="/external-tools" element={<ExternalTools />} />
-                <Route path="/external-programs" element={<ExternalPrograms />} />
-                <Route path="/education" element={<EducationMaterial />} />
-                <Route path="/pbm" element={<PortableBitmapEditor />} />
-                <Route path="/PhysikQuiztime" element={
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/self-hosted-tools" element={<SelfHostedTools />} />
+              <Route path="/external-tools" element={<ExternalTools />} />
+              <Route path="/external-programs" element={<ExternalPrograms />} />
+              <Route path="/education" element={<EducationMaterial />} />
+              <Route path="/pbm" element={<PortableBitmapEditor />} />
+              <Route
+                path="/PhysikQuiztime"
+                element={
                   <PhysikQuiztimeContextProvider>
                     <Quiz />
                   </PhysikQuiztimeContextProvider>
-                } />
-                <Route path="/Biber2025" element={<Biber2025 />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </div>
-            <BugReport />
-            <ScrollToTop />
-            <Footer />
-          </>
+                }
+              />
+              <Route path="/Biber2025" element={<Biber2025 />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+          <BugReport />
+          <ScrollToTop />
+          <Footer />
+        </>
       </BrowserRouter>
     </>
   );

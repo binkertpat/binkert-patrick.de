@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import baseImage from "../img/signal-2024-06-22-135220_002.png";
 
 const Footer = () => {

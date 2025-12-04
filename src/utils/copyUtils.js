@@ -6,7 +6,9 @@ export const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
       return true;
-    } catch (_) { /* weiter zum Fallback */ }
+    } catch (_) {
+      /* weiter zum Fallback */
+    }
   }
 
   // Fallback über verstecktes Textarea (funktioniert in vielen Umgebungen, auch älteren Safari/iOS WebViews)

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 define(["exports"], function (exports) {
   "use strict";
 

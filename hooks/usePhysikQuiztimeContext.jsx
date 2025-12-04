@@ -5,7 +5,9 @@ export const usePhysikQuiztimeContext = () => {
   const context = useContext(PhysikQuiztimeContext);
 
   if (!context) {
-    throw Error("usePhysikQuiztimeContext must be used inside a PhysikQuiztimeProvider");
+    throw Error(
+      "usePhysikQuiztimeContext must be used inside a PhysikQuiztimeProvider",
+    );
   }
   return context;
 };
