@@ -13,6 +13,12 @@ export const ACTIONS = {
   BIBER_UPDATE_UI: "biber-update-ui",
 };
 
+export const QUIZTIME_ACTIONS = {
+  SET_DEFAULT_STATE: 'SET_DEFAULT_STATE'
+}
+
+export const QUIZTIME_LOCAL_STORAGE_KEY = 'PHYSIK_QUIZTIME_STATE';
+
 export const THEMES = {
   LIGHT: "light",
   DARK: "dark",
