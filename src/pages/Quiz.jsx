@@ -6,10 +6,15 @@ import { QUIZTIME_ACTIONS } from "../constants/enums";
 const Quiz = () => {
   const { state, dispatch } = usePhysikQuiztimeContext();
 
+  const handlePhysicsQuestionClick = (e) => {
+    const QUESTION_INDEX = e.target.getAttribute("data-question-index");
+    dispatch({ TYPE: QUIZTIME_ACTIONS.PLAY_PHYSICS_QUESTION, PAYLOAD: QUESTION_INDEX });
+  }
+
   useEffect(() => {
-    dispatch({ type: QUIZTIME_ACTIONS.SET_DEFAULT_STATE });
+    dispatch({ TYPE: QUIZTIME_ACTIONS.SET_DEFAULT_STATE });
     console.dir(state);
-  }, [dispatch, state]);
+  }, []);
 
   const FULLSCREEN_STYLE = {
     position: "fixed",
@@ -24,22 +29,48 @@ const Quiz = () => {
   };
 
   return (
+
     <div style={FULLSCREEN_STYLE}>
-      <h1 className="display-5 fw-bold lh-1 mb-4 text-center">
-        {state.SETUP.NAMES.GROUP_A} <br />
-        {state.SETUP.NAMES.GROUP_B} <br />
-        {state.SETUP.NAMES.GROUP_C} <br />
-        {state.SETUP.NAMES.GROUP_D} <br />
-      </h1>
-      <p>Zeige Frage</p>
-      <p>zeige Lösung</p>
-      <p>nächste Frage</p>
-      <p>Points to A</p>
-      <p>Points to B</p>
-      <p>Points to C</p>
-      <p>Points to D</p>
-      <p>Leaderboard</p>
-      <p>DATA</p>
+      <div className="scoreboard">
+        <div className="cat-phy">
+          <h1 className="cat-phy-heading">PHYSIK</h1>
+          {state.QUESTIONS.PHY.map((QUESTION, INDEX) => {
+            return (
+              <button
+                key={INDEX}
+                data-question-index={INDEX}
+                style={{ backgroundColor: state.BUTTON_COLORS[QUESTION.POINTS] }}
+                disabled={!QUESTION.ACTIVE}
+                data-active={QUESTION.ACTIVE}
+                type="button"
+                className="btn btn-primary"
+                onClick={handlePhysicsQuestionClick}
+              >
+                {QUESTION.POINTS}
+              </button>
+            )
+          })}
+        </div>
+        <div className="cat-life">
+          <h1 className="cat-life-heading">DAS LEBEN</h1>
+        </div>
+        <div className="cat-mr-b">
+          <h1 className="cat-mr-b-heading">MR. B</h1>
+        </div>
+        <div className="scoring">
+          <h1>{state.SETUP.NAMES.GROUP_A}</h1>
+          <h1>{state.SETUP.NAMES.GROUP_B}</h1>
+          <h1>{state.SETUP.NAMES.GROUP_C}</h1>
+          <h1>{state.SETUP.NAMES.GROUP_D}</h1>
+        </div>
+        <div className="controls">
+          {state.RUNTIME.ACTUAL_QUESTION && (
+            <>
+              <h1>{state.RUNTIME.ACTUAL_QUESTION.QUESTION}</h1>
+            </>
+          ) }
+        </div>
+      </div>
     </div>
   );
 };

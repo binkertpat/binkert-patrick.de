@@ -28,14 +28,91 @@ const DEFAULT_STATE = {
       GROUP_D: 0,
     },
   },
-  QUESTIONS: {
-    1: {
-      QUESTION: "Was ist die Einheit der Kraft?",
-      ANSWER: "Newton",
-      POINTS: 10,
-    },
+  BUTTON_COLORS: {
+    10: '#00A651',
+    20: '#2FB34A',
+    30: '#5FBF43',
+    40: '#8FCC3C',
+    50: '#BFD835',
+    60: '#E6C72E',
+    7: '#E6A82A',
+    80: '#E67A26',
+    90: '#E64C22',
+    100: '#D32F2F',
   },
-};
+  QUESTIONS: {
+    PHY: 
+    [
+      {
+        QUESTION : 'FRAGE 1',
+        ANSWER: 'ANTWORT 1',
+        POINTS: 10,
+        ACTIVE: true,
+      },
+      {
+        QUESTION : 'FRAGE 2',
+        ANSWER: 'ANTWORT 2',
+        POINTS: 10,
+        ACTIVE: true,
+      },
+      {
+        QUESTION : 'FRAGE 3',
+        ANSWER: 'ANTWORT 3',
+        POINTS: 10,
+        ACTIVE: true,
+      },
+      {
+        QUESTION : 'FRAGE 4',
+        ANSWER: 'ANTWORT 4',
+        POINTS: 20,
+        ACTIVE: true,
+      }
+    ],
+    LIFE: [
+      {
+        QUESTION : 'FRAGE 1',
+        ANSWER: 'ANTWORT 1',
+        POINTS: 10,
+        ACTIVE: true,
+      },
+      {
+        QUESTION : 'FRAGE 2',
+        ANSWER: 'ANTWORT 2',
+        POINTS: 10,
+        ACTIVE: true,
+      },
+      {
+        QUESTION : 'FRAGE 3',
+        ANSWER: 'ANTWORT 3',
+        POINTS: 10,
+        ACTIVE: true,
+      },
+      {
+        QUESTION : 'FRAGE 4',
+        ANSWER: 'ANTWORT 4',
+        POINTS: 20,
+        ACTIVE: true,
+      }
+    ],
+    MRB: [
+      {
+        QUESTION : 'FRAGE 1',
+        ANSWER: 'ANTWORT 1',
+        POINTS: 10,
+        ACTIVE: true,
+      },
+      {
+        QUESTION : 'FRAGE 4',
+        ANSWER: 'ANTWORT 4',
+        POINTS: 20,
+        ACTIVE: true,
+      }
+    ]
+  },
+}
+
+
+
 
 const syncLocalStorage = (STATE) => {
   const LAST_UPDATE = new Date().toISOString();
@@ -56,6 +133,12 @@ export const PhysikQuiztimeContextReducer = (STATE, { TYPE, PAYLOAD }) => {
     case QUIZTIME_ACTIONS.SET_DEFAULT_STATE:
       syncLocalStorage({ ...STATE, ...DEFAULT_STATE, ...PAYLOAD });
       return { ...STATE, ...DEFAULT_STATE };
+    case QUIZTIME_ACTIONS.PLAY_PHYSICS_QUESTION:
+      var state = STATE;
+      state.QUESTIONS.PHY[PAYLOAD].ACTIVE = false;
+      state.RUNTIME.ACTUAL_QUESTION = state.QUESTIONS.PHY[PAYLOAD];
+      syncLocalStorage({ ...STATE, ...state });
+      return { ...STATE, ...state };
     default:
       syncLocalStorage({ ...STATE });
       return STATE;
