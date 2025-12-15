@@ -11,8 +11,14 @@ const Quiz = () => {
     dispatch({ TYPE: QUIZTIME_ACTIONS.PLAY_PHYSICS_QUESTION, PAYLOAD: QUESTION_INDEX });
   }
 
+  const handleResetState = () => {
+    dispatch({
+      TYPE: QUIZTIME_ACTIONS.RESET_STATE,
+    });
+  }
+
   useEffect(() => {
-    dispatch({ TYPE: QUIZTIME_ACTIONS.SET_DEFAULT_STATE });
+    dispatch({ TYPE: QUIZTIME_ACTIONS.INIT_STATE_FROM_DISK });
     console.dir(state);
   }, []);
 
@@ -67,8 +73,9 @@ const Quiz = () => {
           {state.RUNTIME.ACTUAL_QUESTION && (
             <>
               <h1>{state.RUNTIME.ACTUAL_QUESTION.QUESTION}</h1>
+              <div className="btn btn-primary" onClick={handleResetState}>TEST</div>
             </>
-          ) }
+          )}
         </div>
       </div>
     </div>
