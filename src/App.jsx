@@ -28,6 +28,7 @@ import PortableBitmapEditor from "./pages/PortableBitmapEditor.jsx";
 import Biber2025 from "./pages/Biber2025.jsx";
 import Quiz from "./pages/Quiz.jsx";
 import { PhysikQuiztimeContextProvider } from "../context/PhysikQuiztimeContext.jsx";
+import Snowfall from "react-snowfall";
 
 function App() {
   const { _, dispatch } = useStateContext();
@@ -50,6 +51,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Snowfall />
         <>
           <div className="container">
             <OffCanvas />
@@ -57,14 +59,22 @@ function App() {
             <Breadcrumbs />
           </div>
           <div className="container">
-            {/* <div
+            <div
           className="alert alert-success d-flex align-items-center justify-content-center text-center"
           role="alert"
         >
           <div className="text-center">
-            Einen guten und erfolgreichen Start ins neue Schuljahr! 📖👨‍🏫
+             
+            <span className="mb-1" style={{display: 'block', fontWeight:'bolder',fontSize: '2rem'}}>🎇   🎄   🎅   🎇   🎄   🎅   🎇   🎄   🎅   🎇    🎄   🎅 </span>
+
+             <span className="mb-1" style={{display: 'block', fontWeight:'bolder',fontSize: '1.4rem', lineHeight: '2rem'}}>
+                           Ich wünsche euch allen ein frohes und erholsames Weihnachtsfest, eine besinnliche Zeit mit euren Familien, Freunden und Liebsten, sowie einen guten Rutsch* ins neue Jahr! 
+                           </span>
+
+
+             <span className="mt-1" style={{fontSize: '0.8rem', display: 'block'}}>* bitte nicht ausrutschen </span>
           </div>
-        </div> */}
+        </div>
 
             <Routes>
               <Route path="/" element={<LandingPage />} />
@@ -75,16 +85,19 @@ function App() {
               <Route path="/external-programs" element={<ExternalPrograms />} />
               <Route path="/education" element={<EducationMaterial />} />
               <Route path="/pbm" element={<PortableBitmapEditor />} />
-              <Route
+              <Route path="/Biber2025" element={<Biber2025 />} />
+              <Route path="*" element={<NotFound />} />
+
+              {/* OUTSOURCED / ARCHIVE / TODO */}
+              {/* <Route
                 path="/PhysikQuiztime"
                 element={
                   <PhysikQuiztimeContextProvider>
                     <Quiz />
                   </PhysikQuiztimeContextProvider>
                 }
-              />
-              <Route path="/Biber2025" element={<Biber2025 />} />
-              <Route path="*" element={<NotFound />} />
+              /> */}
+              
             </Routes>
           </div>
           <BugReport />

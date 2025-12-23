@@ -14,7 +14,7 @@ const ToolsCard = ({ props }) => {
           <p className="card-text"> {props.TEXT} </p>
           {Object.values(props.LINKSET).map((link, i) => (
             <div key={i} className="mb-2 gy-2">
-              <a href={link.URL} className="btn btn-primary">
+              <a href={link.URL} className={"btn btn-primary " + (link.URL === '' ? 'disabled' : '')}>
                 {link.BUTTON_TEXT}
               </a>
             </div>

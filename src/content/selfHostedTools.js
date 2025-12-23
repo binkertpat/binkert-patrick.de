@@ -9,20 +9,21 @@ import DEV_TOOLS_IMAGE from "../img/dev_tools.png";
 import DIGISCREEN_IMAGE from "../img/digiscreen.png";
 import JITSI_IMAGE from "../img/jitsi.png";
 import DRAWDB_IMAGE from "../img/drawdb.png";
+import CODIMD_IMAGE from "../img/codimd.png";
 
 export const SELF_HOSTED_TOOLS = {
-  INSTAHUB: {
-    IMG: INSTAHUB_IMAGE,
-    TITLE: "InstaHub",
-    TEXT: "InstaHub ist ein soziales Netzwerk, welches im Unterricht eingesetzt wird, um die Themen Datenbanken, Umgang mit sozialen Netzen und Datenschutz zu lehren.",
+  CODEMD: {
+    IMG: CODIMD_IMAGE,
+    TITLE: "CodiMD@BvC",
+    TEXT: "CodiMD ist ein Open-Source-Echtzeit-Kollaborations-Markdown-Editor , der es Nutzern ermöglicht, gemeinsam Dokumente zu erstellen und zu bearbeiten. Es handelt sich um die freie Softwareversion von HackMD, entwickelt vom HackMD-Team, und bietet Funktionen wie einen Markdown-Editor, PDF-Export und Unterstützung für verschiedene Markup-Syntaxen.",
     LINKSET: [
       {
-        URL: "https://bvc-social.de/",
-        BUTTON_TEXT: "Let's be social!",
+        URL: "https://md.binkert-patrick.de/",
+        BUTTON_TEXT: "Mark it down!",
       },
     ],
-    COPYRIGHT: "© github.com/wi-wissen/InstaHub",
-    HINT: "Zur Zeit nicht verfügbar.",
+    COPYRIGHT: "© https://github.com/hackmdio/codimd",
+    HINT: "",
   },
   PHPMYADMIN: {
     IMG: PHPMYADMIN_IMAGE,
@@ -140,6 +141,20 @@ export const SELF_HOSTED_TOOLS = {
     ],
     COPYRIGHT: "© codeberg.org/ladigitale/digiboard",
     HINT: "",
+  },
+  INSTAHUB: {
+    IMG: INSTAHUB_IMAGE,
+    TITLE: "InstaHub",
+    TEXT: "InstaHub ist ein soziales Netzwerk, welches im Unterricht eingesetzt wird, um die Themen Datenbanken, Umgang mit sozialen Netzen und Datenschutz zu lehren.",
+    LINKSET: [
+      {
+        // URL: "https://bvc-social.de/",
+        URL: "",
+        BUTTON_TEXT: "Let's be social!",
+      },
+    ],
+    COPYRIGHT: "© github.com/wi-wissen/InstaHub",
+    HINT: "Zur Zeit nicht verfügbar.",
   },
   JITSI: {
     IMG: JITSI_IMAGE,
