@@ -32,6 +32,15 @@ import Snowfall from "react-snowfall";
 
 function App() {
   const { _, dispatch } = useStateContext();
+  const [daysUntilWinterVacation, setDaysUntilWinterVacation] = useState(-1);
+
+  const calculateDaysUntilWinterVacation = () => {
+    const today = new Date();
+    const lastSchoolDay = new Date("2026-02-06");
+    const diff = lastSchoolDay - today;
+    const diffInDays = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    setDaysUntilWinterVacation(diffInDays);
+  };
 
   const darkModeDefaultLogic = () => {
     if (localStorage.getItem("bsTheme") == null) {
@@ -46,6 +55,7 @@ function App() {
 
   useEffect(() => {
     darkModeDefaultLogic();
+    calculateDaysUntilWinterVacation();
   }, []);
 
   return (
@@ -60,21 +70,47 @@ function App() {
           </div>
           <div className="container">
             <div
-          className="alert alert-success d-flex align-items-center justify-content-center text-center"
-          role="alert"
-        >
-          <div className="text-center">
-             
-            <span className="mb-1" style={{display: 'block', fontWeight:'bolder',fontSize: '2rem'}}>🎇   🎄   🎅   🎇   🎄   🎅   🎇   🎄   🎅   🎇    🎄   🎅 </span>
+              className="alert alert-success d-flex align-items-center justify-content-center text-center"
+              role="alert"
+            >
+              <div className="text-center">
+                <span
+                  className="mb-3"
+                  style={{
+                    display: "block",
+                    fontWeight: "bolder",
+                    fontSize: "2rem",
+                  }}
+                >
+                  🔜 Winterferien ⛷️{" "}
+                </span>
 
-             <span className="mb-1" style={{display: 'block', fontWeight:'bolder',fontSize: '1.4rem', lineHeight: '2rem'}}>
-                           Ich wünsche euch allen ein frohes und erholsames Weihnachtsfest, eine besinnliche Zeit mit euren Familien, Freunden und Liebsten, sowie einen guten Rutsch* ins neue Jahr! 
-                           </span>
+                <span
+                  className="mb-1"
+                  style={{
+                    display: "block",
+                    fontWeight: "bolder",
+                    fontSize: "1.4rem",
+                    lineHeight: "2rem",
+                  }}
+                >
+                  Nur noch {daysUntilWinterVacation} Tage bis zu den
+                  Winterferien, den Halbjahresinformationen bzw. Zeugnissen und
+                  damit dem Ende des ersten Halbjahres des Schuljahres 2025/26!
+                  🥳
+                </span>
 
-
-             <span className="mt-1" style={{fontSize: '0.8rem', display: 'block'}}>* bitte nicht ausrutschen </span>
-          </div>
-        </div>
+                <a
+                  href="https://www.youtube.com/watch?v=xdmJ2WMvpD4"
+                  target="_blank"
+                  className="text-decoration-none"
+                >
+                  <button type="button" className="btn btn-success btn-lg mt-3">
+                    Woah, we're halfway there! 🥳
+                  </button>
+                </a>
+              </div>
+            </div>
 
             <Routes>
               <Route path="/" element={<LandingPage />} />
@@ -97,7 +133,6 @@ function App() {
                   </PhysikQuiztimeContextProvider>
                 }
               /> */}
-              
             </Routes>
           </div>
           <BugReport />
