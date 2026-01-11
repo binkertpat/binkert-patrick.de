@@ -8,19 +8,22 @@ const Quiz = () => {
 
   const handlePhysicsQuestionClick = (e) => {
     const QUESTION_INDEX = e.target.getAttribute("data-question-index");
-    dispatch({ TYPE: QUIZTIME_ACTIONS.PLAY_PHYSICS_QUESTION, PAYLOAD: QUESTION_INDEX });
-  }
+    dispatch({
+      TYPE: QUIZTIME_ACTIONS.PLAY_PHYSICS_QUESTION,
+      PAYLOAD: QUESTION_INDEX,
+    });
+  };
 
   const handleResetState = () => {
     dispatch({
       TYPE: QUIZTIME_ACTIONS.RESET_STATE,
     });
-  }
+  };
 
   useEffect(() => {
     dispatch({ TYPE: QUIZTIME_ACTIONS.INIT_STATE_FROM_DISK });
     console.dir(state);
-  }, []);
+  });
 
   const FULLSCREEN_STYLE = {
     position: "fixed",
@@ -35,7 +38,6 @@ const Quiz = () => {
   };
 
   return (
-
     <div style={FULLSCREEN_STYLE}>
       <div className="scoreboard">
         <div className="cat-phy">
@@ -45,7 +47,9 @@ const Quiz = () => {
               <button
                 key={INDEX}
                 data-question-index={INDEX}
-                style={{ backgroundColor: state.BUTTON_COLORS[QUESTION.POINTS] }}
+                style={{
+                  backgroundColor: state.BUTTON_COLORS[QUESTION.POINTS],
+                }}
                 disabled={!QUESTION.ACTIVE}
                 data-active={QUESTION.ACTIVE}
                 type="button"
@@ -54,7 +58,7 @@ const Quiz = () => {
               >
                 {QUESTION.POINTS}
               </button>
-            )
+            );
           })}
         </div>
         <div className="cat-life">
@@ -73,7 +77,9 @@ const Quiz = () => {
           {state.RUNTIME.ACTUAL_QUESTION && (
             <>
               <h1>{state.RUNTIME.ACTUAL_QUESTION.QUESTION}</h1>
-              <div className="btn btn-primary" onClick={handleResetState}>TEST</div>
+              <div className="btn btn-primary" onClick={handleResetState}>
+                TEST
+              </div>
             </>
           )}
         </div>

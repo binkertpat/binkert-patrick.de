@@ -6,13 +6,7 @@ import Header from "./components/Header.jsx";
 import Breadcrumbs from "./components/Breadcrumbs.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import Contact from "./pages/Contact.jsx";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useSearchParams,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
 import { useStateContext } from "../hooks/useStateContext.jsx";
 import { useEffect, useState } from "react";
@@ -26,8 +20,6 @@ import ExternalPrograms from "./pages/ExternalPrograms.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import PortableBitmapEditor from "./pages/PortableBitmapEditor.jsx";
 import Biber2025 from "./pages/Biber2025.jsx";
-import Quiz from "./pages/Quiz.jsx";
-import { PhysikQuiztimeContextProvider } from "../context/PhysikQuiztimeContext.jsx";
 import Snowfall from "react-snowfall";
 
 function App() {
@@ -106,7 +98,7 @@ function App() {
                   className="text-decoration-none"
                 >
                   <button type="button" className="btn btn-success btn-lg mt-3">
-                    Woah, we're halfway there! 🥳
+                    Woah, we&apos;re halfway there! 🥳
                   </button>
                 </a>
               </div>
@@ -123,16 +115,6 @@ function App() {
               <Route path="/pbm" element={<PortableBitmapEditor />} />
               <Route path="/Biber2025" element={<Biber2025 />} />
               <Route path="*" element={<NotFound />} />
-
-              {/* OUTSOURCED / ARCHIVE / TODO */}
-              {/* <Route
-                path="/PhysikQuiztime"
-                element={
-                  <PhysikQuiztimeContextProvider>
-                    <Quiz />
-                  </PhysikQuiztimeContextProvider>
-                }
-              /> */}
             </Routes>
           </div>
           <BugReport />

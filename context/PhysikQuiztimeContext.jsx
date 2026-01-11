@@ -27,35 +27,34 @@ const DEFAULT_STATE = {
     },
   },
   BUTTON_COLORS: {
-    10: '#00A651',
-    20: '#2FB34A',
-    30: '#5FBF43',
-    40: '#8FCC3C',
-    50: '#BFD835',
-    60: '#E6C72E',
-    70: '#E6A82A', 
-    80: '#E67A26',
-    90: '#E64C22',
-    100: '#D32F2F',
+    10: "#00A651",
+    20: "#2FB34A",
+    30: "#5FBF43",
+    40: "#8FCC3C",
+    50: "#BFD835",
+    60: "#E6C72E",
+    70: "#E6A82A",
+    80: "#E67A26",
+    90: "#E64C22",
+    100: "#D32F2F",
   },
   QUESTIONS: {
-    PHY:
-      [
-        { QUESTION: 'FRAGE 1', ANSWER: 'ANTWORT 1', POINTS: 10, ACTIVE: true },
-        { QUESTION: 'FRAGE 2', ANSWER: 'ANTWORT 2', POINTS: 10, ACTIVE: true },
-        { QUESTION: 'FRAGE 3', ANSWER: 'ANTWORT 3', POINTS: 10, ACTIVE: true },
-        { QUESTION: 'FRAGE 4', ANSWER: 'ANTWORT 4', POINTS: 20, ACTIVE: true },
-      ],
+    PHY: [
+      { QUESTION: "FRAGE 1", ANSWER: "ANTWORT 1", POINTS: 10, ACTIVE: true },
+      { QUESTION: "FRAGE 2", ANSWER: "ANTWORT 2", POINTS: 10, ACTIVE: true },
+      { QUESTION: "FRAGE 3", ANSWER: "ANTWORT 3", POINTS: 10, ACTIVE: true },
+      { QUESTION: "FRAGE 4", ANSWER: "ANTWORT 4", POINTS: 20, ACTIVE: true },
+    ],
     LIFE: [
-      { QUESTION: 'FRAGE 1', ANSWER: 'ANTWORT 1', POINTS: 10, ACTIVE: true },
-      { QUESTION: 'FRAGE 2', ANSWER: 'ANTWORT 2', POINTS: 10, ACTIVE: true },
-      { QUESTION: 'FRAGE 3', ANSWER: 'ANTWORT 3', POINTS: 10, ACTIVE: true },
-      { QUESTION: 'FRAGE 4', ANSWER: 'ANTWORT 4', POINTS: 20, ACTIVE: true },
+      { QUESTION: "FRAGE 1", ANSWER: "ANTWORT 1", POINTS: 10, ACTIVE: true },
+      { QUESTION: "FRAGE 2", ANSWER: "ANTWORT 2", POINTS: 10, ACTIVE: true },
+      { QUESTION: "FRAGE 3", ANSWER: "ANTWORT 3", POINTS: 10, ACTIVE: true },
+      { QUESTION: "FRAGE 4", ANSWER: "ANTWORT 4", POINTS: 20, ACTIVE: true },
     ],
     MRB: [
-      { QUESTION: 'FRAGE 1', ANSWER: 'ANTWORT 1', POINTS: 10, ACTIVE: true },
-      { QUESTION: 'FRAGE 4', ANSWER: 'ANTWORT 4', POINTS: 20, ACTIVE: true },
-    ]
+      { QUESTION: "FRAGE 1", ANSWER: "ANTWORT 1", POINTS: 10, ACTIVE: true },
+      { QUESTION: "FRAGE 4", ANSWER: "ANTWORT 4", POINTS: 20, ACTIVE: true },
+    ],
   },
 };
 
@@ -76,14 +75,16 @@ const _saveStateToLocalStorage = (currentState) => {
       JSON.stringify(STATE_TO_SAVE),
     );
   } catch (error) {
-    console.error('COULD NOT SAVE TO LOCAL STORAGE: ', error);
+    console.error("COULD NOT SAVE TO LOCAL STORAGE: ", error);
   }
 };
 
 export const _getInitialState = () => {
-  const SAVED_STATE_AS_JSON_STRING = localStorage.getItem(QUIZTIME_LOCAL_STORAGE_KEY);
+  const SAVED_STATE_AS_JSON_STRING = localStorage.getItem(
+    QUIZTIME_LOCAL_STORAGE_KEY,
+  );
   if (!SAVED_STATE_AS_JSON_STRING) {
-    return DEFAULT_STATE; 
+    return DEFAULT_STATE;
   }
 
   try {
@@ -92,7 +93,7 @@ export const _getInitialState = () => {
 
     const SHALLOW_COPY_AND_MERGED_STATE = {
       ...DEFAULT_STATE,
-      ...SAVED_STATE_AS_PARSED_OBJECT, 
+      ...SAVED_STATE_AS_PARSED_OBJECT,
       SETUP: {
         ...DEFAULT_STATE.SETUP,
         ...SAVED_STATE_AS_PARSED_OBJECT.SETUP,
@@ -105,26 +106,34 @@ export const _getInitialState = () => {
     };
 
     if (SAVED_STATE_AS_PARSED_OBJECT.QUESTIONS) {
-      INITIAL_STATE.QUESTIONS = Object.keys(DEFAULT_STATE.QUESTIONS).reduce((acc, category) => {
-        acc[category] = (DEFAULT_STATE.QUESTIONS[category] || []).map((defaultQ, index) => {
-          const savedQ = SAVED_STATE_AS_PARSED_OBJECT.QUESTIONS[category]?.[index];
-          return savedQ ? { ...defaultQ, ...savedQ } : defaultQ;
-        });
-        return acc;
-      }, {});
+      INITIAL_STATE.QUESTIONS = Object.keys(DEFAULT_STATE.QUESTIONS).reduce(
+        (acc, category) => {
+          acc[category] = (DEFAULT_STATE.QUESTIONS[category] || []).map(
+            (defaultQ, index) => {
+              const savedQ =
+                SAVED_STATE_AS_PARSED_OBJECT.QUESTIONS[category]?.[index];
+              return savedQ ? { ...defaultQ, ...savedQ } : defaultQ;
+            },
+          );
+          return acc;
+        },
+        {},
+      );
     }
-    
+
     const FULLY_MERGED_STATE = {
-        ...SHALLOW_COPY_AND_MERGED_STATE,
-        QUESTIONS: INITIAL_STATE.QUESTIONS
+      ...SHALLOW_COPY_AND_MERGED_STATE,
+      QUESTIONS: INITIAL_STATE.QUESTIONS,
     };
 
-    _saveStateToLocalStorage(FULLY_MERGED_STATE); 
+    _saveStateToLocalStorage(FULLY_MERGED_STATE);
     return FULLY_MERGED_STATE;
-    
   } catch (error) {
-    console.error('ERROR WHILE PARSING SAVED STATE. USED FALLBACK DEFAULT STATE. MESSAGE: ', error);
-    return DEFAULT_STATE; 
+    console.error(
+      "ERROR WHILE PARSING SAVED STATE. USED FALLBACK DEFAULT STATE. MESSAGE: ",
+      error,
+    );
+    return DEFAULT_STATE;
   }
 };
 
@@ -134,25 +143,31 @@ export const PhysikQuiztimeContextReducer = (STATE, { TYPE, PAYLOAD }) => {
   switch (TYPE) {
     case QUIZTIME_ACTIONS.PLAY_PHYSICS_QUESTION:
       newState = { ...STATE };
-      newState.QUESTIONS = { ...STATE.QUESTIONS, PHY: [...STATE.QUESTIONS.PHY] }; 
-      
-      newState.QUESTIONS.PHY[PAYLOAD] = { 
-          ...STATE.QUESTIONS.PHY[PAYLOAD], 
-          ACTIVE: false 
+      newState.QUESTIONS = {
+        ...STATE.QUESTIONS,
+        PHY: [...STATE.QUESTIONS.PHY],
+      };
+
+      newState.QUESTIONS.PHY[PAYLOAD] = {
+        ...STATE.QUESTIONS.PHY[PAYLOAD],
+        ACTIVE: false,
       };
 
       newState.RUNTIME = {
         ...STATE.RUNTIME,
-        ACTUAL_QUESTION: newState.QUESTIONS.PHY[PAYLOAD]
+        ACTUAL_QUESTION: newState.QUESTIONS.PHY[PAYLOAD],
       };
-      
+
       _saveStateToLocalStorage(newState);
       return newState;
     case QUIZTIME_ACTIONS.RESET_STATE:
       try {
         localStorage.removeItem(QUIZTIME_LOCAL_STORAGE_KEY);
       } catch (error) {
-        console.error('COULD NOT CLEAR LOCAL STORAGE FOR OVERWRITE WITH NEW STATE: ', error);
+        console.error(
+          "COULD NOT CLEAR LOCAL STORAGE FOR OVERWRITE WITH NEW STATE: ",
+          error,
+        );
       }
       return { ...DEFAULT_STATE };
     default:
@@ -165,8 +180,8 @@ export const PhysikQuiztimeContext = createContext();
 export const PhysikQuiztimeContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(
     PhysikQuiztimeContextReducer,
-    null, 
-    _getInitialState
+    null,
+    _getInitialState,
   );
 
   return (
