@@ -53,7 +53,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Snowfall />
+        {/* <Snowfall /> */}
         <>
           <div className="container">
             <OffCanvas />
@@ -61,7 +61,7 @@ function App() {
             <Breadcrumbs />
           </div>
           <div className="container">
-            <div
+            {/* <div
               className="alert alert-success d-flex align-items-center justify-content-center text-center"
               role="alert"
             >
@@ -102,7 +102,7 @@ function App() {
                   </button>
                 </a>
               </div>
-            </div>
+            </div> */}
 
             <Routes>
               <Route path="/" element={<LandingPage />} />
