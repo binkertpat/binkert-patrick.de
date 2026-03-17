@@ -2,7 +2,7 @@
 const PayPal = () => {
   return (
     <>
-      <p>Wir freuen uns über jede weitere Spende!</p>
+      <p>Wir freuen uns selbstverständlich auch über jede weitere Spende!</p>
       <a
         href="https://paypal.me/abiambvc2026"
         target="_blank"

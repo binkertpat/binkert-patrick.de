@@ -6,7 +6,8 @@ import PayPal from "../components/PayPal";
 import SunSVG from "../components/SunSVG";
 import { ACTIONS, THEMES } from "../constants/enums";
 import BVC_LOGO from "../img/bvc_logo.svg";
-// import PRICE_LIST from "../img/pricelist_benefiz_2026.png";
+import PROGRAM from "../files/2026_03_17_programm_benefiz.pdf";
+import PRICE_LIST from "../files/2026_03_17_preisliste_benefiz.pdf";
 
 const Benefizkonzert2026 = () => {
   const { state, dispatch } = useStateContext();
@@ -56,20 +57,88 @@ const Benefizkonzert2026 = () => {
         <p className="fs-6 text-body-secondary">
           → präsentiert vom Abiturjahrgang 2026 ←
         </p>
+
+        <hr />
+
+        <div className="row g-3">
+          <div className="col-12 col-sm-auto">
+            <a
+              type="button"
+              className="btn btn-outline-primary fw-bolder"
+              href={PROGRAM}
+              download={"2026_03_17_programm_benefiz.pdf"}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-filetype-pdf me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"
+                />
+              </svg>
+              Programm
+              <small className="ms-1 fw-normal" style={{ fontSize: "0.6rem" }}>
+                als PDF downlaoden
+              </small>
+            </a>
+          </div>
+          <div className="col">
+            <a
+              type="button"
+              className="btn btn-outline-success fw-bolder"
+              href={PRICE_LIST}
+              download={"2026_03_17_preisliste_benefiz.pdf"}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-filetype-pdf me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"
+                />
+              </svg>
+              Preisliste
+              <small className="ms-1 fw-normal" style={{ fontSize: "0.6rem" }}>
+                als PDF downloaden
+              </small>
+            </a>
+          </div>
+        </div>
+
         <hr />
 
         <div className="accordion" id="program_and_price_list">
           <div className="accordion-item">
             <h2 className="accordion-header">
               <button
-                className="accordion-button text-uppercase fw-bolder"
+                className="accordion-button  "
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#program"
                 aria-expanded="true"
                 aria-controls="program"
               >
-                💃 Abendprogramm
+                <div className="text-normal">
+                  <p className="d-block mt-0 mb-0 text-uppercase fw-bolder">
+                    💃 Programm
+                  </p>
+                  <p
+                    className="d-block mt-0 mb-0 fw-light"
+                    style={{ fontSize: "0.6rem" }}
+                  >
+                    Online-Version
+                  </p>
+                </div>
               </button>
             </h2>
             <div
@@ -77,20 +146,256 @@ const Benefizkonzert2026 = () => {
               className="accordion-collapse collapse show"
               data-bs-parent="#program_and_price_list"
             >
-              <div className="accordion-body">... coming soon ...</div>
+              <div className="accordion-body">
+                <div className="text-start">
+                  <p className="mb-0 fw-bolder">
+                    Lay All Your Love On Me{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (ABBA)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert vom Jahrgangschor
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Shallow{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Lady Gaga)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von Shirin & Levi
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Van Gogh{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Virginio Aiello)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von Paula
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Let It Be{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Beatles)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von der Jahrgansband
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Tanzchoreografie
+                    <span className="fw-normal"></span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}></small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Juli{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Fynr)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von Anna-Julia & Shirin
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Heart Of Courage{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Thomas Bergersen)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von Simon
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    I Don’t Care Much{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (John Kander)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von Levi
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Rope-Skipping-Einlage
+                    <span className="fw-normal"></span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}></small>
+                </div>
+
+                <hr />
+
+                <div className="text-start">
+                  <p className="mb-0 fw-bolder">
+                    Akrobatikeinlage
+                    <span
+                      className="fw-normal"
+                      style={{ fontSize: "0.7rem" }}
+                    ></span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}></small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Nur ein Wort{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Wir sind Helden)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von der Jahrgansband
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Valerie{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Amy Winehouse)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von der Jahrgansband
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Falling Apart{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Michael Schulte)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von Paula
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Mamma Mia{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (ABBA)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert vom Jahrgangschor
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Piraten der Karibik{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Klaus Badelt)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert von Lena & Till
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Olsenbande{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Bent Fabricius-Bjerre)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert vom Schulorchester
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    The Winner Takes It All{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (ABBA)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert vom Schulorchester
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    Kleiner grüner Kaktus{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Bert Reisfeld)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert vom Schulorchester und dem Lehrerchor
+                  </small>
+                </div>
+
+                <div className="text-start mt-4">
+                  <p className="mb-0 fw-bolder">
+                    An der schönen blauen Donau{" "}
+                    <span className="fw-normal" style={{ fontSize: "0.7rem" }}>
+                      (Johann Strauss)
+                    </span>
+                  </p>
+                  <small style={{ fontSize: "0.7rem" }}>
+                    präsentiert vom Schulorchester
+                  </small>
+                </div>
+
+                <hr />
+                <p className="fw-bolder fs-6 text-center text-uppercase mb-0">
+                  Vielen Dank für Ihr Erscheinen und Ihre Unterstützung!
+                </p>
+              </div>
             </div>
           </div>
           <div className="accordion-item">
             <h2 className="accordion-header">
               <button
-                className="accordion-button collapsed text-uppercase fw-bolder"
+                className="accordion-button collapsed"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#price_list"
                 aria-expanded="false"
                 aria-controls="price_list"
               >
-                💸 Preisliste
+                <div className="text-normal">
+                  <p className="d-block mt-0 mb-0 text-uppercase fw-bolder">
+                    💸 Preisliste
+                  </p>
+                  <p
+                    className="d-block mt-0 mb-0 fw-light"
+                    style={{ fontSize: "0.6rem" }}
+                  >
+                    Online-Version
+                  </p>
+                </div>
               </button>
             </h2>
             <div
