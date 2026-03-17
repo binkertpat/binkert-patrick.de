@@ -153,3 +153,11 @@ body,
 .textarea-with-code {
   font-family: var(--bs-font-monospace);
 }
+
+#program_and_price_list > div > h2 > button:not(.collapsed) {
+  background-color: unset !important;
+}
+
+#program_and_price_list > div > h2 > button:focus {
+  box-shadow: none !important;
+}

@@ -6,6 +6,7 @@ import PayPal from "../components/PayPal";
 import SunSVG from "../components/SunSVG";
 import { ACTIONS, THEMES } from "../constants/enums";
 import BVC_LOGO from "../img/bvc_logo.svg";
+// import PRICE_LIST from "../img/pricelist_benefiz_2026.png";
 
 const Benefizkonzert2026 = () => {
   const { state, dispatch } = useStateContext();
@@ -49,11 +50,158 @@ const Benefizkonzert2026 = () => {
         </div>
       </div>
       <div className="container py-3 my-0 px-2 m-auto text-center">
-        <h1 className="display-5 fw-bold lh-1 mb-3">Benefizkonzert 2026</h1>
+        <h1 className="display-5 fw-bold lh-1 mb-3 text-uppercase">
+          Benefizkonzert
+        </h1>
         <p className="fs-6 text-body-secondary">
           → präsentiert vom Abiturjahrgang 2026 ←
         </p>
         <hr />
+
+        <div className="accordion" id="program_and_price_list">
+          <div className="accordion-item">
+            <h2 className="accordion-header">
+              <button
+                className="accordion-button text-uppercase fw-bolder"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#program"
+                aria-expanded="true"
+                aria-controls="program"
+              >
+                💃 Abendprogramm
+              </button>
+            </h2>
+            <div
+              id="program"
+              className="accordion-collapse collapse show"
+              data-bs-parent="#program_and_price_list"
+            >
+              <div className="accordion-body">... coming soon ...</div>
+            </div>
+          </div>
+          <div className="accordion-item">
+            <h2 className="accordion-header">
+              <button
+                className="accordion-button collapsed text-uppercase fw-bolder"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#price_list"
+                aria-expanded="false"
+                aria-controls="price_list"
+              >
+                💸 Preisliste
+              </button>
+            </h2>
+            <div
+              id="price_list"
+              className="accordion-collapse collapse"
+              data-bs-parent="#program_and_price_list"
+            >
+              <div className="accordion-body">
+                {/* <img src={PRICE_LIST} className="img-fluid" /> */}
+
+                <p className="fw-bolder text-uppercase text-start mb-1">
+                  Bratwurst
+                </p>
+                <hr className="mt-2 mb-2" />
+                <div className="row text-start">
+                  <div className="col col-8">Bratwurst mit Brötchen</div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    3,50 €
+                  </div>
+                </div>
+                <div className="row text-start ">
+                  <div className="col col-8">
+                    Bratwurst mit Kartoffelsalat / Nudelsalat
+                  </div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    4,50 €
+                  </div>
+                </div>
+                <div className="row text-start ">
+                  <div className="col col-8">Bratwurst mit Salat</div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    4,00 €
+                  </div>
+                </div>
+
+                <p className="fw-bolder text-uppercase text-start mb-1 mt-4">
+                  Hotdog
+                </p>
+                <hr className="mt-2 mb-2" />
+                <div className="row text-start ">
+                  <div className="col col-8">Hotdog</div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    3,00 €
+                  </div>
+                </div>
+                <div className="row text-start ">
+                  <div className="col col-8">Veganer Hotdog</div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    3,00 €
+                  </div>
+                </div>
+
+                <p className="fw-bolder text-uppercase text-start mb-1 mt-4">
+                  Suppen
+                </p>
+                <hr className="mt-2 mb-2" />
+                <div className="row text-start ">
+                  <div className="col col-8">Sojanka</div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    4,00 €
+                  </div>
+                </div>
+                <div className="row text-start ">
+                  <div className="col col-8">Linsensuppe</div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    4,00 €
+                  </div>
+                </div>
+
+                <p className="fw-bolder text-uppercase text-start mb-1 mt-4">
+                  Waffeln
+                </p>
+                <hr className="mt-2 mb-2" />
+                <div className="row text-start ">
+                  <div className="col col-8">Waffeln mit Puderzucker</div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    3,50 €
+                  </div>
+                </div>
+                <div className="row text-start ">
+                  <div className="col col-8">
+                    Waffeln mit Puderzucker und Nutella
+                  </div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    4,00 €
+                  </div>
+                </div>
+                <div className="row text-start ">
+                  <div className="col col-8">
+                    Waffeln mit Puderzucker und Apfelmus
+                  </div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    4,50 €
+                  </div>
+                </div>
+
+                <p className="fw-bolder text-uppercase text-start mb-1 mt-4">
+                  Kuchen
+                </p>
+                <hr className="mt-2 mb-2" />
+                <div className="row text-start ">
+                  <div className="col col-8">pro Stück</div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    1,50 €
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <hr />
         <PayPal />
         <hr />
