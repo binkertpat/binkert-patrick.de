@@ -7,7 +7,7 @@ import SunSVG from "../components/SunSVG";
 import { ACTIONS, THEMES } from "../constants/enums";
 import BVC_LOGO from "../img/bvc_logo.svg";
 import PROGRAM from "../files/2026_03_17_programm_benefiz.pdf";
-import PRICE_LIST from "../files/2026_03_17_preisliste_benefiz.pdf";
+import PRICE_LIST from "../files/2026_03_19_preisliste_benefiz.pdf";
 
 const Benefizkonzert2026 = () => {
   const { state, dispatch } = useStateContext();
@@ -92,7 +92,7 @@ const Benefizkonzert2026 = () => {
               type="button"
               className="btn btn-outline-success fw-bolder"
               href={PRICE_LIST}
-              download={"2026_03_17_preisliste_benefiz.pdf"}
+              download={"2026_03_19_preisliste_benefiz.pdf"}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -417,6 +417,12 @@ const Benefizkonzert2026 = () => {
                   </div>
                 </div>
                 <div className="row text-start ">
+                  <div className="col col-8">Bratwurst mit Salat</div>
+                  <div className="col col-4 text-end fw-bolder font-monospace">
+                    4,00 €
+                  </div>
+                </div>
+                <div className="row text-start ">
                   <div className="col col-8">
                     Bratwurst mit Kartoffelsalat / Nudelsalat
                   </div>
@@ -425,9 +431,9 @@ const Benefizkonzert2026 = () => {
                   </div>
                 </div>
                 <div className="row text-start ">
-                  <div className="col col-8">Bratwurst mit Salat</div>
+                  <div className="col col-8">Salat</div>
                   <div className="col col-4 text-end fw-bolder font-monospace">
-                    4,00 €
+                    3,00 €
                   </div>
                 </div>
 
@@ -442,7 +448,7 @@ const Benefizkonzert2026 = () => {
                   </div>
                 </div>
                 <div className="row text-start ">
-                  <div className="col col-8">Veganer Hotdog</div>
+                  <div className="col col-8">Vegetarischer Hotdog</div>
                   <div className="col col-4 text-end fw-bolder font-monospace">
                     3,00 €
                   </div>
@@ -453,7 +459,7 @@ const Benefizkonzert2026 = () => {
                 </p>
                 <hr className="mt-2 mb-2" />
                 <div className="row text-start ">
-                  <div className="col col-8">Sojanka</div>
+                  <div className="col col-8">Soljanka</div>
                   <div className="col col-4 text-end fw-bolder font-monospace">
                     4,00 €
                   </div>
@@ -472,7 +478,7 @@ const Benefizkonzert2026 = () => {
                 <div className="row text-start ">
                   <div className="col col-8">Waffeln mit Puderzucker</div>
                   <div className="col col-4 text-end fw-bolder font-monospace">
-                    3,50 €
+                    2,50 €
                   </div>
                 </div>
                 <div className="row text-start ">
@@ -480,7 +486,7 @@ const Benefizkonzert2026 = () => {
                     Waffeln mit Puderzucker und Nutella
                   </div>
                   <div className="col col-4 text-end fw-bolder font-monospace">
-                    4,00 €
+                    3,00 €
                   </div>
                 </div>
                 <div className="row text-start ">
@@ -488,7 +494,7 @@ const Benefizkonzert2026 = () => {
                     Waffeln mit Puderzucker und Apfelmus
                   </div>
                   <div className="col col-4 text-end fw-bolder font-monospace">
-                    4,50 €
+                    3,00 €
                   </div>
                 </div>
 
