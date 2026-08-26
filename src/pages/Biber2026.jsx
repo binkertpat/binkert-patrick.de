@@ -15,8 +15,9 @@ import { sha256 } from "../utils/hashUtils";
 import { doFetch } from "../utils/fetchPostJson";
 import PasswordForm from "../components/Biber/PasswordForm";
 import { copyToClipboard } from "../utils/copyUtils";
+import BIBER_2026 from "../img/biber_am_bvc_2026.png";
 
-const Biber2025 = () => {
+const Biber2026 = () => {
   const { state, dispatch } = useBiberContext();
 
   const handleHardReload = () => {
@@ -408,9 +409,13 @@ const Biber2025 = () => {
 
   return (
     <>
-      <h1 className="display-5 fw-bold lh-1 mb-3 mt-3 pt-3 pb-3">
-        Informatikbiber@BvC 2025
+      <h1 className="display-5 fw-bold lh-1 mb-3 mt-3 pt-3 ">
+        Informatik-Biber 2026 am BvC
       </h1>
+      <p className="fw-bolder pb-3">Informatik für alle!</p>
+
+      <hr className="fw-bolder pb-3"/>
+
       <PasswordForm
         state={state}
         onInsertPassword={(value) => {
@@ -549,8 +554,19 @@ const Biber2025 = () => {
           </button>
         </>
       )}
+
+      <hr className="fw-bolder pb-3" />
+      <img
+            src={BIBER_2026}
+            className="d-block mx-lg-auto img-fluid"
+            alt="Tools und Apps"
+            title="Tools und Apps"
+            width="700"
+            height="500"
+            loading="lazy"
+          />
     </>
   );
 };
 
-export default Biber2025;
+export default Biber2026;

@@ -15,8 +15,8 @@ export const MENU_STRUCTURE = {
   //   ENABLED: true,
   // },
   BIBER: {
-    NAME: "Informatikbiber@BvC 2025",
-    URL: "/Biber2025",
+    NAME: "Informatik-Biber 2026",
+    URL: "/biber",
     ENABLED: true,
   },
   CONTACT: {

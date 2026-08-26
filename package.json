@@ -1,7 +1,7 @@
 {
   "name": "binkert-patrick.de",
   "private": true,
-  "version": "1.0.4",
+  "version": "1.3.1b",
   "type": "module",
   "scripts": {
     "dev": "vite",

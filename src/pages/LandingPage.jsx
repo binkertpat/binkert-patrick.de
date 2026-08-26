@@ -1,6 +1,7 @@
 import IT_TOOLS_STOCK from "../img/it_tools_stock.png";
-import BOOK_IMAGE from "../img/book_image.png";
-import BIBER_2025 from "../img/biber_am_bvc_2025.png";
+import BIBER_2026 from "../img/biber_am_bvc_2026.png";
+// import BOOK_IMAGE from "../img/book_image.png";
+
 
 const LandingPage = () => {
   return (
@@ -32,7 +33,7 @@ const LandingPage = () => {
             <a href="/self-hosted-tools">
               <button
                 type="button"
-                className="btn btn-primary btn-lg px-4 me-md-2"
+                className="btn btn-primary fw-bolder btn-lg px-4 me-md-2"
               >
                 self-hosted Tools
               </button>
@@ -40,7 +41,7 @@ const LandingPage = () => {
             <a href="/external-tools">
               <button
                 type="button"
-                className="btn btn-primary btn-lg px-4 me-md-2"
+                className="btn btn-secondary fw-bolder btn-lg px-4 me-md-2"
               >
                 externe Tools
               </button>
@@ -60,7 +61,7 @@ const LandingPage = () => {
       <div className="row flex-lg-row align-items-center g-5 py-5">
         <div className="col-10 col-sm-8 col-lg-6">
           <img
-            src={BIBER_2025}
+            src={BIBER_2026}
             className="d-block mx-lg-auto img-fluid"
             alt="Tools und Apps"
             title="Tools und Apps"
@@ -71,23 +72,23 @@ const LandingPage = () => {
         </div>
         <div className="col-lg-6">
           <h2 className="display-5 fw-bold lh-1 mb-3">
-            Informatikbiber@BvC 2025
+            Informatikbiber 2026
           </h2>
           <span className="badge bg-success mb-3">Wettbewerb</span>
           <p className="lead">
             Auf der nachfolgenden Seite könnt ihr euch eure Zugangsdaten für
-            Informatikbiber zusammen klicken. Das Passwort wird euch im
-            Unterricht mitgeteilt. Viel Erfolg!
+            Informatikbiber klicken. Das Passwort wird euch im
+            Unterricht oder via E-Mail mitgeteilt. <strong>Viel Erfolg! 🥳</strong>
             <br />
             <br />
             Nach dem Wettbewerb könnt ihr mit diesem Zugang eure Ergebnisse auf
             der Seite einsehen und die Aufgaben noch einmal durchgehen.
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-            <a href="/Biber2025">
+            <a href="/biber">
               <button
                 type="button"
-                className="btn btn-primary btn-lg px-4 me-md-2"
+                className="btn btn-success fw-bolder btn-lg px-4 me-md-2"
               >
                 zu den Zugangsdaten
               </button>
@@ -96,7 +97,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+      {/* <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div className="col-10 col-sm-8 col-lg-6">
           <img
             src={BOOK_IMAGE}
@@ -145,7 +146,7 @@ const LandingPage = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div className="row flex-lg-row align-items-center g-5 py-5">
         <div className="col-10 col-sm-8 col-lg-6">

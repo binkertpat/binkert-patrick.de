@@ -19,8 +19,8 @@ import ExternalTools from "./pages/ExternalTools.jsx";
 import ExternalPrograms from "./pages/ExternalPrograms.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import PortableBitmapEditor from "./pages/PortableBitmapEditor.jsx";
-import Biber2025 from "./pages/Biber2025.jsx";
-import Benefizkonzert2026 from "./pages/Benefizkonzert2026.jsx";
+import Biber2026 from "./pages/Biber2026.jsx";
+// import Benefizkonzert2026 from "./pages/Benefizkonzert2026.jsx";
 
 // 1. Create a Layout component for your standard pages
 const MainLayout = () => {
@@ -79,10 +79,10 @@ function App() {
           <Route path="/external-programs" element={<ExternalPrograms />} />
           <Route path="/education" element={<EducationMaterial />} />
           <Route path="/pbm" element={<PortableBitmapEditor />} />
-          <Route path="/Biber2025" element={<Biber2025 />} />
+          <Route path="/biber" element={<Biber2026 />} />
           <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="/benefizkonzert2026@BvC" element={<Benefizkonzert2026 />} />
+        {/* <Route path="/benefizkonzert2026@BvC" element={<Benefizkonzert2026 />} /> */}
       </Routes>
       <ScrollToTop />
     </BrowserRouter>
