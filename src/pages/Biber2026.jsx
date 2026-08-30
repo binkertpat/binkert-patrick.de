@@ -407,6 +407,12 @@ const Biber2026 = () => {
     console.log(state);
   }, [state]);
 
+  const biberLoginUsername = state.CREDENTIALS.USERNAME ?? "";
+  const biberLoginPassword = (state.CREDENTIALS.PASSWORD ?? "").replaceAll(
+    '"',
+    "",
+  );
+
   return (
     <>
       <h1 className="display-5 fw-bold lh-1 mb-3 mt-3 pt-3 ">
@@ -529,15 +535,38 @@ const Biber2026 = () => {
             onCopyUsername={handleCopyUsername}
             onCopyPassword={handleCopyPassword}
           />
-          <div className="d-grid gap-2">
-            <a
-              className="btn btn-success mt-1 mb-1"
-              role="button"
-              href="https://wettbewerb.informatik-biber.de/index.php?action=login"
+          <div className="row g-2">
+            <div className="col-12 col-md-6 d-grid">
+              <a
+                className="btn btn-secondary mt-1 mb-1"
+                role="button"
+                href="https://wettbewerb.informatik-biber.de/index.php?action=login"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="fw-bolder">Zum Informatik-Biber! 🚀</span>
+                <span className="d-block small">manuelle Anmeldung</span>
+              </a>
+            </div>
+            <form
+              className="col-12 col-md-6 d-grid"
+              action="https://wettbewerb.informatik-biber.de/index.php?action=login"
+              method="post"
               target="_blank"
+              rel="noopener noreferrer"
             >
-              Zum Informatikbiber! 🚀
-            </a>
+              <input type="hidden" name="username" value={biberLoginUsername} />
+              <input type="hidden" name="password" value={biberLoginPassword} />
+              <input type="hidden" name="login" value="Anmelden" />
+              <button
+                className="btn btn-success mt-1 mb-1"
+                type="submit"
+                disabled={!biberLoginUsername || !biberLoginPassword}
+              >
+                <span className="fw-bolder">Zum Informatik-Biber! 🚀</span>
+                <span className="d-block small">automatische Anmeldung</span>
+              </button>
+            </form>
           </div>
         </>
       )}
